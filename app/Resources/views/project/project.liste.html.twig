@@ -9,6 +9,8 @@
             <th>Titre</th>
             <th>Description</th>
             <th>Statut</th>
+            <th>Droit</th>
+            <th>Statut</th>
             <th>Crée le </th>
             <th>Modifié le </th>
             <th>Actions</th>
@@ -19,6 +21,8 @@
             <tr>
                 <td>{{ project.title }}</td>
                 <td>{{ project.description }}</td>
+                <td>{{ project.getCategory.name }}</td>
+                <td>{{ project.getRights.type }}</td>
                 <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
                 <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
