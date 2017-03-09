@@ -89,6 +89,7 @@ class ProjectController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $project ->setEditedat( new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('project_edit', array('id' => $project->getId()));

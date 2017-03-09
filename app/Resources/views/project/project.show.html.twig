@@ -20,11 +20,11 @@
             </tr>
             <tr>
                 <th>Crée le </th>
-                <td>{% if project.createdat %}{{ project.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i:') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Modifié le </th>
-                <td>{% if project.editedat %}{{ project.editedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
