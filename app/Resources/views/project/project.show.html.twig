@@ -15,6 +15,10 @@
                 <td>{{ project.description }}</td>
             </tr>
             <tr>
+                <th>Catégorie</th>
+                <td>{{ project.getCategory.name }}</td>
+            </tr>
+            <tr>
                 <th>Statut</th>
                 <td>{% if project.statut %}Terminé{% else %} En cours{% endif %}</td>
             </tr>
