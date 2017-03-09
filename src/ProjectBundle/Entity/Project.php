@@ -57,6 +57,11 @@ class Project
      */
     private $editedat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Category", fetch="EAGER")
+     */
+    private $category;
+
 
     /**
      * Get id
