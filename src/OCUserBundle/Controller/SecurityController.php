@@ -1,7 +1,7 @@
 <?php
 // src/OC/UserBundle/Controller/SecurityController.php;
 
-namespace OC\UserBundle\Controller;
+namespace OCUserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class SecurityController extends Controller
         // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
 
-        return $this->render('OCUserBundle:Security:login.html.twig', array(
+        return $this->render('@OCUser/login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));
