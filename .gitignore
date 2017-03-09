@@ -33,7 +33,7 @@
 # Build data
 /build/
 
-# Composer PHAR
+# Composer PHAR 
 /composer.phar
 
 /.idea
