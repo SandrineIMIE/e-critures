@@ -57,6 +57,48 @@ class Project
      */
     private $editedat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Category", fetch="EAGER")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Rights", fetch="EAGER")
+     */
+    private $rights;
+
+    /**
+     * @return Rights
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param Rights $rights
+     */
+    public function setRights($rights)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
 
     /**
      * Get id

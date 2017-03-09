@@ -5,10 +5,16 @@
 !app/logs/.gitkeep
 
 # Cache and logs (Symfony3)
+/var/*
 /var/cache/*
 /var/logs/*
+!/var/logs
+!/var/cache
 !var/cache/.gitkeep
 !var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
 
 # Parameters
 /app/config/parameters.yml
@@ -20,6 +26,7 @@
 /bin/*
 !bin/console
 !bin/symfony_requirements
+!var/SymfonyRequirements.php
 /vendor/
 
 # Assets and user uploads
@@ -35,5 +42,6 @@
 
 # Composer PHAR 
 /composer.phar
-
+/vendor/
+/web/bundles/
 /.idea

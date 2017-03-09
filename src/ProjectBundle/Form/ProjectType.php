@@ -1,7 +1,9 @@
 <?php
 
 namespace ProjectBundle\Form;
-
+use ProjectBundle\Entity\Category;
+use ProjectBundle\Entity\Rights;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +17,14 @@ class ProjectType extends AbstractType
     {
         $builder->add('title')
             ->add('description')
-            ->add('statut');
+            ->add('statut')
+             ->add('category', EntityType::class, array(
+            "class"=>Category::class,
+            "choice_label" => "name"))
+            ->add('rights', EntityType::class, array(
+                    "class"=>Rights::class,
+                    "choice_label" => "type")
+    );
 //            ->add('createdat')
 //            ->add('editedat');
     }
