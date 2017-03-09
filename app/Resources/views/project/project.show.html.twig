@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Projet</h1>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Titre</th>
+                <td>{{ project.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ project.description }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{% if project.statut %}Terminé{% else %} En cours{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Crée le </th>
+                <td>{% if project.createdat %}{{ project.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Modifié le </th>
+                <td>{% if project.editedat %}{{ project.editedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('project_index') }}">Retour  à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('project_edit', { 'id': project.id }) }}">Editer</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
