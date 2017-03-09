@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <h1>Liste des droits</h1>
 <ul>
         {% for right in rights %}
             <li>{{ right.type }}
-                            {#<a href="{{ path('rights_show', { 'id': right.id }) }}">Voir</a>#}
-                            {#<a href="{{ path('rights_edit', { 'id': right.id }) }}">Modifier</a>#}
+               <a href="{{ path('rights_edit', { 'id': right.id }) }}">Modifier</a>
             </li>
         {% endfor %}
 </ul>

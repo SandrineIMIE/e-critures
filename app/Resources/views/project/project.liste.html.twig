@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste de tous les projets</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Statut</th>
+            <th>Crée le </th>
+            <th>Modifié le </th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.title }}</td>
+                <td>{{ project.description }}</td>
+                <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
+                <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
+                <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
+                <td><a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
