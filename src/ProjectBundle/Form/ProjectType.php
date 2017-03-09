@@ -3,6 +3,7 @@
 namespace ProjectBundle\Form;
 use ProjectBundle\Entity\Category;
 use ProjectBundle\Entity\Rights;
+use ProjectBundle\Entity\Tag;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,6 +18,9 @@ class ProjectType extends AbstractType
     {
         $builder->add('title')
             ->add('description')
+            ->add('tags', EntityType::class, array(
+                "class"=>Tag::class,
+                "choice_label" => "name"))
             ->add('statut')
              ->add('category', EntityType::class, array(
             "class"=>Category::class,
