@@ -62,6 +62,22 @@ class Project
      */
     private $category;
 
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
 
     /**
      * Get id
