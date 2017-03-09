@@ -39,7 +39,7 @@ class RightsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $right = new Right();
+        $right = new Rights();
         $form = $this->createForm('ProjectBundle\Form\RightsType', $right);
         $form->handleRequest($request);
 
