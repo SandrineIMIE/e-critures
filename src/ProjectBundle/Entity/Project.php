@@ -68,6 +68,11 @@ class Project
     private $rights;
 
     /**
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", fetch="EAGER")
+     */
+    private $tags;
+
+    /**
      * @return Rights
      */
     public function getRights()
