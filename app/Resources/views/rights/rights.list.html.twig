@@ -1,39 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rights list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<ul>
         {% for right in rights %}
-            <tr>
-                <td><a href="{{ path('rights_show', { 'id': right.id }) }}">{{ right.id }}</a></td>
-                <td>{{ right.type }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('rights_show', { 'id': right.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('rights_edit', { 'id': right.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            <li>{{ right.type }}
+                            {#<a href="{{ path('rights_show', { 'id': right.id }) }}">Voir</a>#}
+                            {#<a href="{{ path('rights_edit', { 'id': right.id }) }}">Modifier</a>#}
+            </li>
         {% endfor %}
-        </tbody>
-    </table>
+</ul>
 
-    <ul>
-        <li>
-            <a href="{{ path('rights_new') }}">Create a new right</a>
-        </li>
-    </ul>
+
 {% endblock %}
