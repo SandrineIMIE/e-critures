@@ -63,6 +63,11 @@ class Project
     private $category;
 
     /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Rights", fetch="EAGER")
+     */
+    private $rights;
+
+    /**
      * @return Category
      */
     public function getCategory()
