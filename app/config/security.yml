@@ -26,9 +26,11 @@ security:
       form_login:
         login_path: login
         check_path: login_check
+        default_target_path: /platform
       logout:
         path: logout
         target: /platform
+
 
   access_control:
     #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
