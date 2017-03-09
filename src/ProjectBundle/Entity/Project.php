@@ -68,6 +68,22 @@ class Project
     private $rights;
 
     /**
+     * @return Rights
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param Rights $rights
+     */
+    public function setRights($rights)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
      * @return Category
      */
     public function getCategory()
