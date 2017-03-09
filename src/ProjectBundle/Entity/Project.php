@@ -73,6 +73,22 @@ class Project
     private $tags;
 
     /**
+     * @return Tag
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
      * @return Rights
      */
     public function getRights()

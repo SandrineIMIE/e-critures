@@ -34,6 +34,28 @@ class Tag
      *
      * @return int
      */
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     */
+    private $projects;
+
+    /**
+     * @return Project
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
+    /**
+     * @param Project $projects
+     */
+    public function setProjects($projects)
+    {
+        $this->projects = $projects;
+    }
+
     public function getId()
     {
         return $this->id;
