@@ -74,9 +74,17 @@ class Project
      */
     private $tags;
 
+    /**
+     * Constructor
+     */
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
-     * Add tag
+     * Add tags
      *
      * @param Tag $tag
      *
@@ -99,30 +107,23 @@ class Project
     }
 
     /**
-     * @param Tag $tags
+     * Get Tags
+     *
+     * @return ArrayCollection
      */
-    public function setTags($tags)
+    public function getTags()
     {
-        $this->tags = $tags;
+        return $this->tags;
     }
 
-/**
- * Get ArrayCollection
- *
- * @return ArrayCollection $Tags
- */
-public function getTags()
-{
-    return $this->tags;
-}
-    /**
-     * Constructor
-     */
+//    /**
+//     * @param Tag $tags
+//     */
+//    public function setTags($tags)
+//    {
+//        $this->tags = $tags;
+//    }
 
-public function __construct()
-{
-    $this->tags = new ArrayCollection();
-}
 
 /**
      * @return Rights

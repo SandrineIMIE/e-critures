@@ -31,7 +31,7 @@ class Tag
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", inversedBy="tags", fetch="EAGER")
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", inversedBy="tags")
      */
     private $projects;
 
@@ -48,11 +48,12 @@ class Tag
      *
      * @param Project $project
      *
-     * return Project
+     * return Tag
      */
     public function addProject(Project $project)
     {
         $this->projects[] = $project;
+        $project->addProject($this);
         return $this;
     }
 
