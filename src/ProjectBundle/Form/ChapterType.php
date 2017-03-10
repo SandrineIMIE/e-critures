@@ -2,6 +2,7 @@
 
 namespace ProjectBundle\Form;
 
+use ProjectBundle\Entity\Project;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,13 @@ class ChapterType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('redaction')->add('publication')->add('createdat')->add('editat')->add('project')        ;
+        $builder->add('title')
+            ->add('redaction')
+            ->add('publication')
+//            ->add('createdat')
+//            ->add('editat')
+
+        ;
     }
     
     /**

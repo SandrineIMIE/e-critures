@@ -5,7 +5,8 @@ namespace ProjectBundle\Controller;
 use ProjectBundle\Entity\Chapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Chapter controller.
@@ -26,7 +27,7 @@ class ChapterController extends Controller
 
         $chapters = $em->getRepository('ProjectBundle:Chapter')->findAll();
 
-        return $this->render('chapter/index.html.twig', array(
+        return $this->render('chapter/chap.list.html.twig', array(
             'chapters' => $chapters,
         ));
     }
@@ -40,6 +41,9 @@ class ChapterController extends Controller
     public function newAction(Request $request)
     {
         $chapter = new Chapter();
+        $chapter ->setEditat( new \DateTime());
+        $chapter ->setCreatedat( new \DateTime());
+        $chapter ->setProject(1);
         $form = $this->createForm('ProjectBundle\Form\ChapterType', $chapter);
         $form->handleRequest($request);
 
@@ -51,7 +55,7 @@ class ChapterController extends Controller
             return $this->redirectToRoute('chapter_show', array('id' => $chapter->getId()));
         }
 
-        return $this->render('chapter/new.html.twig', array(
+        return $this->render('chapter/chap.new.html.twig', array(
             'chapter' => $chapter,
             'form' => $form->createView(),
         ));
@@ -67,7 +71,7 @@ class ChapterController extends Controller
     {
         $deleteForm = $this->createDeleteForm($chapter);
 
-        return $this->render('chapter/show.html.twig', array(
+        return $this->render('chapter/chap.show.html.twig', array(
             'chapter' => $chapter,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -86,12 +90,13 @@ class ChapterController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $chapter ->setEditat( new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('chapter_edit', array('id' => $chapter->getId()));
         }
 
-        return $this->render('chapter/edit.html.twig', array(
+        return $this->render('chapter/chap.edit.html.twig', array(
             'chapter' => $chapter,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
