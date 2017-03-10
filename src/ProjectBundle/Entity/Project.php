@@ -33,7 +33,7 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text",length=255)
      */
     private $description;
 
