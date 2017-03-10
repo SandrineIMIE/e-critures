@@ -1,3 +1,7 @@
+project_chapter:
+    resource: "@ProjectBundle/Controller/ChapterController.php"
+    type:     annotation
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
