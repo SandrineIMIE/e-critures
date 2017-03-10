@@ -18,9 +18,9 @@ class ProjectType extends AbstractType
     {
         $builder->add('title')
             ->add('description')
-            ->add('tags', EntityType::class, array(
-                "class"=>Tag::class,
-                "choice_label" => "name"))
+//            ->add('tags', EntityType::class, array(
+//                "class"=>Tag::class,
+//                "choice_label" => "name"))
             ->add('statut')
              ->add('category', EntityType::class, array(
             "class"=>Category::class,

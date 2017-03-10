@@ -3,6 +3,7 @@
 namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
@@ -68,27 +69,63 @@ class Project
     private $rights;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", fetch="EAGER")
+     *
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag")
      */
     private $tags;
 
     /**
-     * @return Tag
+     * Constructor
+     */
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
+    /**
+     * Add tags
+     *
+     * @param Tag $tag
+     *
+     * @return Project
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags[] = $tag;
+        return $this;
+    }
+
+    /**
+     * remove tag
+     *
+     * @param Tag $tag
+     */
+    public function removeTag(Tag $tag)
+    {
+        $this->tags ->removeElement($tag);
+    }
+
+    /**
+     * Get Tags
+     *
+     * @return ArrayCollection
      */
     public function getTags()
     {
         return $this->tags;
     }
 
-    /**
-     * @param Tag $tags
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-    }
+//    /**
+//     * @param Tag $tags
+//     */
+//    public function setTags($tags)
+//    {
+//        $this->tags = $tags;
+//    }
 
-    /**
+
+/**
      * @return Rights
      */
     public function getRights()
