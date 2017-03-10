@@ -1,3 +1,11 @@
+project_chapitre:
+    resource: "@ProjectBundle/Controller/ChapitreController.php"
+    type:     annotation
+
+project_chapter:
+    resource: "@ProjectBundle/Controller/ChapterController.php"
+    type:     annotation
+
 project_chapter:
     resource: "@ProjectBundle/Controller/ChapterController.php"
     type:     annotation

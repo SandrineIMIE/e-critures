@@ -6,19 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChapterType extends AbstractType
+class ChapitreType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')
-            ->add('redaction')
-            ->add('publication')
-            ->add('createdat')
-            ->add('editat')
-            ->add('project')        ;
+        $builder->add('title')        ;
     }
     
     /**
@@ -27,7 +22,7 @@ class ChapterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ProjectBundle\Entity\Chapter'
+            'data_class' => 'ProjectBundle\Entity\Chapitre'
         ));
     }
 
@@ -36,7 +31,7 @@ class ChapterType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'projectbundle_chapter';
+        return 'projectbundle_chapitre';
     }
 
 
