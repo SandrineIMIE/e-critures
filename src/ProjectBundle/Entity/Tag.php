@@ -2,6 +2,8 @@
 
 namespace ProjectBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,20 +30,47 @@ class Tag
      */
     private $name;
 
-
     /**
-     * Get id
-     *
-     * @return int
-     */
-
-    /**
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", inversedBy="tags", fetch="EAGER")
      */
     private $projects;
 
     /**
-     * @return Project
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->$projects= new ArrayCollection();
+    }
+
+    /**
+     * Add project
+     *
+     * @param Project $project
+     *
+     * return Project
+     */
+    public function addProject(Project $project)
+    {
+        $this->projects[] = $project;
+        return $this;
+    }
+
+    /**
+     * remove project
+     *
+     * @param Tag $tag
+     */
+    public function removeTag(Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     *
+     * Get projects
+     *
+     * @return Collection
      */
     public function getProjects()
     {
@@ -49,13 +78,8 @@ class Tag
     }
 
     /**
-     * @param Project $projects
+     * @return int
      */
-    public function setProjects($projects)
-    {
-        $this->projects = $projects;
-    }
-
     public function getId()
     {
         return $this->id;
