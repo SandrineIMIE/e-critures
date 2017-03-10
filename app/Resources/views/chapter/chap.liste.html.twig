@@ -1,0 +1,29 @@
+<table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Redaction</th>
+        <th>Publication</th>
+        <th>Createdat</th>
+        <th>Editat</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for chapter in chapters %}
+    <tr>
+        <td><a href="{{ path('chapter_show', { 'id': chapter.id }) }}">{{ chapter.title }}</a></td>
+        <td>{% if chapter.redaction %}Fini{% else %}En cours{% endif %}</td>
+        <td>{% if chapter.publication %}Publié{% else %}Non Publié{% endif %}</td>
+        <td>{% if chapter.createdat %}{{ chapter.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{% if chapter.editat %}{{ chapter.editat|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>
+            <ul>
+                <li>
+                    <a href="{{ path('chapter_edit', { 'id': chapter.id }) }}">modifier</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+{% endfor %}
+</table>

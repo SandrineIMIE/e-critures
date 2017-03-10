@@ -24,13 +24,27 @@ class ChapterController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $chapters = $em->getRepository('ProjectBundle:Chapter')->findAll();
-
         return $this->render('chapter/chap.list.html.twig', array(
             'chapters' => $chapters,
         ));
     }
+//    /**
+//     * Lists all chapter entities.
+//     *
+//     * @Route("/project/{project_id}", name="chapter_project")
+//     * @Method("GET")
+//     */
+//    public function indexAction($idproject)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $chapters = $em->getRepository('ProjectBundle:Chapter')->findAll();
+//        return $this->render('chapter/chap.list.html.twig', array(
+//            'chapters' => $chapters,
+//        ));
+//    }
+
+
 
     /**
      * Creates a new chapter entity.
