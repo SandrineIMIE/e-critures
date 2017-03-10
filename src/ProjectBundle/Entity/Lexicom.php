@@ -24,14 +24,14 @@ class Lexicom
     /**
      * @var string
      *
-     * @ORM\Column(name="mot", type="string", length=255)
+     * @ORM\Column(name="mot", type="string", length=100)
      */
     private $mot;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="definition", type="string", length=255)
+     * @ORM\Column(name="definition", type="string", length=500)
      */
     private $definition;
 

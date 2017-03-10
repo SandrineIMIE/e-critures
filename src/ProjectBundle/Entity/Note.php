@@ -24,7 +24,7 @@ class Note
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=255)
+     * @ORM\Column(name="contenu", type="string", length=1000)
      */
     private $contenu;
 
