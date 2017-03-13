@@ -1,3 +1,7 @@
+oc_user_user:
+    resource: "@OCUserBundle/Controller/UserController.php"
+    type:     annotation
+
 project_chapitre:
     resource: "@ProjectBundle/Controller/ChapitreController.php"
     type:     annotation
