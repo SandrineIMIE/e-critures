@@ -14,16 +14,15 @@
                 <td>{{ chapitre.title }}</td>
             </tr>
         <tr>
-            <th>action<</th>
+            <th>Actions</th>
             <td>
                 <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
-
                 {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer">
+                {{ form_end(delete_form) }}
             </td>
         </tr>
         </tbody>
     </table>
-
 
 {% endblock %}
