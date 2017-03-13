@@ -28,6 +28,64 @@ class Chapitre
      */
     private $title;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="redaction", type="boolean")
+     */
+    private $redaction;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="publication", type="boolean")
+     */
+    private $publication;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdat", type="datetime")
+     */
+    private $createdat;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="editat", type="datetime")
+     */
+    private $editat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     */
+    private $project;
+
+
+    /**
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * Get id
@@ -62,5 +120,70 @@ class Chapitre
     {
         return $this->title;
     }
+
+    /**
+     * @return bool
+     */
+    public function isRedaction(): bool
+    {
+        return $this->redaction;
+    }
+
+    /**
+     * @param bool $redaction
+     */
+    public function setRedaction(bool $redaction)
+    {
+        $this->redaction = $redaction;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublication(): bool
+    {
+        return $this->publication;
+    }
+
+    /**
+     * @param bool $publication
+     */
+    public function setPublication(bool $publication)
+    {
+        $this->publication = $publication;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedat(): \DateTime
+    {
+        return $this->createdat;
+    }
+
+    /**
+     * @param \DateTime $createdat
+     */
+    public function setCreatedat(\DateTime $createdat)
+    {
+        $this->createdat = $createdat;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEditat(): \DateTime
+    {
+        return $this->editat;
+    }
+
+    /**
+     * @param \DateTime $editat
+     */
+    public function setEditat(\DateTime $editat)
+    {
+        $this->editat = $editat;
+    }
+
 }
 

@@ -68,6 +68,8 @@ class Project
      */
     private $rights;
 
+
+
     /**
      *
      * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag")

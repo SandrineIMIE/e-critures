@@ -1,28 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapitres list</h1>
+    <h1>Items list</h1>
 
     <table>
         <thead>
             <tr>
 
-                <th>Title</th>
+                <th>Name</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for chapitre in chapitres %}
+        {% for item in items %}
             <tr>
-
-                <td>{{ chapitre.title }}</td>
+   <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">Voir</a>
+                            <a href="{{ path('items_show', { 'id': item.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
+                            <a href="{{ path('items_edit', { 'id': item.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -30,4 +31,6 @@
         {% endfor %}
         </tbody>
     </table>
+
+
 {% endblock %}

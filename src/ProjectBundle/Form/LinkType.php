@@ -2,23 +2,22 @@
 
 namespace ProjectBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChapterType extends AbstractType
+class LinkType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')
-            ->add('redaction')
-            ->add('publication')
-            ->add('createdat')
-            ->add('editat')
-            ->add('project')        ;
+        $builder
+            ->add('adress')
+            ->add('name')
+        ;
     }
     
     /**
@@ -27,7 +26,7 @@ class ChapterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ProjectBundle\Entity\Chapter'
+            'data_class' => 'ProjectBundle\Entity\Link'
         ));
     }
 
@@ -36,7 +35,7 @@ class ChapterType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'projectbundle_chapter';
+        return 'projectbundle_link';
     }
 
 

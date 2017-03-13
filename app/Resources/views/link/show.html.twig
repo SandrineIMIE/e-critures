@@ -1,26 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapitre</h1>
+    <h1>Link</h1>
 
     <table>
         <tbody>
+
             <tr>
-                <th>Id</th>
-                <td>{{ chapitre.id }}</td>
+                <th>Adress</th>
+                <td>{{ link.adress }}</td>
             </tr>
             <tr>
-                <th>Title</th>
-                <td>{{ chapitre.title }}</td>
+                <th>Name</th>
+                <td>{{ link.name }}</td>
             </tr>
         <tr>
             <th>Actions</th>
-            <td>
-                <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
+            <td><a href="{{ path('link_edit', { 'id': link.id }) }}">Modifier</a>
                 {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer">
-                {{ form_end(delete_form) }}
-            </td>
+                {{ form_end(delete_form) }}</td>
         </tr>
         </tbody>
     </table>

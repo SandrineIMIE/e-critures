@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lexicom</h1>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Mot</th>
+                <td>{{ lexicom.mot }}</td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>{{ lexicom.definition }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+
+        <li>
+            <a href="{{ path('lexicom_edit', { 'id': lexicom.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

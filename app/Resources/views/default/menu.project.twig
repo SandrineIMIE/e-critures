@@ -1,6 +1,80 @@
 <ul>
     <li>chapitre(s)
-        {#<li><a href="{{ path('chapter_index') }}">Liste des chapitres</a></li>#}
-        <li>ajouter un nouveau chapitre</li>
+      <ul>
+          <li><a href="{{ path('chapitre_index') }}">Liste des chapitres</a></li>
+          <li><a href="{{ path('chapitre_new') }}">Ajouter un nouveau chapitre</a></li>
+      </ul>
+    <li> Lien(s)
+        <ul>
+            <li>
+                <a href="{{ path('link_index') }}">Liste des liens</a>
+            </li>
+            <li>
+                <a href="{{ path('link_new') }}">Ajouter un nouveau liens</a>
+            </li>
+        </ul>
+    </li>
+    <li>Note(s)
+        <ul>
+            <li>
+                <a href="{{ path('note_index') }}">Liste des Notes</a>
+            </li>
+            <li>  <a href="{{ path('note_new') }}">Ajouter une nouvelle note</a>
+            </li>
+        </ul>
+    </li>
+    <li>Lieu(x)
+        <ul>
+            <li>
+                <a href="{{ path('place_index') }}">Liste des Lieux</a>
+            </li>
+            <li>  <a href="{{ path('place_new') }}">Ajouter un nouveau lieu</a>
+            </li>
+        </ul>
+    </li>
+    <li>Lexique
+        <ul>
+            <li>
+                <a href="{{ path('lexicom_index') }}">Lexique</a>
+            </li>
+            <li>  <a href="{{ path('lexicom_new') }}">Ajouter une nouvelle entrée</a>
+            </li>
+        </ul>
+    </li>
+    <li>Objets
+        <ul>
+            <li>
+                <a href="{{ path('items_index') }}">Liste des Objets</a>
+            </li>
+            <li>  <a href="{{ path('items_new') }}">Ajouter un nouvel objet</a>
+            </li>
+        </ul>
+    </li>
+    <li>Evenements
+        <ul>
+            <li>
+                <a href="{{ path('events_index') }}">Liste des Evenements</a>
+            </li>
+            <li>  <a href="{{ path('events_new') }}">Ajouter un nouvel évenements</a>
+            </li>
+        </ul>
+    </li>
+    <li>Evenements
+        <ul>
+            <li>
+                <a href="{{ path('heros_index') }}">Liste des personnages</a>
+            </li>
+            <li>  <a href="{{ path('heros_new') }}">Ajouter un nouveau personnage</a>
+            </li>
+        </ul>
+    </li>
+    <li>Tags
+        <ul>
+            <li>
+                <a href="{{ path('heros_index') }}">Liste des tags </a>
+            </li>
+            <li>   <li> <a href="{{ path('tag_new') }}">Ajouter un nouveau tag</a>
+            </li>
+        </ul>
     </li>
 </ul>
