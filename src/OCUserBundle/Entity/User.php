@@ -26,7 +26,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="statut", type="integer")
      */
-    private $statut;
+    private $statut = 1;
 
 
     /**
