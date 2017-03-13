@@ -1,3 +1,7 @@
+project_link:
+    resource: "@ProjectBundle/Controller/linkController.php"
+    type:     annotation
+
 project_chapitre:
     resource: "@ProjectBundle/Controller/ChapitreController.php"
     type:     annotation
