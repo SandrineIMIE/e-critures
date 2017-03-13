@@ -14,6 +14,10 @@ project_items:
     resource: "@ProjectBundle/Controller/ItemsController.php"
     type:     annotation
 
+project_events:
+    resource: "@ProjectBundle/Controller/EventsController.php"
+    type:     annotation
+
 project_heros:
     resource: "@ProjectBundle/Controller/HerosController.php"
     type:     annotation
@@ -24,10 +28,6 @@ project_link:
 
 project_chapitre:
     resource: "@ProjectBundle/Controller/ChapitreController.php"
-    type:     annotation
-
-project_chapter:
-    resource: "@ProjectBundle/Controller/ChapterController.php"
     type:     annotation
 
 project_chapter:

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lexicoms list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mot</th>
+                <th>Definition</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lexicom in lexicoms %}
+            <tr>
+                <td><a href="{{ path('lexicom_show', { 'id': lexicom.id }) }}">{{ lexicom.id }}</a></td>
+                <td>{{ lexicom.mot }}</td>
+                <td>{{ lexicom.definition }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lexicom_show', { 'id': lexicom.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lexicom_edit', { 'id': lexicom.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lexicom_new') }}">Create a new lexicom</a>
+        </li>
+    </ul>
+{% endblock %}
