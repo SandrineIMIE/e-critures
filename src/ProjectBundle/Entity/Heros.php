@@ -77,6 +77,26 @@ class Heros
      */
     private $statut;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     */
+    private $project;
+
+    /**
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
 
     /**
      * Get id
