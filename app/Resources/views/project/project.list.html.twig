@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste de tous les projets</h1>
 
-    <table>
+<h2 class="sub-header">Liste de tous les projets</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Titre</th>
@@ -26,19 +27,15 @@
                 <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
                 <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('project_edit', { 'id': project.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td><a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a> &nbsp;
+                    <a href="{{ path('project_edit', { 'id': project.id }) }}">Modifier</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+</div>
+{% endblock %}
+{% block menuprincipale %}
+    {% include ':default:menu.project.twig' %}
 {% endblock %}

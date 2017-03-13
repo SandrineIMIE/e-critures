@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste de tous les projets</h1>
-
-    <table>
+<h2 class="sub-header">Liste de tous les projets</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Titre</th>
@@ -13,7 +13,6 @@
             <th>Statut</th>
             <th>Crée le </th>
             <th>Modifié le </th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -32,5 +31,9 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
+{% endblock %}
 
+{% block menuprincipale %}
+    {% include ':default:menu.project.twig' %}
 {% endblock %}
