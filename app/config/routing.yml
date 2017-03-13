@@ -1,3 +1,7 @@
+oc_user_user:
+    resource: "@OCUserBundle/Controller/UserController.php"
+    type:     annotation
+    
 project_place:
     resource: "@ProjectBundle/Controller/PlaceController.php"
     type:     annotation
