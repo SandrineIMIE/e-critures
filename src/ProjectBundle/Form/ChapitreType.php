@@ -13,7 +13,13 @@ class ChapitreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')        ;
+        $builder
+            ->add('title')
+            ->add('redaction')
+            ->add('publication')
+            ->add('createdat')
+            ->add('editat')
+        ;
     }
     
     /**

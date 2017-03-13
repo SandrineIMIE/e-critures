@@ -13,7 +13,12 @@ class PlaceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('description')->add('localisation')        ;
+        $builder
+            ->add('name')
+            ->add('description')
+            ->add('localisation')
+
+        ;
     }
     
     /**

@@ -13,7 +13,17 @@ class HerosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('surnom')->add('dateN')->add('lieuN')->add('mineur')->add('sexe')->add('statut')        ;
+        $builder
+            ->add('nom')
+            ->add('prenom')
+            ->add('surnom')
+            ->add('dateN')
+            ->add('lieuN')
+            ->add('mineur')
+            ->add('sexe')
+            ->add('statut')
+
+        ;
     }
     
     /**
