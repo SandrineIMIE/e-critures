@@ -40,6 +40,21 @@ class Link
      */
     private $project;
 
+    /**
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
 
 
     /**
