@@ -1,30 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Links list</h1>
+    <h1>Liste des Liens</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Adress</th>
-                <th>Name</th>
+                <th>Adressz</th>
+                <th>Nom</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for link in links %}
             <tr>
-                <td><a href="{{ path('link_show', { 'id': link.id }) }}">{{ link.id }}</a></td>
                 <td>{{ link.adress }}</td>
                 <td>{{ link.name }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('link_show', { 'id': link.id }) }}">show</a>
+                            <a href="{{ path('link_show', { 'id': link.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('link_edit', { 'id': link.id }) }}">edit</a>
+                            <a href="{{ path('link_edit', { 'id': link.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -33,9 +31,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('link_new') }}">Create a new link</a>
-        </li>
-    </ul>
 {% endblock %}
