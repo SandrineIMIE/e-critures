@@ -3,6 +3,7 @@
 namespace ProjectBundle\Form;
 
 use ProjectBundle\Entity\Project;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,10 +17,11 @@ class LinkType extends AbstractType
     {
         $builder
             ->add('adress')
-            ->add('category', EntityType::class, array(
+            ->add('name')
+            ->add('project', EntityType::class, array(
                 "class"=>Project::class,
                 "choice_label" => "title"))
-            ->add('name')  ;
+        ;
     }
     
     /**
