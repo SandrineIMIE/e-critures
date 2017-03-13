@@ -13,20 +13,17 @@
                 <th>Title</th>
                 <td>{{ chapitre.title }}</td>
             </tr>
+        <tr>
+            <th>action<</th>
+            <td>
+                <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
+
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            </td>
+        </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('chapitre_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
 {% endblock %}

@@ -21,7 +21,7 @@
         <tbody>
         {% for hero in heros %}
             <tr>
-                <td><a href="{{ path('heros_show', { 'id': hero.id }) }}">{{ hero.id }}</a></td>
+
                 <td>{{ hero.nom }}</td>
                 <td>{{ hero.prenom }}</td>
                 <td>{% if hero.surnom %}{{ hero.surnom|join(', ') }}{% endif %}</td>
@@ -33,10 +33,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('heros_show', { 'id': hero.id }) }}">show</a>
+                            <a href="{{ path('heros_show', { 'id': hero.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('heros_edit', { 'id': hero.id }) }}">edit</a>
+                            <a href="{{ path('heros_edit', { 'id': hero.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -45,9 +45,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('heros_new') }}">Create a new hero</a>
-        </li>
-    </ul>
+
 {% endblock %}

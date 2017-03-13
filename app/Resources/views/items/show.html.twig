@@ -5,10 +5,7 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ item.id }}</td>
-            </tr>
+
             <tr>
                 <th>Name</th>
                 <td>{{ item.name }}</td>
@@ -22,14 +19,11 @@
 
     <ul>
         <li>
-            <a href="{{ path('items_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('items_edit', { 'id': item.id }) }}">Edit</a>
+            <a href="{{ path('items_edit', { 'id': item.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

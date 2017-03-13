@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+
                 <th>Title</th>
                 <th>Actions</th>
             </tr>
@@ -14,15 +14,15 @@
         <tbody>
         {% for chapitre in chapitres %}
             <tr>
-                <td><a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">{{ chapitre.id }}</a></td>
+
                 <td>{{ chapitre.title }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">show</a>
+                            <a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">edit</a>
+                            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -30,10 +30,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('chapitre_new') }}">Create a new chapitre</a>
-        </li>
-    </ul>
 {% endblock %}

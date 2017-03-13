@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+
                 <th>Name</th>
                 <th>Description</th>
                 <th>Actions</th>
@@ -15,16 +15,15 @@
         <tbody>
         {% for item in items %}
             <tr>
-                <td><a href="{{ path('items_show', { 'id': item.id }) }}">{{ item.id }}</a></td>
-                <td>{{ item.name }}</td>
+   <td>{{ item.name }}</td>
                 <td>{{ item.description }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('items_show', { 'id': item.id }) }}">show</a>
+                            <a href="{{ path('items_show', { 'id': item.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('items_edit', { 'id': item.id }) }}">edit</a>
+                            <a href="{{ path('items_edit', { 'id': item.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -33,9 +32,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('items_new') }}">Create a new item</a>
-        </li>
-    </ul>
+
 {% endblock %}
