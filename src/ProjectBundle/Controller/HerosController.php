@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class HerosController extends Controller
 {
     /**
-     * Lists all hero entities.
+     * Lists all heros entities.
      *
      * @Route("/", name="heros_index")
      * @Method("GET")
@@ -32,14 +32,14 @@ class HerosController extends Controller
     }
 
     /**
-     * Creates a new hero entity.
+     * Creates a new heros entity.
      *
      * @Route("/new", name="heros_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $hero = new Hero();
+        $hero = new Heros();
         $form = $this->createForm('ProjectBundle\Form\HerosType', $hero);
         $form->handleRequest($request);
 
