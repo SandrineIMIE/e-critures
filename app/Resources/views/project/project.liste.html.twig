@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-
+    {% block dahsbord%}
+        {% include 'default/dashboard.utilisateur.html.twig' %}
+    {% endblock %}
 {% block body %}
 <h2 class="sub-header">Liste de tous les projets</h2>
 <div class="table-responsive">
@@ -35,5 +37,4 @@
 {% endblock %}
 
 {% block menuprincipale %}
-    {% include ':default:menu.project.twig' %}
 {% endblock %}
