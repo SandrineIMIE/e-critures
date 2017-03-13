@@ -10,7 +10,9 @@ fos_user:
     db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
     firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
     user_class:    OC\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
-
+    from_email:
+        address: "noreply@yourcompany.com"
+        sender_name: "No Reply"
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
