@@ -28,7 +28,7 @@ class User extends BaseUser
      */
     private $statut;
 
-    
+
     /**
      * Set statut
      *
