@@ -12,6 +12,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('ProjectBundle:Default:tag.list.html.twig');
+        return $this->render('default/page.html.twig');
     }
 }

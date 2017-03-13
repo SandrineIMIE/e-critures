@@ -1,19 +1,15 @@
-<ul>
-    <li> Lister
-        <ul>
-            <li> <a href="{{ path('project_index') }}">des projets</a></li>
-            <li> <a href="{{ path('category_index') }}">des catégories</a>&nbsp;</li>
-            <li> <a href="{{ path('rights_index') }}">des droits</a></li>
-            <li> <a href="{{ path('tag_index') }}">des tags</a></li>
 
-            {#<li><a href="{{ path('chapter_index') }}" >chapitres</a></li>#}
-        </ul>
-    </li>
-    <li>Créer
-        <ul>
-            <li> <a href="{{ path('project_new') }}">un projet</a></li>
-            <li> <a href="{{ path('category_new') }}">une catégorie</a></li>
-            <li> <a href="{{ path('rights_new') }}"> un droit</a></li>
-        </ul>
-    </li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Projets
+            <span class="caret"></span>
+        </a>
+<ul class="nav nav-sidebar dropdown-menu">
+    <li> <a href="{{ path('project_index') }}">Liste des projets</a></li>
+    <li><a href="{{ path('project_new') }}">Ajouter un nouveau projet</a></li>
 </ul>
+    </li>
+
+

@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="StyL'O">
+        <title>E-critures by StyL'O{% block title %}-{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-{% include 'default/menu.html.twig' %}
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block nav %}
+    {% endblock %}
+    {% block jumbontron %}
+    {% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" id="toto">
+                <ul class="nav nav-sidebar">
+                {% include 'default/menu.html.twig' %}
+                {% block menuprincipale %} {% endblock %}
+                </ul>
+                {% include 'default/footer.html.twig' %}
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                {% block dahsbord%}
+                {% endblock %}
+                {% block body %}{% endblock %}
+
+            </div>
+        </div>
+    </div>
+        {% block javascripts %}
+            <script src="{{ asset('js/npm.js') }}"></script>
+            <script src="{{ asset('js/ie8-responsive-file-warning.js') }}"></script>
+            <script src="{{ asset('js/ie-emulation-modes-warning.js') }}"></script>
+            <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+            <script src="{{ asset('js/respond.min.js') }}"></script>
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.min.js') }}"><\/script>')</script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/holder.min.js') }}"></script>
+            <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

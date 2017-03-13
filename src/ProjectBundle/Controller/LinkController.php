@@ -26,7 +26,7 @@ class LinkController extends Controller
 
         $links = $em->getRepository('ProjectBundle:Link')->findAll();
 
-        return $this->render('link/index.html.twig', array(
+        return $this->render('link/list.html.twig', array(
             'links' => $links,
         ));
     }

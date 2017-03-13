@@ -26,7 +26,7 @@ class PlaceController extends Controller
 
         $places = $em->getRepository('ProjectBundle:Place')->findAll();
 
-        return $this->render('place/index.html.twig', array(
+        return $this->render('place/list.html.twig', array(
             'places' => $places,
         ));
     }
@@ -91,7 +91,7 @@ class PlaceController extends Controller
             return $this->redirectToRoute('place_edit', array('id' => $place->getId()));
         }
 
-        return $this->render('place/edit.html.twig', array(
+        return $this->render('edit.html.twig', array(
             'place' => $place,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

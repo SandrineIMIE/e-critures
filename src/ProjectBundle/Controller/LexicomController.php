@@ -26,7 +26,7 @@ class LexicomController extends Controller
 
         $lexicoms = $em->getRepository('ProjectBundle:Lexicom')->findAll();
 
-        return $this->render('lexicom/index.html.twig', array(
+        return $this->render('lexicom/list.html.twig', array(
             'lexicoms' => $lexicoms,
         ));
     }

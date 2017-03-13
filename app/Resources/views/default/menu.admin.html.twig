@@ -1,0 +1,26 @@
+<li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+       aria-haspopup="true"
+       aria-expanded="false">
+ Lister
+    <span class="caret"></span>
+    </a>
+    <ul class="nav nav-sidebar dropdown-menu">
+            <li> <a href="{{ path('project_index') }}">des projets</a></li>
+            <li> <a href="{{ path('category_index') }}">des catégories</a></li>
+            <li> <a href="{{ path('rights_index') }}">des droits</a></li>
+            <li> <a href="{{ path('tag_index') }}">des utilisateurs</a></li>
+        </ul>
+    </li>
+<li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+       aria-haspopup="true"
+       aria-expanded="false">
+    Créer
+        <span class="caret"></span>
+    </a>
+    <ul class="nav nav-sidebar dropdown-menu">
+            <li> <a href="{{ path('category_new') }}">une catégorie</a></li>
+            <li> <a href="{{ path('rights_new') }}"> un droit</a></li>
+        </ul>
+    </li>

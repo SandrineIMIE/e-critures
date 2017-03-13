@@ -26,7 +26,7 @@ class NoteController extends Controller
 
         $notes = $em->getRepository('ProjectBundle:Note')->findAll();
 
-        return $this->render('note/index.html.twig', array(
+        return $this->render('note/list.html.twig', array(
             'notes' => $notes,
         ));
     }

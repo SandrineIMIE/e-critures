@@ -26,7 +26,7 @@ class ItemsController extends Controller
 
         $items = $em->getRepository('ProjectBundle:Items')->findAll();
 
-        return $this->render('items/index.html.twig', array(
+        return $this->render('items/list.html.twig', array(
             'items' => $items,
         ));
     }

@@ -26,7 +26,7 @@ class ChapitreController extends Controller
 
         $chapitres = $em->getRepository('ProjectBundle:Chapitre')->findAll();
 
-        return $this->render('chapitre/index.html.twig', array(
+        return $this->render('chapitre/list.html.twig', array(
             'chapitres' => $chapitres,
         ));
     }

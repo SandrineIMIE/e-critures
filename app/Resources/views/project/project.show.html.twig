@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
-
+    {% block dahsbord%}
+        {% include 'default/dashboard.project.html.twig' %}
+    {% endblock %}
+    {% block nav %}
+        {% include 'default/nav.dashboard.html.twig' %}
+    {% endblock %}
 {% block body %}
-    <h1>Projet</h1>
-{% include ':default:menu.project.twig' %}
-    <table>
-        <tbody>
 
+    <h2 class="sub-header">{{ project.title }}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
             <tr>
                 <th>Titre</th>
                 <td>{{ project.title }}</td>
@@ -34,17 +39,18 @@
                 <th>Modifié le </th>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
             </tr>
-        </tbody>
-    </table>
+            <tr>
+                <th>Actions</th>
+                <td><a href="{{ path('project_edit', { 'id': project.id }) }}">Modifier</a> -
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Supprimer">
+                    {{ form_end(delete_form) }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('project_edit', { 'id': project.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% endblock %}
+{% block menuprincipale %}
+    {% include ':default:menu.project.twig' %}
 {% endblock %}

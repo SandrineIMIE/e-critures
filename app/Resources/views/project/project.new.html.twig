@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
-
+    {% block dahsbord%}
+        {% include 'default/dashboard.project.html.twig' %}
+    {% endblock %}
+    {% block nav %}
+        {% include 'default/nav.dashboard.html.twig' %}
+    {% endblock %}
 {% block body %}
     <h1>Création d'un projet </h1>
 
@@ -8,4 +13,7 @@
         <input type="submit" value="Créer" />
     {{ form_end(form) }}
 
+{% endblock %}
+{% block menuprincipale %}
+    {% include ':default:menu.project.twig' %}
 {% endblock %}
