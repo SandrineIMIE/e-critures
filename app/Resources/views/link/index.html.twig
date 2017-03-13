@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Liens</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Adressz</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for link in links %}
+            <tr>
+                <td>{{ link.adress }}</td>
+                <td>{{ link.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('link_show', { 'id': link.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('link_edit', { 'id': link.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
