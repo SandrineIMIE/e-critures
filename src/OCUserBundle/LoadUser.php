@@ -4,6 +4,7 @@
 namespace OCUserBundle\DataFixtures\ORM;
 
 
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OCUserBundle\Entity\User;
 
