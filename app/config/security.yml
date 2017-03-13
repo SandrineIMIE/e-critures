@@ -38,7 +38,7 @@ security:
         default_target_path: /project
       logout:
         path: fos_user_security_logout
-        target: /index
+        target: /login
       remember_me:
         secret: %secret%
 
