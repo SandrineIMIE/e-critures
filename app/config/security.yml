@@ -34,7 +34,7 @@ security:
       form_login:
         login_path: login
         check_path: login_check
-        default_target_path: /platform
+        default_target_path: /project
       logout:
         path: logout
         target: /platform
