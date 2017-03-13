@@ -2,7 +2,7 @@
 
 namespace ProjectBundle\Controller;
 
-use ProjectBundle\Entity\link;
+use ProjectBundle\Entity\Link;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +12,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  *
  * @Route("link")
  */
-class linkController extends Controller
+class LinkController extends Controller
 {
     /**
-     * Lists all link entities.
+     * Lists all Link entities.
      *
      * @Route("/", name="link_index")
      * @Method("GET")
@@ -24,7 +24,7 @@ class linkController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $links = $em->getRepository('ProjectBundle:link')->findAll();
+        $links = $em->getRepository('ProjectBundle:Link')->findAll();
 
         return $this->render('link/index.html.twig', array(
             'links' => $links,
@@ -40,7 +40,7 @@ class linkController extends Controller
     public function newAction(Request $request)
     {
         $link = new Link();
-        $form = $this->createForm('ProjectBundle\Form\linkType', $link);
+        $form = $this->createForm('ProjectBundle\Form\LinkType', $link);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class linkController extends Controller
      * @Route("/{id}", name="link_show")
      * @Method("GET")
      */
-    public function showAction(link $link)
+    public function showAction(Link $link)
     {
         $deleteForm = $this->createDeleteForm($link);
 
@@ -79,7 +79,7 @@ class linkController extends Controller
      * @Route("/{id}/edit", name="link_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, link $link)
+    public function editAction(Request $request, Link $link)
     {
         $deleteForm = $this->createDeleteForm($link);
         $editForm = $this->createForm('ProjectBundle\Form\linkType', $link);
@@ -104,7 +104,7 @@ class linkController extends Controller
      * @Route("/{id}", name="link_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, link $link)
+    public function deleteAction(Request $request, Link $link)
     {
         $form = $this->createDeleteForm($link);
         $form->handleRequest($request);
@@ -125,7 +125,7 @@ class linkController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(link $link)
+    private function createDeleteForm(Link $link)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('link_delete', array('id' => $link->getId())))

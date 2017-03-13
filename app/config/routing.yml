@@ -1,5 +1,5 @@
 project_link:
-    resource: "@ProjectBundle/Controller/linkController.php"
+    resource: "@ProjectBundle/Controller/LinkController.php"
     type:     annotation
 
 project_chapitre:
