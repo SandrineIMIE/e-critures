@@ -40,6 +40,10 @@ class ChapitreController extends Controller
     public function newAction(Request $request)
     {
         $chapitre = new Chapitre();
+        $chapitre ->setEditat( new \DateTime());
+        $chapitre ->setCreatedat( new \DateTime());
+        $chapitre ->setRedaction(true);
+        $chapitre ->setPublication(false);
         $form = $this->createForm('ProjectBundle\Form\ChapitreType', $chapitre);
         $form->handleRequest($request);
 
@@ -86,6 +90,7 @@ class ChapitreController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $chapitre ->setEditat( new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('chapitre_edit', array('id' => $chapitre->getId()));

@@ -1,28 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapitres list</h1>
+    <h1>Notes list</h1>
 
     <table>
         <thead>
             <tr>
 
-                <th>Title</th>
+                <th>Contenu</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for chapitre in chapitres %}
+        {% for note in notes %}
             <tr>
-
-                <td>{{ chapitre.title }}</td>
+                <td>{{ note.contenu }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">Voir</a>
+                            <a href="{{ path('note_show', { 'id': note.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
+                            <a href="{{ path('note_edit', { 'id': note.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -30,4 +29,6 @@
         {% endfor %}
         </tbody>
     </table>
+
+
 {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Heros list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Surnom</th>
+                <th>Daten</th>
+                <th>Lieun</th>
+                <th>Mineur</th>
+                <th>Sexe</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hero in heros %}
+            <tr>
+
+                <td>{{ hero.nom }}</td>
+                <td>{{ hero.prenom }}</td>
+                <td>{% if hero.surnom %}{{ hero.surnom|join(', ') }}{% endif %}</td>
+                <td>{{ hero.dateN }}</td>
+                <td>{{ hero.lieuN }}</td>
+                <td>{% if hero.mineur %}Yes{% else %}No{% endif %}</td>
+                <td>{{ hero.sexe }}</td>
+                <td>{{ hero.statut }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('heros_show', { 'id': hero.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('heros_edit', { 'id': hero.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
