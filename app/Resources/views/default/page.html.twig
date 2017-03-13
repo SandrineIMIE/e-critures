@@ -1,0 +1,49 @@
+{% extends 'site.html.twig' %}
+{% block nav %}
+    {% include 'default/nav.site.html.twig' %}
+{% endblock %}
+{% block jumbontron %}
+    {% include 'default/jumbontron.html.twig' %}
+{% endblock %}
+{% block dahsbord%}
+ {% endblock %}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Oeuvre</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+                        Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Auteurs</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+                        Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Lecteurs</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
+                        felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                        massa justo sit amet risus.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Facilitateur</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
+                        felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                        massa justo sit amet risus.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% include 'default/footer.html.twig' %}
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}

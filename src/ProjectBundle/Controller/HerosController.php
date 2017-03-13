@@ -26,7 +26,7 @@ class HerosController extends Controller
 
         $heros = $em->getRepository('ProjectBundle:Heros')->findAll();
 
-        return $this->render('heros/index.html.twig', array(
+        return $this->render('heros/list.html.twig', array(
             'heros' => $heros,
         ));
     }

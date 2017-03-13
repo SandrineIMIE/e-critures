@@ -2,7 +2,9 @@
     {% block dahsbord%}
         {% include 'default/dashboard.project.html.twig' %}
     {% endblock %}
-
+    {% block nav %}
+        {% include 'default/nav.dashboard.html.twig' %}
+    {% endblock %}
 {% block body %}
     <h2 class="sub-header">Edition du Projet : {{ project.title }}</h2>
 <div class="table-responsive">

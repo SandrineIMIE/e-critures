@@ -26,7 +26,7 @@ class EventsController extends Controller
 
         $events = $em->getRepository('ProjectBundle:Events')->findAll();
 
-        return $this->render('events/index.html.twig', array(
+        return $this->render('events/list.html.twig', array(
             'events' => $events,
         ));
     }

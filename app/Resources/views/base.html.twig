@@ -14,20 +14,10 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            {% include 'default/toogle.html.twig' %}
-                {% include 'default/brand.html.twig' %}
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            {% include 'default/search.html.twig' %}
-            </div>
-        </div>
-    </nav>
+    {% block nav %}
+    {% endblock %}
+    {% block jumbontron %}
+    {% endblock %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar" id="toto">
@@ -35,7 +25,7 @@
                 {% include 'default/menu.html.twig' %}
                 {% block menuprincipale %} {% endblock %}
                 </ul>
-                <footer> <p>&copy; 2017 StyL'O, Inc.</p></footer>
+                {% include 'default/footer.html.twig' %}
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 {% block dahsbord%}
@@ -45,7 +35,6 @@
             </div>
         </div>
     </div>
-
         {% block javascripts %}
             <script src="{{ asset('js/npm.js') }}"></script>
             <script src="{{ asset('js/ie8-responsive-file-warning.js') }}"></script>
