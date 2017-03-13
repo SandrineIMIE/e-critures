@@ -35,6 +35,12 @@ class Link
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     */
+    private $project;
+
+
 
     /**
      * Get id
