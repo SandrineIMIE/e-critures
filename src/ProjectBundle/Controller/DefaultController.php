@@ -15,8 +15,8 @@ class DefaultController extends Controller
     public function indexAction()
     {
         return $this->render('default/page.html.twig', array(
-            'error' => '',
-            'csrf_token' => 'test',
+//            'error' => '',
+//            'csrf_token' => 'test',
             "last_username" => $this->getUser()
         ));
     }
