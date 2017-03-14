@@ -69,10 +69,9 @@ class Project
     private $rights;
 
 
-
     /**
      *
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag")
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag", cascade={"all"})
      */
     private $tags;
 
@@ -117,14 +116,6 @@ class Project
     {
         return $this->tags;
     }
-
-//    /**
-//     * @param Tag $tags
-//     */
-//    public function setTags($tags)
-//    {
-//        $this->tags = $tags;
-//    }
 
 
 /**
