@@ -1,5 +1,5 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends ":fos_user:layout.html.twig" %}
 
 {% block fos_user_content %}
-    {{ include('@FOSUser/Security/login_content.html.twig') }}
+    {{ include(':fos_user/Security:login_content.html.twig') }}
 {% endblock fos_user_content %}
