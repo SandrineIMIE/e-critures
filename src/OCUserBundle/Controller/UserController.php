@@ -14,7 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class UserController extends Controller
 {
-
     /**
      * Lists all user entities.
      *
@@ -23,9 +22,11 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $userManager=$this->get('fos_user.user_manager');
+        $users = $userManager->findUsers();
 
-        $users = $em->getRepository('OCUserBundle:User')->findAll();
+//        $em = $this->getDoctrine()->getManager();
+//        $users = $em->getRepository('OCUserBundle:User')->findAll();
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
@@ -47,7 +48,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush($user);
+            $em->flush();
 
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
@@ -67,7 +68,6 @@ class UserController extends Controller
     public function showAction(User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-
         return $this->render('user/show.html.twig', array(
             'user' => $user,
             'delete_form' => $deleteForm->createView(),
@@ -111,6 +111,7 @@ class UserController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush($user);
