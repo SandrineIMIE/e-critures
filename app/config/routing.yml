@@ -34,20 +34,11 @@ project_chapitre:
     resource: "@ProjectBundle/Controller/ChapitreController.php"
     type:     annotation
 
-user:
-    resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /
 
 project:
     resource: "@ProjectBundle/Controller/"
     type:     annotation
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 
 
 fos_user_security:
