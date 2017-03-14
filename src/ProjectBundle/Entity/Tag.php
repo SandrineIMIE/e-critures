@@ -40,7 +40,7 @@ class Tag
      */
     public function __construct()
     {
-        $this->$projects= new ArrayCollection();
+        $this->projects= new ArrayCollection();
     }
 
     /**
@@ -62,7 +62,7 @@ class Tag
      *
      * @param Tag $tag
      */
-    public function removeTag(Project $project)
+    public function removeProject(Project $project)
     {
         $this->projects->removeElement($project);
     }
@@ -71,12 +71,13 @@ class Tag
      *
      * Get projects
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getProjects()
     {
         return $this->projects;
     }
+
 
     /**
      * @return int
