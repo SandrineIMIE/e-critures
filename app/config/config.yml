@@ -3,7 +3,6 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@ProjectBundle/Resources/config/services.yml" }
-    - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@OCUserBundle/Resources/config/services.yml" }
 
 fos_user:
