@@ -59,9 +59,14 @@ class UserController extends Controller
 
         return $this->render('user/new.html.twig', array(
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
+
+
+
+
+
 
     /**
      * Finds and displays a user entity.
