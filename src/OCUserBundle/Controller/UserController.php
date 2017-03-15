@@ -43,10 +43,14 @@ class UserController extends Controller
     {
         $user = new User();
         $form = $this->createForm('OCUserBundle\Form\UserType', $user);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setEnabled(true);
+            $user->setEmail('');
+            $user->setSalt('');
             $em->persist($user);
             $em->flush();
 
