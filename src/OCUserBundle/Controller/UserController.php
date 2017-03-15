@@ -43,10 +43,14 @@ class UserController extends Controller
     {
         $user = new User();
         $form = $this->createForm('OCUserBundle\Form\UserType', $user);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setEnabled(true);
+            $user->setEmail('');
+            $user->setSalt('');
             $em->persist($user);
             $em->flush();
 
@@ -55,9 +59,14 @@ class UserController extends Controller
 
         return $this->render('user/new.html.twig', array(
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
+
+
+
+
+
 
     /**
      * Finds and displays a user entity.
