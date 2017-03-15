@@ -48,7 +48,7 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $user->setEnabled('1');
+            $user->setEnabled(true);
             $user->setEmail('');
             $user->setSalt('');
             $user->setStatut('1');
