@@ -1,0 +1,76 @@
+ <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Lieu(x)
+            <span class="caret"></span>
+        </a>
+        <ul class="nav nav-sidebar dropdown-menu">
+            <li>
+                <a href="{{ path('place_list', { 'id': project.id }) }}">Liste des Lieux</a>
+            </li>
+            <li>  <a href="{{ path('place_new', { 'id': project.id }) }}">Ajouter un nouveau lieu</a>
+            </li>
+        </ul>
+    </li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Lexique
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ path('lexicom_list', { 'id': project.id }) }}">Lexique</a>
+            </li>
+            <li>  <a href="{{ path('lexicom_new', { 'id': project.id }) }}">Ajouter une nouvelle entrée</a>
+            </li>
+        </ul>
+    </li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Objets
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ path('items_list', { 'id': project.id }) }}">Liste des Objets</a>
+            </li>
+            <li>  <a href="{{ path('items_new', { 'id': project.id }) }}">Ajouter un nouvel objet</a>
+            </li>
+        </ul>
+    </li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Evenements
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ path('events_list', { 'id': project.id }) }}">Liste des Evenements</a>
+            </li>
+            <li>  <a href="{{ path('events_new', { 'id': project.id }) }}">Ajouter un nouvel évenements</a>
+            </li>
+        </ul>
+    </li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+            Personnages
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ path('heros_list', { 'id': project.id }) }}">Liste des personnages</a>
+            </li>
+            <li>  <a href="{{ path('heros_new', { 'id': project.id }) }}">Ajouter un nouveau personnage</a>
+            </li>
+        </ul>
+    </li>
+
