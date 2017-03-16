@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th>Contenu</th>
+            <th>Versionat</th>
+            <th>Vs</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for version in versions %}
+            <tr>
+                <td>{{ version.contenu }}</td>
+                <td>{% if version.versionat %}{{ version.versionat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ version.vs }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('version_show',  {'id': version.id }) }}">Voir</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('version_new', { 'id': chapitre.id }) }}">Creer une version/a>
+        </li>
+    </ul>
+{% endblock %}
