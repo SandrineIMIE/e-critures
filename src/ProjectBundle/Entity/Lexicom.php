@@ -5,7 +5,7 @@ namespace ProjectBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * lexicom
+ * Lexicom
  *
  * @ORM\Table(name="lexicom")
  * @ORM\Entity(repositoryClass="ProjectBundle\Repository\lexicomRepository")
