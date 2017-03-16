@@ -2,6 +2,7 @@
 
 namespace ProjectBundle\Controller;
 
+use OCUserBundle\Entity\User;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -31,16 +32,38 @@ class ProjectController extends Controller
             'projects' => $projects,
         ));
     }
+    /**
+     * Lists all project entities for a user.
+     *
+     * @Route("/list/{id}", name="project_list")
+     * @Method("GET")
+     */
+    public function listAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $projects = $em->getRepository('ProjectBundle:Project')->findBy(
+            array('user' => $user->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('project/project.list.html.twig', array(
+            'projects' => $projects,
+        ));
+    }
 
     /**
-     * Creates a new project entity.
+     * Creates a new project entity for user.
      *
-     * @Route("/new", name="project_new")
+     * @Route("/new/{id}", name="project_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, User $user)
     {
         $project = new Project();
+        $project->getUser($user);
         $project ->setEditedat( new \DateTime());
         $project ->setCreatedat( new \DateTime());
         $form = $this->createForm('ProjectBundle\Form\ProjectType', $project);
@@ -50,7 +73,6 @@ class ProjectController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($project);
             $em->flush($project);
-
             return $this->redirectToRoute('project_show', array('id' => $project->getId()));
         }
 

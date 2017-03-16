@@ -1,22 +1,18 @@
 oc_user_user:
     resource: "@OCUserBundle/Controller/UserController.php"
     type:     annotation
-    
-project_place:
-    resource: "@ProjectBundle/Controller/PlaceController.php"
+
+project_project:
+    resource: "@ProjectBundle/Controller/ProjectController.php"
     type:     annotation
 
-project_note:
-    resource: "@ProjectBundle/Controller/NoteController.php"
-    type:     annotation
+project_category:
+        resource: "@ProjectBundle/Controller/CategoryController.php"
+        type:     annotation
 
-project_lexicom:
-    resource: "@ProjectBundle/Controller/LexicomController.php"
-    type:     annotation
-
-project_items:
-    resource: "@ProjectBundle/Controller/ItemsController.php"
-    type:     annotation
+project_chapitre:
+            resource: "@ProjectBundle/Controller/ChapitreController.php"
+            type:     annotation
 
 project_events:
     resource: "@ProjectBundle/Controller/EventsController.php"
@@ -26,14 +22,25 @@ project_heros:
     resource: "@ProjectBundle/Controller/HerosController.php"
     type:     annotation
 
+project_items:
+    resource: "@ProjectBundle/Controller/ItemsController.php"
+    type:     annotation
+
+project_lexicom:
+    resource: "@ProjectBundle/Controller/LexicomController.php"
+    type:     annotation
+
 project_link:
     resource: "@ProjectBundle/Controller/LinkController.php"
     type:     annotation
 
-project_chapitre:
-    resource: "@ProjectBundle/Controller/ChapitreController.php"
+project_note:
+    resource: "@ProjectBundle/Controller/NoteController.php"
     type:     annotation
 
+project_place:
+    resource: "@ProjectBundle/Controller/PlaceController.php"
+    type:     annotation
 
 project:
     resource: "@ProjectBundle/Controller/"
