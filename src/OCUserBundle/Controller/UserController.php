@@ -51,8 +51,6 @@ class UserController extends Controller
             $user->setEnabled(true);
             $user->setEmail('');
             $user->setSalt('');
-            $user->setStatut('1');
-            $user->setRoles(array('roles'=>"ROLE_USER"));
             $em->persist($user);
             $em->flush();
 

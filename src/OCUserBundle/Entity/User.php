@@ -21,40 +21,7 @@ class User extends BaseUser
     protected $id;
 
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="statut", type="integer")
-     */
-    private $statut = 1;
-
-
-    /**
-     * Set statut
-     *
-     * @param integer $statut
-     *
-     * @return User
-     */
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
-
-    /**
-     * Get statut
-     *
-     * @return int
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
-
-    public function eraseCredentials()
-    {
-    }
+//    public function eraseCredentials()
+//    {
+//    }
 }
-
