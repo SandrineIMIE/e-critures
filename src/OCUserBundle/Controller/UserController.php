@@ -49,12 +49,12 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $user->setEnabled(true);
-            $user->setEmail('');
+            $user->setEmail('mail'.rand(100,900));
             $user->setSalt('');
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
+            return $this->redirectToRoute('project_user', array('id' => $user->getId() ));
         }
 
         return $this->render('user/new.html.twig', array(
@@ -62,10 +62,6 @@ class UserController extends Controller
             'form' => $form->createView()
         ));
     }
-
-
-
-
 
 
     /**
@@ -98,7 +94,7 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
 
         return $this->render('user/edit.html.twig', array(
