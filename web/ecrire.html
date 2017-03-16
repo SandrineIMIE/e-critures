@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>page écriture</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style-ecrire.css">
+    <script src="js/tinymce.min.js"></script>
+    <script src="js/langs/fr_FR.js"></script>
+    <script>tinymce.init({
+        selector: 'textarea',
+        theme: 'modern',
+        plugins: [
+            'advlist autolink charmap print ',
+            'searchreplace wordcount visualchars ',
+            'nonbreaking save contextmenu directionality',
+            'paste textpattern'
+        ],
+        wordcount_cleanregex: /[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g,
+        toolbar1: 'undo redo | styleselect | bold italic strikethrough | cadratin | alignleft aligncenter alignright alignjustify |' +
+        ' print | searchreplace | version ',
+        autosave_interval: "60s",
+        setup: function (editor) {
+            editor.addButton('cadratin', {
+                text: '—',
+                icon: false,
+                onclick: function () {
+                    editor.insertContent('&mdash;');
+                }
+            });
+        },
+        setup: function (editor) {
+            editor.addButton('version', {
+                text: 'VS',
+                icon: false,
+                onclick: function () {
+                    editor.insertContent('&mdash;');
+                }
+            });
+        },
+        formats: {
+            alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
+            aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
+            alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right'},
+            alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full'},
+            bold: {inline: 'span', 'classes': 'bold'},
+            italic: {inline: 'span', 'classes': 'italic'},
+            underline: {inline: 'span', 'classes': 'underline', exact: true},
+            strikethrough: {inline: 'del'},
+        },
+//        autosave_prefix: "tinymce-autosave-{path}{query}-{id}-"
+
+    });</script>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="col-sm-2 contain-right-left">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Chapitre
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">ajouter</a></li>
+                <li><a href="#">exporter</a></li>
+            </ul>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Chapitre 1</h4>
+                <p class="list-group-item-text">Récap/descriptif du chapitre : le meurtier arrive au village.</p>
+            </a>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Chapitre 2</h4>
+                <p class="list-group-item-text">Récap/descriptif du chapitre : la rencontre entre Toto et Donald. Muriel et Donald. Debut du drame.</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-italic" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-bold" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span>sauvegarder</span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span>sauvegarder en version</span>
+        </button>
+        <textarea>Easy (and free!) You should check out our premium features.</textarea>
+    </div>
+
+    <div class="col-sm-2 contain-right-left">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Personnage
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">ajouter</a></li>
+                <li><a href="#">exporter</a></li>
+            </ul>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Toto </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Muriel</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Donald</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mickey</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Susie</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Madame Bleuet</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+        <ul class="list-group">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Lieux
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">ajouter</a></li>
+                    <li><a href="#">exporter</a></li>
+                </ul>
+            </div>
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Eglise </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Château</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ferme</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Village</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="disabled"><a href="#">Nom :</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="#">Prenom : </a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
