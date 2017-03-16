@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Place;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -32,14 +33,37 @@ class PlaceController extends Controller
     }
 
     /**
-     * Creates a new place entity.
+     * Lists all place entities for a project.
      *
-     * @Route("/new", name="place_new")
+     * @Route("/list/{id}", name="place_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $places = $em->getRepository('ProjectBundle:Place')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('name' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('place/list.html.twig', array(
+            'places' => $places,
+        ));
+    }
+
+    /**
+     * Creates a new place entity for a project.
+     *
+     * @Route("/new/{id}", name="place_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $place = new Place();
+        $place ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\PlaceType', $place);
         $form->handleRequest($request);
 
@@ -131,6 +155,6 @@ class PlaceController extends Controller
             ->setAction($this->generateUrl('place_delete', array('id' => $place->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

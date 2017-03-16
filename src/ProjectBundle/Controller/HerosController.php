@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Heros;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -32,14 +33,36 @@ class HerosController extends Controller
     }
 
     /**
-     * Creates a new heros entity.
+     * Lists all heros entities for a project.
      *
-     * @Route("/new", name="heros_new")
+     * @Route("/list/{id}",  name="heros_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $heros = $em->getRepository('ProjectBundle:Heros')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('heros/list.html.twig', array(
+            'heros' => $heros,
+        ));
+    }
+    /**
+     * Creates a new heros entity for a project.
+     *
+     * @Route("/new/{id}", name="heros_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $hero = new Heros();
+        $hero->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\HerosType', $hero);
         $form->handleRequest($request);
 
@@ -131,6 +154,6 @@ class HerosController extends Controller
             ->setAction($this->generateUrl('heros_delete', array('id' => $hero->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

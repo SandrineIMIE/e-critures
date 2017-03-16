@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Link;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -32,14 +33,36 @@ class LinkController extends Controller
     }
 
     /**
-     * Creates a new link entity.
+     * Lists all Link entities for one project.
      *
-     * @Route("/new", name="link_new")
+     * @Route("/list/{id}", name="link_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $links = $em->getRepository('ProjectBundle:Link')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('link/list.html.twig', array(
+            'links' => $links,
+        ));
+    }
+
+    /**
+     * Creates a new link entity for one project.
+     *
+     * @Route("/new/{id}", name="link_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,Project $proj)
     {
         $link = new Link();
+        $link ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\LinkType', $link);
         $form->handleRequest($request);
 
@@ -131,6 +154,6 @@ class LinkController extends Controller
             ->setAction($this->generateUrl('link_delete', array('id' => $link->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
