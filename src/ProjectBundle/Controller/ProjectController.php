@@ -66,22 +66,22 @@ class ProjectController extends Controller
     /**
      * Finds and displays all project entity of a user.
      *
-     * @Route("/userproject/{id}", name="project_user")
+     * @Route("/list/{id}", name="project_list")
      * @Method("GET")
      */
-    public function listUserProject(User $user)
+    public function listProject(User $user)
     {
         $em = $this->getDoctrine()->getManager();
 
         $projects = $em->getRepository('ProjectBundle:Project')->findBy(
             array('user' => $user->getId()),
-            array('id' => 'asc'),
+            array('id' => 'decs'),
             $limit = null,
             $offset = null
          );
 
         return $this->render('project/project.list.html.twig', array(
-            'projects' => $projects,
+            'projects' => $projects
         ));
     }
 
