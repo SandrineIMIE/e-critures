@@ -62,7 +62,8 @@ class Chapitre
     private $project;
 
     /**
-     * @ORM\OneToOne(targetEntity="ProjectBundle\Entity\Contenu", fetch="EAGER")
+     * @ORM\OneToOne(targetEntity="ProjectBundle\Entity\Contenu", fetch="EAGER", cascade={"persist"}")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $contenu;
 
@@ -70,11 +71,10 @@ class Chapitre
      * Chapitre constructor.
      * @param $contenu
      */
-    public function __construct($contenu)
+    public function __construct()
     {
         $contenu=new Contenu();
-        $contenu->getVersionat($createdat);
-        $contenu->
+        $contenu->getVersionat($this->createdat);
         $this->contenu = $contenu;
     }
 
