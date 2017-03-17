@@ -8,7 +8,6 @@
                 <table>
                     <thead>
                     <tr>
-
                         <th>Versionat</th>
                         <th>Actions</th>
                     </tr>
@@ -24,16 +23,18 @@
                         <li>
                             <a href="{{ path('contenu_edit', { 'id': contenu.id }) }}">Modifier</a>
                         </li>
+                        <li>
+                            <a href="{{ path('contenu_delete', { 'id': contenu.id }) }}">Supprimer</a>
+                        </li>
                     </ul>
                 </td>
             </tr>       </tbody>
             </table>
         {% endfor %}
 
-
     <ul>
         <li>
-            <a href="{{ path('contenu_new') }}">Créer une nouvelle version</a>
+            <a href="{{ path('contenu_new') }}">Créer une nouvelle version vierge</a>
         </li>
     </ul>
 {% endblock %}

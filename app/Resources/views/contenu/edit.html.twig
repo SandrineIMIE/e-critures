@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
 {% block stylesheets %}
 {% endblock %}
         {% block javascripts %}
@@ -8,37 +7,36 @@
             <script src="{{ asset('js/langs/fr_FR.js') }}"></script>
             <script>tinymce.init({
                     selector: 'textarea',
+                    height: 500,
                     theme: 'modern',
                     plugins: [
-                        'advlist autolink charmap print ',
-                        'searchreplace wordcount visualchars ',
-                        'nonbreaking save contextmenu directionality',
-                        'paste textpattern'
+                        "advlist save autosave charmap print preview pagebreak spellchecker",
+                        "searchreplace wordcount visualchars code insertdatetime  nonbreaking",
+                        "contextmenu  textcolor paste textpattern textcolor colorpicker"
                     ],
                     autosave_ask_before_unload:true,
                     autosave_interval: "20s",
                     wordcount_cleanregex: /[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g,
-                    toolbar1: 'undo redo | styleselect | bold italic strikethrough | cadratin | alignleft aligncenter alignright alignjustify |' +
-                    ' print | searchreplace | version ',
-                    autosave_interval: "60s",
+                    toolbar1: " bold italic strikethrough | trait | alignleft aligncenter alignright alignjustify " +
+                    "| styleselect formatselect fontselect fontsizeselect | forecolor backcolor ",
+                    toolbar2: "removeformat | subscript superscript | charmap | print | spellchecker | " +
+                    "visualchars nonbreaking | restoredraft save | cut copy paste | undo redo searchreplace",
+                    menubar: false,
+                    toolbar_items_size: 'small',
+                    autosave_interval: "20s",
                     setup: function (editor) {
-                        editor.addButton('cadratin', {
+                        editor.addButton('trait', {
                             text: '—',
+                            label: ' insère un tiret cadratin',
                             icon: false,
                             onclick: function () {
                                 editor.insertContent('&mdash;');
                             }
                         });
                     },
-                    setup: function (editor) {
-                        editor.addButton('version', {
-                            text: 'VS',
-                            icon: false,
-                            onclick: function () {
-                                editor.insertContent('&mdash;');
-                            }
-                        });
-                    },
+                    content_css: [
+                        '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                        '//www.tinymce.com/css/codepen.min.css' ],
                     formats: {
                         alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
                         aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
@@ -57,7 +55,7 @@
 {% block body %}
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Enregistrer" />
+        {#<input type="submit" value="Enregistrer" />#}
     {{ form_end(edit_form) }}
 
     {#<ul>#}
