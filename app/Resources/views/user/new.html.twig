@@ -1,16 +1,24 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>User creation</h1>
-
-    {{ form_start(form) }}
+{% extends 'site.html.twig' %}
+{% block nav %}
+    {% include 'default/nav.site2.html.twig' %}
+{% endblock %}
+{% block jumbontron %}
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Créer votre compte</h1>
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <input type="submit" value="Créer" class="btn btn-primary" />
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block dahsbord%}
+{% endblock %}
+{% block body %}
+    <div id="container">
+        <hr>
+        {% include 'default/contenu.page.html.twig' %}
+    </div>
+    <hr>
+    {% include 'default/footer.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

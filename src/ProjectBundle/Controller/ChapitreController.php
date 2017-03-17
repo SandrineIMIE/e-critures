@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Chapitre;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -30,16 +31,38 @@ class ChapitreController extends Controller
             'chapitres' => $chapitres,
         ));
     }
+    /**
+     * Lists all chapitre entities for a project.
+     *
+     * @Route("/list/{id}",  name="chapitre_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $chapitres = $em->getRepository('ProjectBundle:Chapitre')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('chapitre/list.html.twig', array(
+            'chapitres' => $chapitres,
+        ));
+    }
 
     /**
-     * Creates a new chapitre entity.
+     * Creates a new chapitre entity for a project.
      *
-     * @Route("/new", name="chapitre_new")
+     * @Route("/new/{id}", name="chapitre_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $chapitre = new Chapitre();
+        $chapitre->setProject($proj);
         $chapitre ->setEditat( new \DateTime());
         $chapitre ->setCreatedat( new \DateTime());
         $chapitre ->setRedaction(true);
@@ -136,6 +159,6 @@ class ChapitreController extends Controller
             ->setAction($this->generateUrl('chapitre_delete', array('id' => $chapitre->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

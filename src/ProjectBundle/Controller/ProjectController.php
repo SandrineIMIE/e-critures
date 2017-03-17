@@ -2,6 +2,7 @@
 
 namespace ProjectBundle\Controller;
 
+use OCUserBundle\Entity\User;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -33,7 +34,28 @@ class ProjectController extends Controller
     }
 
     /**
-     * Creates a new project entity.
+     * Lists all project entities for a projecty.
+     *
+     * @Route("/list/{id}", name="project_list")
+     * @Method("GET")
+     */
+    public function listAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $projects = $em->getRepository('ProjectBundle:Project')->findBy(
+            array('user' => $user->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('project/project.list.html.twig', array(
+            'projects' => $projects,
+        ));
+    }
+    /**
+     * Creates a new project entity for a project.
      *
      * @Route("/new", name="project_new")
      * @Method({"GET", "POST"})
@@ -135,6 +157,6 @@ class ProjectController extends Controller
             ->setAction($this->generateUrl('project_delete', array('id' => $project->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

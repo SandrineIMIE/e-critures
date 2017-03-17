@@ -3,13 +3,14 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Lexicom;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Lexicom controller.
+ * Lexicon controller.
  *
  * @Route("lexicom")
  */
@@ -24,8 +25,27 @@ class LexicomController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $lexicoms = $em->getRepository('ProjectBundle:Lexicom')->findAll();
+
+        return $this->render('lexicom/list.html.twig', array(
+            'lexicoms' => $lexicoms,
+        ));
+    }
+    /**
+     * Lists all lexicon entities for a project.
+     *
+     * @Route("/list/{id}", name="lexicom_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $lexicoms = $em->getRepository('ProjectBundle:Lexicom')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('mot' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
 
         return $this->render('lexicom/list.html.twig', array(
             'lexicoms' => $lexicoms,
@@ -33,14 +53,15 @@ class LexicomController extends Controller
     }
 
     /**
-     * Creates a new lexicom entity.
+     * Creates a new lexicom entity for a project.
      *
-     * @Route("/new", name="lexicom_new")
+     * @Route("/new/{id}", name="lexicom_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,Project $proj)
     {
         $lexicom = new Lexicom();
+        $lexicom ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\LexicomType', $lexicom);
         $form->handleRequest($request);
 
@@ -132,6 +153,6 @@ class LexicomController extends Controller
             ->setAction($this->generateUrl('lexicom_delete', array('id' => $lexicom->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

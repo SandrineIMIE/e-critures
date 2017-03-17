@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Items;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -32,14 +33,37 @@ class ItemsController extends Controller
     }
 
     /**
-     * Creates a new item entity.
+     * Lists all item entities for a project.
      *
-     * @Route("/new", name="items_new")
+     * @Route("/list/{id}",  name="items_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $items = $em->getRepository('ProjectBundle:Items')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('items/list.html.twig', array(
+            'items' => $items,
+        ));
+    }
+
+    /**
+     * Creates a new item entity for a project.
+     *
+     * @Route("/new/{id}", name="items_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $item = new Item();
+        $item ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\ItemsType', $item);
         $form->handleRequest($request);
 
@@ -131,6 +155,6 @@ class ItemsController extends Controller
             ->setAction($this->generateUrl('items_delete', array('id' => $item->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

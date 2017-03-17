@@ -3,9 +3,11 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Note;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Note controller.
@@ -32,14 +34,37 @@ class NoteController extends Controller
     }
 
     /**
-     * Creates a new note entity.
+     * Lists all note entities.
      *
-     * @Route("/new", name="note_new")
+     * @Route("/list/{id}", name="note_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $notes = $em->getRepository('ProjectBundle:Note')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('note/list.html.twig', array(
+            'notes' => $notes,
+        ));
+    }
+
+    /**
+     * Creates a new note entity for a project.
+     *
+     * @Route("/new/{id}", name="note_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $note = new Note();
+        $note ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\NoteType', $note);
         $form->handleRequest($request);
 
@@ -131,6 +156,6 @@ class NoteController extends Controller
             ->setAction($this->generateUrl('note_delete', array('id' => $note->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

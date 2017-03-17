@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Events;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -30,16 +31,38 @@ class EventsController extends Controller
             'events' => $events,
         ));
     }
+    /**
+     * Lists all event entities for a project.
+     *
+     * @Route("/list/{id}",  name="events_list")
+     * @Method("GET")
+     */
+    public function listAction(Project $proj)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $events = $em->getRepository('ProjectBundle:Events')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('events/list.html.twig', array(
+            'events' => $events,
+        ));
+    }
 
     /**
-     * Creates a new event entity.
+     * Creates a new event entity for a project.
      *
-     * @Route("/new", name="events_new")
+     * @Route("/new/{id}", name="events_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Project $proj)
     {
         $event = new Event();
+        $event->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\EventsType', $event);
         $form->handleRequest($request);
 
@@ -131,6 +154,6 @@ class EventsController extends Controller
             ->setAction($this->generateUrl('events_delete', array('id' => $event->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
