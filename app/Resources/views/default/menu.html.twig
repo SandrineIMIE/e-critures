@@ -8,7 +8,7 @@
         </a>
 <ul class="nav nav-sidebar dropdown-menu">
     <li> <a href="{{ path('project_index') }}">Liste des projets</a></li>
-    <li><a href=" {{ path('project_new') }}">Ajouter un nouveau projet</a></li>
+    <li><a href=" {{ path('project_new', { 'id': user.id }) }}">Ajouter un nouveau projet</a></li>
 </ul>
     </li>
 
