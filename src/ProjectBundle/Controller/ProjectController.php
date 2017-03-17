@@ -32,9 +32,8 @@ class ProjectController extends Controller
             'projects' => $projects,
         ));
     }
-
     /**
-     * Lists all project entities for a projecty.
+     * Lists all project entities for user.
      *
      * @Route("/list/{id}", name="project_list")
      * @Method("GET")
@@ -49,18 +48,18 @@ class ProjectController extends Controller
             $limit  = null,                 // Limite
             $offset = null                 // Offset
         );
-
         return $this->render('project/project.list.html.twig', array(
             'projects' => $projects,
         ));
     }
+
     /**
-     * Creates a new project entity for a project.
+     * Creates a new project entity.
      *
      * @Route("/new/{id}", name="project_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, User $user)
+    public function newAction(Request $request,User $user)
     {
         $project = new Project();
         $project->setUser($user);
@@ -82,32 +81,6 @@ class ProjectController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-
-    /**
-     * Finds and displays all project entity of a user.
-     *
-     * @Route("/list/{id}", name="project_list")
-     * @Method("GET")
-     */
-    public function listProject(User $user)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $projects = $em->getRepository('ProjectBundle:Project')->findBy(
-            array('user' => $user->getId()),
-            array('id' => 'decs'),
-            $limit = null,
-            $offset = null
-         );
-
-        return $this->render('project/project.list.html.twig', array(
-            'projects' => $projects
-        ));
-    }
-
-
-
 
     /**
      * Finds and displays a project entity.
@@ -184,6 +157,6 @@ class ProjectController extends Controller
             ->setAction($this->generateUrl('project_delete', array('id' => $project->getId())))
             ->setMethod('DELETE')
             ->getForm()
-            ;
+        ;
     }
 }

@@ -30,4 +30,12 @@ class DefaultController extends Controller
          $user = $this->get('security.token_storage')->getToken()->getUser();
          return $this->redirectToRoute('project_list', array("id"=>$user->getId()));
      }
+    /**
+     * @Route("/add", name="addproject")
+     */
+    public function addProject()
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        return $this->redirectToRoute('project_new', array("id"=>$user->getId()));
+    }
 }
