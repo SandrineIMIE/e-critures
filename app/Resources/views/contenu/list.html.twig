@@ -3,8 +3,7 @@
 {% block body %}
     <h1>Liste des versions</h1> <table>
     <thead>
-    <tr><th>Projet</th>
-        <th>Titre</th>
+    <tr><th>Projet - Titre</th>
         <th>Versionat</th>
         <th>Actions</th>
     </tr>
@@ -12,8 +11,7 @@
     <tbody>
         {% for contenu in contenus %}
                     <tr>
-                        <td>{{ contenu.chapitre.project.title }} &nbsp; </td>
-                        <td>{{ contenu.chapitre.title }}&nbsp; </td>
+                        <td>{{ contenu.chapitre.project.title }} - {{ contenu.chapitre.title }}&nbsp; </td>
                     <td>{% if contenu.versionat %}{{ contenu.versionat|date('d-m-Y H:i:s') }}{% endif %}&nbsp; </td>
                     <td>
 

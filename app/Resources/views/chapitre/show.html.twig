@@ -1,29 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapitre</h1>
-
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ chapitre.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ chapitre.title }}</td>
-            </tr>
         <tr>
-            <th>Actions</th>
+            <th><h1>{{ chapitre.title }}</h1></th>
             <td>
-                <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
-                {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-info">Modifier</a>&nbsp;
+            </td><td> {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer"  class="btn btn-danger">
                 {{ form_end(delete_form) }}
-                <a href="{{ path('version_new',{ 'id': chapitre.id }) }}">Ajouter du contenu</a>
             </td>
+        </tr>
+
+        <tr>
+
         </tr>
         </tbody>
     </table>
-
 {% endblock %}

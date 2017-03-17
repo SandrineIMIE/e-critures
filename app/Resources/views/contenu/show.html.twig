@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <h1>{{ contenu.chapitre.project.title }} : {{ contenu.chapitre.title }}</h1>
     {{ contenu.contenu|raw }}
 
     <ul>
