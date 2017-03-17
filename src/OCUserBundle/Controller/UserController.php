@@ -50,10 +50,8 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $user->setEnabled(true);
-            $user->setEmail('');
+            $user->setEmail('mail'.rand(100,900));
             $user->setSalt('');
-            $user->setStatut('1');
-            $user->setRoles(array('roles'=>"ROLE_USER"));
             $em->persist($user);
             $em->flush();
             return $this->redirectToRoute( 'choix');
@@ -67,7 +65,11 @@ class UserController extends Controller
     }
 
 
+<<<<<<<
 
+=======
+
+>>>>>>>
     /**
      * Finds and displays a user entity.
      *
@@ -98,7 +100,7 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
 
         return $this->render('user/edit.html.twig', array(

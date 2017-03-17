@@ -5,6 +5,7 @@ namespace ProjectBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use OCUserBundle\Entity\User;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Project
@@ -74,6 +75,7 @@ class Project
     private $user;
 
     /**
+<<<<<<<
      * @return User
      */
     public function getUser()
@@ -91,6 +93,32 @@ class Project
 
 
     /**
+=======
+     * @ORM\ManyToOne(targetEntity="OCUserBundle\Entity\User", fetch="EAGER")
+     */
+    private $user;
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
+
+
+    /**
+>>>>>>>
      *
      * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag", cascade={"all"})
      */
