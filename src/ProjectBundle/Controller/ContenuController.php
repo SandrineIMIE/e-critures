@@ -40,6 +40,7 @@ class ContenuController extends Controller
     public function newAction(Request $request)
     {
         $contenu = new Contenu();
+        $contenu ->setVersionat( new \DateTime());
         $form = $this->createForm('ProjectBundle\Form\ContenuType', $contenu);
         $form->handleRequest($request);
 

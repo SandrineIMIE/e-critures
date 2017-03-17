@@ -13,7 +13,8 @@ class ContenuType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('contenu')->add('versionat')        ;
+        $builder
+            ->add('contenu')      ;
     }
     
     /**
