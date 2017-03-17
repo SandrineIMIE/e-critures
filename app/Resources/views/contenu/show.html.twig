@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ contenu.chapitre.project.title }} : {{ contenu.chapitre.title }}</h1>
+    {{ contenu.contenu|raw }}
+
+    <ul>
+        <li>
+            <a href="{{ path('contenu_edit', { 'id': contenu.id }) }}">Modifier</a>
+        </li>
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    </ul>
+{% endblock %}

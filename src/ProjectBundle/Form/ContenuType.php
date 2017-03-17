@@ -6,23 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VersionType extends AbstractType
+class ContenuType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('contenu');
+        $builder
+            ->add('contenu')     ;
     }
-
+    
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ProjectBundle\Entity\Version'
+            'data_class' => 'ProjectBundle\Entity\Contenu'
         ));
     }
 
@@ -31,7 +32,7 @@ class VersionType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'projectbundle_version';
+        return 'projectbundle_contenu';
     }
 
 

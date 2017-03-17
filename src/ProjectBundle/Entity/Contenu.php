@@ -5,12 +5,12 @@ namespace ProjectBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Version
+ * Contenu
  *
- * @ORM\Table(name="version")
- * @ORM\Entity(repositoryClass="ProjectBundle\Repository\VersionRepository")
+ * @ORM\Table(name="contenu")
+ * @ORM\Entity(repositoryClass="ProjectBundle\Repository\ContenuRepository")
  */
-class Version
+class Contenu
 {
     /**
      * @var int
@@ -36,13 +36,6 @@ class Version
     private $versionat;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="vs", type="integer")
-     */
-    private $vs = 1;
-
-    /**
      * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Chapitre", fetch="EAGER")
      */
     private $chapitre;
@@ -63,87 +56,48 @@ class Version
         $this->chapitre = $chapitre;
     }
 
-
     /**
-     * Get id
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
+
     /**
-     * Get contenu
-     *
      * @return string
      */
-    public function getContenu()
+    public function getContenu(): string
     {
         return $this->contenu;
     }
 
     /**
-     * Set contenu
-     *
      * @param string $contenu
-     *
-     * @return Version
      */
-    public function setContenu($contenu)
+    public function setContenu(string $contenu)
     {
         $this->contenu = $contenu;
-
-        return $this;
     }
 
+
     /**
-     * Get versionat
-     *
      * @return \DateTime
      */
-    public function getVersionat()
+    public function getVersionat(): \DateTime
     {
         return $this->versionat;
     }
 
     /**
-     * Set versionat
-     *
      * @param \DateTime $versionat
-     *
-     * @return Version
      */
-    public function setVersionat($versionat)
+    public function setVersionat(\DateTime $versionat)
     {
         $this->versionat = $versionat;
-
-        return $this;
     }
 
-    /**
-     * Get vs
-     *
-     * @return int
-     */
-    public function getVs()
-    {
-        return $this->vs;
-    }
 
-    /**
-     * Set vs
-     *
-     * @param integer $vs
-     *
-     * @return Version
-     */
-    public function setVs($vs)
-    {
-        $this->vs = $vs;
-
-        return $this;
-    }
 }
 

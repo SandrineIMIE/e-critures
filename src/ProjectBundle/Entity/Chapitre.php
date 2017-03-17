@@ -61,6 +61,39 @@ class Chapitre
      */
     private $project;
 
+    /**
+     * @ORM\OneToOne(targetEntity="ProjectBundle\Entity\Contenu", fetch="EAGER", cascade={"persist"}")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $contenu;
+
+    /**
+     * Chapitre constructor.
+     * @param $contenu
+     */
+    public function __construct()
+    {
+        $contenu=new Contenu();
+        $contenu->getVersionat($this->createdat);
+        $this->contenu = $contenu;
+    }
+
+    /**
+     * @return Contenu
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * @param Contenu $contenu
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+    }
+
 
     /**
      * @return Project

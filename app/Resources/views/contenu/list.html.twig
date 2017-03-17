@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des versions</h1> <table>
+    <thead>
+    <tr><th>Projet - Titre</th>
+        <th>Versionat</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for contenu in contenus %}
+                    <tr>
+                        <td>{{ contenu.chapitre.project.title }} - {{ contenu.chapitre.title }}&nbsp; </td>
+                    <td>{% if contenu.versionat %}{{ contenu.versionat|date('d-m-Y H:i:s') }}{% endif %}&nbsp; </td>
+                    <td>
+
+                            <a href="{{ path('contenu_show', { 'id': contenu.id }) }}" class="btn btn-info">Voir</a> &nbsp;
+
+                            <a href="{{ path('contenu_edit', { 'id': contenu.id }) }}" class="btn btn-success">Modifier</a> &nbsp;
+
+                            <a href="{{ path('contenu_delete', { 'id': contenu.id }) }}" class="btn btn-danger">Supprimer</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('contenu_new') }}">Créer une nouvelle version vierge</a>#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}
