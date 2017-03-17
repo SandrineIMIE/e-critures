@@ -56,7 +56,7 @@ class UserController extends Controller
             $user->setRoles(array('roles'=>"ROLE_USER"));
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute( 'project_list', array('id' => $user->getId()));
+            return $this->redirectToRoute( 'choix');
 //            return $this->redirectToRoute( 'user_show', array('id' => $user->getId()));
         }
 
