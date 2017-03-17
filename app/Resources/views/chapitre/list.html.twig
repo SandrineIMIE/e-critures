@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapitres list</h1>
+    <h1>Liste des chapitres </h1>
 
     <table>
         <thead>
@@ -15,16 +15,14 @@
         {% for chapitre in chapitres %}
             <tr>
 
-                <td>{{ chapitre.title }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('chapitre_show', { 'id': chapitre.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('contenu_edit', { 'id': chapitre.contenu.id }) }}">{{ chapitre.title }}</a>
+                </td>
+                <td>
+                    <a href="{{ path('contenu_list', { 'id': chapitre.id }) }}" class="btn  btn-primary">Les versions</a>
+&nbsp;
+                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-primary">Modifier</a>
+
                 </td>
             </tr>
         {% endfor %}
