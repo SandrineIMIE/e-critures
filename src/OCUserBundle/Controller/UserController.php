@@ -65,11 +65,6 @@ class UserController extends Controller
     }
 
 
-<<<<<<<
-
-=======
-
->>>>>>>
     /**
      * Finds and displays a user entity.
      *
