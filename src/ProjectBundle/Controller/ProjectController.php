@@ -32,8 +32,9 @@ class ProjectController extends Controller
             'projects' => $projects,
         ));
     }
+
     /**
-     * Lists all project entities for a user.
+     * Lists all project entities for a projecty.
      *
      * @Route("/list/{id}", name="project_list")
      * @Method("GET")
@@ -53,17 +54,15 @@ class ProjectController extends Controller
             'projects' => $projects,
         ));
     }
-
     /**
-     * Creates a new project entity for user.
+     * Creates a new project entity for a project.
      *
-     * @Route("/new/{id}", name="project_new")
+     * @Route("/new", name="project_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, User $user)
+    public function newAction(Request $request)
     {
         $project = new Project();
-        $project->getUser($user);
         $project ->setEditedat( new \DateTime());
         $project ->setCreatedat( new \DateTime());
         $form = $this->createForm('ProjectBundle\Form\ProjectType', $project);
@@ -73,6 +72,7 @@ class ProjectController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($project);
             $em->flush($project);
+
             return $this->redirectToRoute('project_show', array('id' => $project->getId()));
         }
 
@@ -157,6 +157,6 @@ class ProjectController extends Controller
             ->setAction($this->generateUrl('project_delete', array('id' => $project->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
