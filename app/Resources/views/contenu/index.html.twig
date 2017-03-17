@@ -2,40 +2,38 @@
 
 {% block body %}
     <h1>Contenus list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Contenu</th>
-                <th>Versionat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for contenu in contenus %}
-            <tr>
-                <td><a href="{{ path('contenu_show', { 'id': contenu.id }) }}">{{ contenu.id }}</a></td>
-                <td>{{ contenu.contenu }}</td>
-                <td>{% if contenu.versionat %}{{ contenu.versionat|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
+                {{ contenu.contenu }}
+
+                <table>
+                    <thead>
+                    <tr>
+
+                        <th>Versionat</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>{% if contenu.versionat %}{{ contenu.versionat|date('d-m-Y H:i:s') }}{% endif %}</td>
+                    <td>
                     <ul>
                         <li>
-                            <a href="{{ path('contenu_show', { 'id': contenu.id }) }}">show</a>
+                            <a href="{{ path('contenu_show', { 'id': contenu.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('contenu_edit', { 'id': contenu.id }) }}">edit</a>
+                            <a href="{{ path('contenu_edit', { 'id': contenu.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
-            </tr>
+            </tr>       </tbody>
+            </table>
         {% endfor %}
-        </tbody>
-    </table>
+
 
     <ul>
         <li>
-            <a href="{{ path('contenu_new') }}">Create a new contenu</a>
+            <a href="{{ path('contenu_new') }}">Créer une nouvelle version</a>
         </li>
     </ul>
 {% endblock %}
