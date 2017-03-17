@@ -2,7 +2,9 @@
 
 namespace ProjectBundle\Controller;
 
+use ProjectBundle\Entity\Chapitre;
 use ProjectBundle\Entity\Contenu;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +29,27 @@ class ContenuController extends Controller
         $contenus = $em->getRepository('ProjectBundle:Contenu')->findAll();
 
         return $this->render('contenu/index.html.twig', array(
+            'contenus' => $contenus,
+        ));
+    }
+    /**
+     * Lists all contenu entities for a chapitre.
+     *
+     * @Route("/list/{id}", name="contenu_list")
+     * @Method("GET")
+     */
+    public function listAction(Chapitre $chapitre)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $contenus = $em->getRepository('ProjectBundle:Contenu')->findBy(
+            array('chapitre' => $chapitre), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
+
+        return $this->render('contenu/list.html.twig', array(
             'contenus' => $contenus,
         ));
     }

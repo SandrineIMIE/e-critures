@@ -35,6 +35,27 @@ class Contenu
      */
     private $versionat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Chapitre", fetch="EAGER")
+     */
+    private $chapitre;
+
+    /**
+     * @return Chapitre
+     */
+    public function getChapitre()
+    {
+        return $this->chapitre;
+    }
+
+    /**
+     * @param Chapitre $chapitre
+     */
+    public function setChapitre($chapitre)
+    {
+        $this->chapitre = $chapitre;
+    }
+
 
     /**
      * Get id
