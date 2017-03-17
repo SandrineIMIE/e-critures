@@ -56,63 +56,48 @@ class Contenu
         $this->chapitre = $chapitre;
     }
 
-
     /**
-     * Get id
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * Set contenu
-     *
-     * @param string $contenu
-     *
-     * @return Contenu
-     */
-    public function setContenu($contenu)
-    {
-        $this->contenu = $contenu;
-
-        return $this;
-    }
 
     /**
-     * Get contenu
-     *
      * @return string
      */
-    public function getContenu()
+    public function getContenu(): string
     {
         return $this->contenu;
     }
 
     /**
-     * Set versionat
-     *
-     * @param \DateTime $versionat
-     *
-     * @return Contenu
+     * @param string $contenu
      */
-    public function setVersionat($versionat)
+    public function setContenu(string $contenu)
     {
-        $this->versionat = $versionat;
-
-        return $this;
+        $this->contenu = $contenu;
     }
 
+
     /**
-     * Get versionat
-     *
      * @return \DateTime
      */
-    public function getVersionat()
+    public function getVersionat(): \DateTime
     {
         return $this->versionat;
     }
+
+    /**
+     * @param \DateTime $versionat
+     */
+    public function setVersionat(\DateTime $versionat)
+    {
+        $this->versionat = $versionat;
+    }
+
+
 }
 
