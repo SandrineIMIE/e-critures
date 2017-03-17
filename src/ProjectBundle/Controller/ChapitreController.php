@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Chapitre;
+use ProjectBundle\Entity\Contenu;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -61,19 +62,28 @@ class ChapitreController extends Controller
      */
     public function newAction(Request $request, Project $proj)
     {
+        //creation du premier contenu
+        $contenu=new Contenu();
+        $contenu->getVersionat( new \DateTime());
+        //creation du chapitre dont dependra le contenu
         $chapitre = new Chapitre();
         $chapitre->setProject($proj);
         $chapitre ->setEditat( new \DateTime());
         $chapitre ->setCreatedat( new \DateTime());
         $chapitre ->setRedaction(true);
         $chapitre ->setPublication(false);
+        //on gère les interactions entre les deux
+        $chapitre->getContenu($contenu);
+        $contenu->getChapitre($chapitre);
+        //creation du formulaire chapitre
         $form = $this->createForm('ProjectBundle\Form\ChapitreType', $chapitre);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapitre);
-            $em->flush($chapitre);
+            $em->persist($contenu);
+            $em->flush();
 
             return $this->redirectToRoute('chapitre_show', array('id' => $chapitre->getId()));
         }
