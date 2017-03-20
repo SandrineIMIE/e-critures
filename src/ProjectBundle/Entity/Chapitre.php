@@ -57,29 +57,7 @@ class Chapitre
     private $editat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
-     */
-    private $project;
-
-    /**
-     * @ORM\OneToOne(targetEntity="ProjectBundle\Entity\Contenu", fetch="EAGER", cascade={"persist"}")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $contenu;
-
-    /**
-     * Chapitre constructor.
-     * @param $contenu
-     */
-    public function __construct()
-    {
-        $contenu=new Contenu();
-        $contenu->getVersionat($this->createdat);
-        $this->contenu = $contenu;
-    }
-
-    /**
-     * @return Contenu
+     * @return mixed
      */
     public function getContenu()
     {
@@ -87,12 +65,57 @@ class Chapitre
     }
 
     /**
-     * @param Contenu $contenu
+     * @param mixed $contenu
      */
     public function setContenu($contenu)
     {
         $this->contenu = $contenu;
     }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
+     */
+    private $contenu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project", fetch="EAGER")
+     */
+    private $project;
+
+//    /**
+//     * @ORM\OneToOne(targetEntity="ProjectBundle\Entity\Contenu", fetch="EAGER", cascade={"persist"}")
+//     * @ORM\JoinColumn(nullable=false)
+//     */
+//    private $contenu;
+//
+//    /**
+//     * Chapitre constructor.
+//     * @param $contenu
+//     */
+////    public function __construct()
+////    {
+////        $contenu=new Contenu();
+////        $contenu->getVersionat($this->createdat);
+////        $this->contenu = $contenu;
+////    }
+//
+//    /**
+//     * @return Contenu
+//     */
+//    public function getContenu()
+//    {
+//        return $this->contenu;
+//    }
+//
+//    /**
+//     * @param Contenu $contenu
+//     */
+//    public function setContenu($contenu)
+//    {
+//        $this->contenu = $contenu;
+//    }
 
 
     /**

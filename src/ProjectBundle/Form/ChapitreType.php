@@ -15,6 +15,7 @@ class ChapitreType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('contenu')
 //           ->add('redaction')
 //           ->add('publication')
         ;
