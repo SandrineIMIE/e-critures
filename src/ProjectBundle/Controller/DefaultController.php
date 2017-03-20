@@ -11,6 +11,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/admin", name="admin_home")
+     */
+    public function adminAction()
+    {
+        return $this->render('admin.html.twig');
+    }
+
+
+
+    /**
      * @Route("/home", name="homepage")
      */
     public function indexAction()
@@ -26,9 +36,15 @@ class DefaultController extends Controller
      * @Route("/choix", name="choix")
      */
      public function choix()
-     {
-         $user = $this->get('security.token_storage')->getToken()->getUser();
+     { $user = $this->get('security.token_storage')->getToken()->getUser();
+
+         if ($user->getUsername() == "admin") {
+             return $this->redirectToRoute('admin_home');
+         }
+
+         else{
          return $this->redirectToRoute('project_list', array("id"=>$user->getId()));
+         }
      }
     /**
      * @Route("/add", name="addproject")
