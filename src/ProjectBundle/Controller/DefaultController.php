@@ -27,6 +27,7 @@ class DefaultController extends Controller
      */
      public function choix()
      {
+         if () {
          $user = $this->get('security.token_storage')->getToken()->getUser();
          return $this->redirectToRoute('project_list', array("id"=>$user->getId()));
      }

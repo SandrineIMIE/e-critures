@@ -54,8 +54,8 @@ class UserController extends Controller
             $user->setSalt('');
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute( 'choix');
-//            return $this->redirectToRoute( 'user_show', array('id' => $user->getId()));
+
+            return $this->redirectToRoute( 'project_list', array('id' => $user->getId()));
         }
 
         return $this->render('user/new.html.twig', array(
