@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
     {% block dahsbord%}
-        {% include 'default/dashboard.utilisateur.html.twig' %}
+        {% include 'default/dashboard.admin.html.twig' %}
     {% endblock %}
     {% block nav %}
         {% include 'default/nav.dashboard.html.twig' %}
@@ -10,15 +10,16 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Statut</th>
-            <th>Droit</th>
-            <th>Statut</th>
-            <th>Crée le </th>
-            <th>Modifié le </th>
-        </tr>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Catégorie</th>
+                <th>Statut</th>
+                <th>Droit</th>
+                <th>Crée le </th>
+                <th>Modifié le </th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for project in projects %}
@@ -30,7 +31,7 @@
                 <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
                 <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
-                <td><a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a>
+                <td><a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a> &nbsp;
                 </td>
             </tr>
         {% endfor %}
@@ -38,6 +39,7 @@
     </table>
 </div>
 {% endblock %}
-
 {% block menuprincipale %}
+
 {% endblock %}
+{% block menusecondaire %}   {% endblock %}
