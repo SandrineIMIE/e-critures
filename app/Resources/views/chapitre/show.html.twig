@@ -1,10 +1,19 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+{% endblock %}
+    {% block dahsbord%}
+        {% include 'default/dashboard.project.html.twig' %}
+    {% endblock %}
+    {% block nav %}
+        {% include 'default/nav.dashboard.html.twig' %}
+    {% endblock %}
 {% block body %}
+    <h1>{{ chapitre.project.title }} : {{ chapitre.title }}</h1>
+    {{ chapitre.contenu|raw }}
     <table>
         <tbody>
         <tr>
-            <th><h1>{{ chapitre.title }}</h1></th>
+            <th>Actions</th>
             <td>
                 <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-info">Modifier</a>&nbsp;
             </td><td> {{ form_start(delete_form) }}
@@ -12,10 +21,10 @@
                 {{ form_end(delete_form) }}
             </td>
         </tr>
-
-        <tr>
-
-        </tr>
         </tbody>
     </table>
 {% endblock %}
+{% block menuprincipale %}
+    {% include ':default:menu.project2.twig' %}
+{% endblock %}
+{% block menusecondaire %}    {% include ':default:menu.fiche2.twig' %} {% endblock %}

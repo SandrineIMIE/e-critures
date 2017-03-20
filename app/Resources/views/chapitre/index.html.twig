@@ -6,7 +6,7 @@
         {% include 'default/nav.dashboard.html.twig' %}
     {% endblock %}
 {% block body %}
-    <h2>Table des Matières</h2>
+    <h1>Liste des chapitres</h1>
 
     <table>
         <thead>
@@ -25,15 +25,14 @@
                 </td>
                 <td>
                     <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ path('chapitre_delete', { 'id': chapitre.id }) }}" class="btn btn-danger">Supprimer</a>
+
                 </td>
             </tr>
         {% endfor %}
-        {#<tr><a href="{{ path('chapitre_new', { 'id': project.id }) }}">Ajouter un nouveau chapitre</a></tr>#}
         </tbody>
     </table>
 {% endblock %}
 {% block menuprincipale %}
-    {% include ':default:menu.project2.twig' %}
+    {% include ':default:menu.project.twig' %}
 {% endblock %}
-{% block menusecondaire %}    {% include ':default:menu.fiche2.twig' %} {% endblock %}
+{% block menusecondaire %}    {% include ':default:menu.fiche.twig' %} {% endblock %}
