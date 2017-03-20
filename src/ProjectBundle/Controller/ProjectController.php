@@ -61,6 +61,7 @@ class ProjectController extends Controller
      */
     public function newAction(Request $request,User $user)
     {
+
         $project = new Project();
         $project->setUser($user);
         $project ->setEditedat( new \DateTime());
