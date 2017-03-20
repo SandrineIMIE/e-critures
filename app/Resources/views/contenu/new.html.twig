@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
-
-{% block stylesheets %}
-{% endblock %}
-        {% block javascripts %}
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}
             <script src="{{ asset('js/tinymce.min.js') }}"></script>
             <script src="{{ asset('js/langs/fr_FR.js') }}"></script>
             <script>tinymce.init({

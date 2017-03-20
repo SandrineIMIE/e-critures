@@ -28,7 +28,7 @@ class ChapitreController extends Controller
 
         $chapitres = $em->getRepository('ProjectBundle:Chapitre')->findAll();
 
-        return $this->render('chapitre/list.html.twig', array(
+        return $this->render('chapitre/index.html.twig', array(
             'chapitres' => $chapitres,
         ));
     }
@@ -62,19 +62,13 @@ class ChapitreController extends Controller
      */
     public function newAction(Request $request, Project $proj)
     {
-        //creation du premier contenu
-        $contenu=new Contenu();
-        $contenu->getVersionat( new \DateTime());
-        //creation du chapitre dont dependra le contenu
+        //creation du chapitre
         $chapitre = new Chapitre();
         $chapitre->setProject($proj);
         $chapitre ->setEditat( new \DateTime());
         $chapitre ->setCreatedat( new \DateTime());
         $chapitre ->setRedaction(true);
         $chapitre ->setPublication(false);
-        //on gère les interactions entre les deux
-        $chapitre->getContenu($contenu);
-        $contenu->getChapitre($chapitre);
         //creation du formulaire chapitre
         $form = $this->createForm('ProjectBundle\Form\ChapitreType', $chapitre);
         $form->handleRequest($request);
@@ -82,7 +76,6 @@ class ChapitreController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapitre);
-            $em->persist($contenu);
             $em->flush();
 
             return $this->redirectToRoute('chapitre_show', array('id' => $chapitre->getId()));
@@ -103,7 +96,6 @@ class ChapitreController extends Controller
     public function showAction(Chapitre $chapitre)
     {
         $deleteForm = $this->createDeleteForm($chapitre);
-
         return $this->render('chapitre/show.html.twig', array(
             'chapitre' => $chapitre,
             'delete_form' => $deleteForm->createView(),
