@@ -1,9 +1,12 @@
 <ul id="menu-accordeon">
     <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Chapitre(s)</a>
         <ul id="listchap">
+            {#{% for chapitre in chapitres %}#}
             <li>
-                <a href="{{ path('chapitre_list', { 'id': project.id }) }}">Sommaire</a>
+                {#<a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>#}
+                chapitre1
             </li>
+            {#{% endfor %}#}
             <li>
                 <a href="{{ path('chapitre_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -14,10 +17,10 @@
     <li><a href="#" id="linkshow"><span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Liens</a>
         <ul id="listliens">
             {% for link in links %}
-            <li>
-                <a href="{{ link.adress }}" target="_blank"> {{ link.name }}</a>
-                {#<a href="{{ path('link_list', { 'id': project.id }) }}"> Liste des liens du projet</a>#}
-            </li>
+                <li>
+                    <a href="{{ link.adress }}" target="_blank"> {{ link.name }}</a>
+                    {#<a href="{{ path('link_list', { 'id': project.id }) }}"> Liste des liens du projet</a>#}
+                </li>
             {% endfor %}
             <li>
                 <a href="{{ path('link_new', { 'id': project.id }) }}">
@@ -27,10 +30,12 @@
         </ul>
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"> </span> Notes</a>
-        <ul id="listnotes">
-            <li>
-                <a href="{{ path('note_list', { 'id': project.id }) }}">Liste des Notes</a>
+        <ul> {#{% for note in notes %}#}
+            <li id="listnotes">
+                {#<a href="{{ path('note_show', { 'id': note.id }) }}">Note </a>#}
+note
             </li>
+            {#{% endfor %}#}
             <li>
                 <a href="{{ path('note_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -38,8 +43,9 @@
             </li>
         </ul>
     </li>
-    <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Lieux </a>
+    <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lieux </a>
         <ul id="listlieux">
+
             <li>
                 <a href="{{ path('place_list', { 'id': project.id }) }}">Liste des Lieux</a>
             </li>
