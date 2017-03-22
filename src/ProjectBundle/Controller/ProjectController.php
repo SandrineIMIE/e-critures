@@ -50,6 +50,8 @@ class ProjectController extends Controller
         );
         return $this->render('project/project.list.html.twig', array(
             'projects' => $projects,
+            'nrP'=>count($projects),
+
         ));
     }
 
@@ -80,6 +82,7 @@ class ProjectController extends Controller
         return $this->render('project/project.new.html.twig', array(
             'project' => $project,
             'form' => $form->createView(),
+
         ));
     }
 
