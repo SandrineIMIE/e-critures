@@ -6,33 +6,21 @@
         {% include 'default/nav.dashboard.html.twig' %}
     {% endblock %}
 {% block body %}
-    <h1>Liste des chapitres</h1>
-
-    <table>
-        <thead>
-            <tr>
-
-                <th>Titre</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <h2>Table des Matières</h2>
+    <ul>
         {% for chapitre in chapitres %}
-            <tr>
-
-                <td>
-                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
-                </td>
-                <td>
-                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-primary">Modifier</a>
-
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <li>
+            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
+            <a href="{{ path('chapitre_delete', { 'id': chapitre.id }) }}" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"> </span>
+                <span class="hidden">Supprimer</span></a>
+        </li>
+        {% endfor %}></ul>
+    <a href="{{ path('chapitre_new', { 'id': project.id }) }}">Ajouter un nouveau chapitre</a>
 {% endblock %}
 {% block menuprincipale %}
-    {% include ':default:menu.project.twig' %}
+
 {% endblock %}
-{% block menusecondaire %}    {% include ':default:menu.fiche.twig' %} {% endblock %}
+{% block menusecondaire %}
+
+{% endblock %}

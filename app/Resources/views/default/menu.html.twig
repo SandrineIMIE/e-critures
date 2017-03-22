@@ -1,15 +1,17 @@
-
-    <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true"
-           aria-expanded="false">
-            Projets
-            <span class="caret"></span>
-        </a>
-<ul class="nav nav-sidebar dropdown-menu">
-    <li> <a href="{{ path('project_index') }}">Liste des projets</a></li>
-    <li><a href=" {{ path('addproject') }}">Ajouter un nouveau projet</a></li>
-</ul>
+<ul id="menu-accordeon">
+    <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Projets</a>
+        <ul>
+            <li>
+            <li> <a href="{{ path('project_index') }}">Liste des projets</a></li>
+            </li>
+            <li>
+                <a href=" {{ path('addproject')}}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
     </li>
+</ul>
+
 
 
