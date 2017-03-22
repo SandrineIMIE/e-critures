@@ -7,7 +7,8 @@ use ProjectBundle\Entity\Contenu;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Chapitre controller.
@@ -32,6 +33,7 @@ class ChapitreController extends Controller
             'chapitres' => $chapitres,
         ));
     }
+
     /**
      * Lists all chapitre entities for a project.
      *
@@ -45,7 +47,7 @@ class ChapitreController extends Controller
         $chapitres = $em->getRepository('ProjectBundle:Chapitre')->findBy(
             array('project' => $proj->getId()), // Critere
             array('id' => 'desc'),        // Tri
-            $limit  = null,                 // Limite
+            $limit = null,                 // Limite
             $offset = null                 // Offset
         );
 
@@ -65,10 +67,10 @@ class ChapitreController extends Controller
         //creation du chapitre
         $chapitre = new Chapitre();
         $chapitre->setProject($proj);
-        $chapitre ->setEditat( new \DateTime());
-        $chapitre ->setCreatedat( new \DateTime());
-        $chapitre ->setRedaction(true);
-        $chapitre ->setPublication(false);
+        $chapitre->setEditat(new \DateTime());
+        $chapitre->setCreatedat(new \DateTime());
+        $chapitre->setRedaction(true);
+        $chapitre->setPublication(false);
         //creation du formulaire chapitre
         $form = $this->createForm('ProjectBundle\Form\ChapitreType', $chapitre);
         $form->handleRequest($request);
@@ -82,6 +84,7 @@ class ChapitreController extends Controller
         }
 
         return $this->render('chapitre/new.html.twig', array(
+            'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
             'form' => $form->createView(),
         ));
@@ -98,6 +101,7 @@ class ChapitreController extends Controller
         $deleteForm = $this->createDeleteForm($chapitre);
         return $this->render('chapitre/show.html.twig', array(
             'chapitre' => $chapitre,
+            'project' => $chapitre->getProject(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -115,13 +119,16 @@ class ChapitreController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $chapitre ->setEditat( new \DateTime());
+            $chapitre->setEditat(new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('chapitre_edit', array('id' => $chapitre->getId()));
+            return $this->redirectToRoute('chapitre_edit', array(
+                'project' => $chapitre->getProject(),
+                'id' => $chapitre->getId()));
         }
 
         return $this->render('chapitre/edit.html.twig', array(
+            'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -145,7 +152,10 @@ class ChapitreController extends Controller
             $em->flush($chapitre);
         }
 
-        return $this->redirectToRoute('chapitre_index');
+        return $this->redirectToRoute('chapitre_index', array(
+            'project' => $chapitre->getProject(),
+            'chapitre' => $chapitre
+        ));
     }
 
     /**
@@ -158,9 +168,13 @@ class ChapitreController extends Controller
     private function createDeleteForm(Chapitre $chapitre)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('chapitre_delete', array('id' => $chapitre->getId())))
+            ->setAction($this->generateUrl('chapitre_delete', array(
+                'id' => $chapitre->getId(),
+                'project' => $chapitre->getProject(),
+                'chapitre' => $chapitre
+            )))
             ->setMethod('DELETE')
-            ->getForm()
-            ;
+            ->getForm();
     }
+
 }
