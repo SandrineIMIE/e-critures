@@ -85,24 +85,24 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
-            'events'=> $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
-                array('project' => $project->getId()), // Critere
-                array('id' => 'desc'),        // Tri
-                $limit  = null,                 // Limite
-                $offset = null                 // Offset
-            ),
-            'heros'=>  $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findBy(
-                array('project' => $project->getId()), // Critere
-                array('id' => 'desc'),        // Tri
-                $limit  = null,                 // Limite
-                $offset = null                 // Offset
-            ),
-            'lexicoms'=> $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
-                array('project' => $project->getId()), // Critere
-                array('mot' => 'desc'),        // Tri
-                $limit  = null,                 // Limite
-                $offset = null                 // Offset
-            ),
+//            'events'=> $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'heros'=>  $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'lexicoms'=> $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('mot' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
             'items'=> $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -115,18 +115,18 @@ class ProjectController extends Controller
                 $limit  = null,                 // Limite
                 $offset = null                 // Offset
             ),
-            'notes'=> $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
-                array('project' => $project->getId()), // Critere
-                array('id' => 'desc'),        // Tri
-                $limit  = null,                 // Limite
-                $offset = null                 // Offset
-            ),
-            'places'=> $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
-                array('project' => $project->getId()), // Critere
-                array('name' => 'desc'),        // Tri
-                $limit  = null,                 // Limite
-                $offset = null                 // Offset
-            ),
+//            'notes'=> $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'asc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'places'=> $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('name' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
             'form' => $form->createView(),
         ));
     }
@@ -143,12 +143,54 @@ class ProjectController extends Controller
 
         return $this->render('project/project.show.html.twig', array(
             'project' => $project,
-            'links'=>$links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+            'chapitres'=> $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+//            'events'=> $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'heros'=>  $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'lexicoms'=> $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('mot' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+            'items'=> $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
                 $limit  = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'links'=> $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+//            'notes'=> $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'asc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'places'=> $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('name' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -174,9 +216,33 @@ class ProjectController extends Controller
 
         return $this->render('project/project.edit.html.twig', array(
             'project' => $project,
-            'links'=>$links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+            'chapitres'=> $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+//            'events'=> $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+//            'heros'=>  $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findBy(
+//                array('project' => $project->getId()), // Critere
+//                array('id' => 'desc'),        // Tri
+//                $limit  = null,                 // Limite
+//                $offset = null                 // Offset
+//            ),
+            'items'=> $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'links'=> $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('name' => 'asc'),        // Tri
                 $limit  = null,                 // Limite
                 $offset = null                 // Offset
             ),
