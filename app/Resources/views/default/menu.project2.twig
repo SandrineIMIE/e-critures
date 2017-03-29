@@ -1,17 +1,6 @@
 <ul id="menu-accordeon">
-    <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}"><span class="glyphicon glyphicon-book"
-                                                                               aria-hidden="true"></span>&nbsp;Retour à
-            mes Projets</a>
-        {#<ul>#}
-        {#{% for  %}#}
-        {#<li> <a href="{{ path('project_index') }}">Liste des projets</a></li>#}
-        {#{% endfor %}#}
-        {#<li>#}
-        {#<a href=" {{ path('addproject')}}">#}
-        {#<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>#}
-        {#</a>#}
-        {#</li>#}
-        {#</ul>#}
+    <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Retour à mes Projets</a>
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Chapitre(s)</a>
         <ul id="listchap">
@@ -114,13 +103,13 @@
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnages</a>
         <ul id="listperso">
-            {#{% for hero in heros %}#}
-                {#<li>#}
-                    {#<a href="{{ path('heros_show', { 'id': hero.id }) }}">{{ hero.prenom }}&nbsp;{{ hero.nom }}</a>#}
-                {#</li>#}
-            {#{% endfor %}#}
+            {% for perso in persos %}
+                <li>
+                    <a href="{{ path('perso_show', { 'id': perso.id }) }}">{{ perso.prenom }}&nbsp;{{ perso.nom }}</a>
+                </li>
+            {% endfor %}
             <li>
-                <a href="{{ path('heros_new', { 'id': project.id }) }}">
+                <a href="{{ path('perso_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
