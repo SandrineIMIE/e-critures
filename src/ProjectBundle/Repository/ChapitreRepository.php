@@ -10,4 +10,5 @@ namespace ProjectBundle\Repository;
  */
 class ChapitreRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

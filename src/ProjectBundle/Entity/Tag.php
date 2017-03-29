@@ -31,7 +31,7 @@ class Tag
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", inversedBy="tags")
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Project", mappedBy="tags")
      */
     private $projects;
 
@@ -44,34 +44,10 @@ class Tag
     }
 
     /**
-     * Add project
-     *
-     * @param Project $project
-     *
-     * return Tag
-     */
-    public function addProject(Project $project)
-    {
-        $this->projects[] = $project;
-        $project->addProject($this);
-        return $this;
-    }
-
-    /**
-     * remove project
-     *
-     * @param Tag $tag
-     */
-    public function removeProject(Project $project)
-    {
-        $this->projects->removeElement($project);
-    }
-
-    /**
      *
      * Get projects
      *
-     * @return ArrayCollection
+     * @return ArrayCollection | \ProjectBundle\Entity\Project[]
      */
     public function getProjects()
     {
