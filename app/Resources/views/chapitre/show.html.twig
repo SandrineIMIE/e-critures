@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 {% endblock %}
-    {% block dahsbord%}
+    {% block dahsbord %}
         {% include 'default/dashboard.project.html.twig' %}
     {% endblock %}
     {% block nav %}
@@ -16,8 +16,9 @@
             <th>Actions</th>
             <td>
                 <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-info">Modifier</a>&nbsp;
-            </td><td> {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer"  class="btn btn-danger">
+            </td>
+            <td> {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger">
                 {{ form_end(delete_form) }}
             </td>
         </tr>
@@ -25,7 +26,7 @@
     </table>
 {% endblock %}
 {% block menuprincipale %}
-    {#{% include ':default:menu.project2.twig' %}#}
+    {#{% include ':default:menu.project3.twig' %}#}
 {% endblock %}
 {% block menusecondaire %}
 
