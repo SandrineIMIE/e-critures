@@ -68,6 +68,7 @@ class Project
      * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Rights", fetch="EAGER")
      */
     private $rights;
+
     /**
      * @ORM\ManyToOne(targetEntity="OCUserBundle\Entity\User", fetch="EAGER")
      */
