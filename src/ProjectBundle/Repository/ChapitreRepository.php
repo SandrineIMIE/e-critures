@@ -10,4 +10,11 @@ namespace ProjectBundle\Repository;
  */
 class ChapitreRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByProject( $query ) {
+        return $this->createQueryBuilder('chapitre')
+            ->where('chapitre.project = :project_id')
+            ->setParameter('project_id', $query)
+            ->getQuery()
+            ->execute();
+    }
 }

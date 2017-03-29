@@ -7,12 +7,24 @@
         <tbody>
             <tr>
                 <th>{{ tag.name }}</th>
+
                 <td><a href="{{ path('tag_edit', { 'id': tag.id }) }}">Modifier</a> &nbsp;
                     {{ form_start(delete_form) }}
                     <input type="submit" value="Delete">
                     {{ form_end(delete_form) }}
                 </td>
+
             </tr>
+            {#{% if tag.projects|length >0 %}#}
+            {#<tr>#}
+                {#<th>Project</th>#}
+                {#<td>#}
+                    {#{%  for project in tag.projects %}#}
+                        {#<a href="{{ path('project_show_show', { 'id': project.id }) }}"> {{ project.title }}</a>&nbsp;/&nbsp;#}
+                    {#{% endfor %}#}
+                {#</td>#}
+            {#</tr>#}
+            {#{% endif%}#}
         </tbody>
     </table>
 
