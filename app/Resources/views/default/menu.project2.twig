@@ -1,23 +1,37 @@
 <ul id="menu-accordeon">
-    <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Chapitre(s)</a>
+    <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}"><span class="glyphicon glyphicon-book"
+                                                                               aria-hidden="true"></span>&nbsp;Retour à
+            mes Projets</a>
+        {#<ul>#}
+        {#{% for  %}#}
+        {#<li> <a href="{{ path('project_index') }}">Liste des projets</a></li>#}
+        {#{% endfor %}#}
+        {#<li>#}
+        {#<a href=" {{ path('addproject')}}">#}
+        {#<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>#}
+        {#</a>#}
+        {#</li>#}
+        {#</ul>#}
+    </li>
+    <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Chapitre(s)</a>
         <ul id="listchap">
             {% for chapitre in chapitres %}
-            <li>
-                <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
-            </li>
+                <li>
+                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
+                </li>
             {% endfor %}
             <li>
-                <a href="{{ path('chapitre_new', { 'id': project.id }) }}">
+                <a href="{{ path('chapitre_new',{ 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
         </ul>
     </li>
-    <li><a href="#" id="linkshow"><span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Liens</a>
+    <li><a href="#" id="linkshow"><span class="glyphicon glyphicon-link" aria-hidden="true"> </span>&nbsp;Liens</a>
         <ul id="listliens">
             {% for link in links %}
                 <li>
-                    <a href="{{ link.adress}}" target="_blank"> {{ link.name }}</a>
+                    <a href="{{ link.adress }}" target="_blank"> {{ link.name }}</a>
                 </li>
             {% endfor %}
             <li>
@@ -27,12 +41,12 @@
             </li>
         </ul>
     </li>
-    <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"> </span> Notes</a>
+    <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"> </span>&nbsp;Notes</a>
         <ul id="listnotes">
-                {% for note in notes %}
-            <li>
-                <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.contenu }}</a>
-            </li>
+            {% for note in notes %}
+                <li>
+                    <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.contenu }}</a>
+                </li>
             {% endfor %}
             <li>
                 <a href="{{ path('note_new', { 'id': project.id }) }}">
@@ -41,53 +55,12 @@
             </li>
         </ul>
     </li>
-    <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lieux </a>
-        <ul id="listlieux">
-            {% for place in places %}
-            <li>
-                <a href="{{ path('place_show', { 'id': place.id }) }}">{{ place.name }}</a>
-            </li>
-            {% endfor %}
-            <li>
-                <a href="{{ path('place_new', { 'id': project.id }) }}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnages</a>
-        <ul id="listperso">
-          <li> <a href="{{ path('heros_list', { 'id': project.id }) }}">Liste des personnages</a></li>
-            {#{% for hero in heros %}#}
-            {#<li>#}
-                {#<a href="{{ path('heros_list', { 'id': hero.id }) }}">{{ hero.nom }} - {{ hero.prenom }}</a>#}
-            {#</li>#}
-            {#{% endfor %}#}
-            <li>
-                <a href="{{ path('heros_new', { 'id': project.id }) }}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li><a href="#"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Lexique</a>
-        <ul id="listlexique">
-            <li>
-                <a href="{{ path('lexicom_list', { 'id': project.id }) }}">Lexique</a>
-            </li>
-            <li>
-                <a href="{{ path('lexicom_new', { 'id': project.id }) }}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Objets</a>
+    <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Objets</a>
         <ul id="listobjet">
             {% for item in items %}
-            <li>
-                <a href="{{ path('items_show', { 'id': item.id }) }}">{{ item.name }}</a>
-            </li>
+                <li>
+                    <a href="{{ path('items_show', { 'id': item.id }) }}">{{ item.name }}</a>
+                </li>
             {% endfor %}
             <li>
                 <a href="{{ path('items_new', { 'id': project.id }) }}">
@@ -96,13 +69,13 @@
             </li>
         </ul>
     </li>
-    <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Evenements</a>
+    <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Evenements</a>
         <ul id="listevents">
-            {#{% for event in events %}#}
-            {#<li>#}
-                {#<a href="{{ path('events_list', { 'id': project.id }) }}">Liste des Evenements</a>#}
-            {#</li>#}
-            {#{% endfor %}#}
+            {% for event in events %}
+                <li>
+                    <a href="{{ path('events_show', { 'id': event.id }) }}">{{ event.date }}</a>
+                </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('events_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -110,12 +83,58 @@
             </li>
         </ul>
     </li>
+    <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lieux </a>
+        <ul id="listlieux">
+            {% for place in places %}
+                <li>
+                    <a href="{{ path('place_show', { 'id': place.id }) }}">{{ place.name }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{{ path('place_new', { 'id': project.id }) }}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li><a href="#"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Lexique</a>
+        <ul id="listlexique">
+            {% for lexicom in lexicoms %}
+                <li>
+                    <a href="{{ path('lexicom_show', { 'id': lexicom.id }) }}">{{ lexicom.mot }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{{ path('lexicom_new', { 'id': project.id }) }}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnages</a>
+        <ul id="listperso">
+            {% for hero in heros %}
+                <li>
+                    <a href="{{ path('heros_show', { 'id': hero.id }) }}">{{ hero.prenom }}&nbsp;{{ hero.nom }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{{ path('heros_new', { 'id': project.id }) }}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
     <li><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Tags</a>
         <ul id="listtags">
-            <li>
-                Liste des tags
-                {#<a href="{{ path('tag_list', { 'id': project.id }) }}">Liste des tags </a>#}
-            </li>
+            {% if project.tags|length >0 %}
+                {% for tag in project.tags %}
+                    <li>
+                        <a href="{{ path('tag_show', { 'id': tag.id }) }}"> {{ tag.name }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
             <li>
                 <a href="{{ path('tag_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

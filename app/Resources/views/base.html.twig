@@ -22,7 +22,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar" id="toto">
-                {% include 'default/menu.html.twig' %}
                 {% block menuprincipale %}
                 {% endblock %}
                 {% include 'default/footer.html.twig' %}
@@ -41,7 +40,7 @@
         {% block javascripts %}
 
             <script src="{{ asset('js/npm.js') }}"></script>
-            <script src="{{ asset('js/ie8-responsive-file-warning.js') }}"></script>
+            {#<script src="{{ asset('js/ie8-responsive-file-warning.js') }}"></script>#}
             <script src="{{ asset('js/ie-emulation-modes-warning.js') }}"></script>
             <script src="{{ asset('js/html5shiv.min.js') }}"></script>
             <script src="{{ asset('js/respond.min.js') }}"></script>

@@ -62,11 +62,11 @@ class ChapitreController extends Controller
      * @Route("/new/{id}", name="chapitre_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, Project $proj)
+    public function newAction(Request $request, Project $project)
     {
         //creation du chapitre
         $chapitre = new Chapitre();
-        $chapitre->setProject($proj);
+        $chapitre->setProject($project);
         $chapitre->setEditat(new \DateTime());
         $chapitre->setCreatedat(new \DateTime());
         $chapitre->setRedaction(true);
