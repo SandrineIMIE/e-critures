@@ -10,4 +10,16 @@ namespace ProjectBundle\Repository;
  */
 class HerosRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByLimite(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        $em = $this-> getDoctrine()->getManager();
+        $query = $em-> createQueryBuilder();
+        $query-> select('h')
+            ->from('ProjectBundle:Heros', 'h')
+            ->where($criteria)
+            ->orderBy($orderBy)
+            ->setParameter('nom','prenom','id');
+        $heros = $query -> getQuery()-> getResult();
+        return $heros;
+    }
 }

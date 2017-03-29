@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Hero controller.
  *
- * @Route("heros")
+ * @Route("hero")
  */
 class HerosController extends Controller
 {
