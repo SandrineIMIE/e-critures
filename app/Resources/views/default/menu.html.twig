@@ -1,11 +1,11 @@
 <ul id="menu-accordeon">
     <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Projets</a>
         <ul>
+            {% for project in projects %}
+                <li><a href="{{ path('project_show', { 'id': project.id }) }}">{{ project.title }}</a></li>
+            {% endfor %}
             <li>
-            <li> <a href="{{ path('project_index') }}">Liste des projets</a></li>
-            </li>
-            <li>
-                <a href=" {{ path('addproject')}}">
+                <a href=" {{ path('addproject') }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>

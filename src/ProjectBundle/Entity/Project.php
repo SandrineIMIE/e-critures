@@ -68,6 +68,7 @@ class Project
      * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Rights", fetch="EAGER")
      */
     private $rights;
+
     /**
      * @ORM\ManyToOne(targetEntity="OCUserBundle\Entity\User", fetch="EAGER")
      */
@@ -76,7 +77,7 @@ class Project
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", mappedBy="Tag", cascade={"all"})
+     * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", inversedBy="projects", cascade={"all"})
      */
     private $tags;
 
@@ -90,16 +91,25 @@ class Project
     }
 
     /**
+     * Get Tags
+     *
+     * @return ArrayCollection|\ProjectBundle\Entity\Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
      * Add tags
      *
      * @param Tag $tag
-     *
-     * @return Project
      */
     public function addTag(Tag $tag)
     {
-        $this->tags[] = $tag;
-        return $this;
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
     }
 
     /**
@@ -109,21 +119,11 @@ class Project
      */
     public function removeTag(Tag $tag)
     {
-        $this->tags ->removeElement($tag);
+            $this->tags->removeElement($tag);
     }
+
 
     /**
-     * Get Tags
-     *
-     * @return ArrayCollection
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-
-/**
      * @return Rights
      */
     public function getRights()

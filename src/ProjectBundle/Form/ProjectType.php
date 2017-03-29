@@ -22,6 +22,12 @@ class ProjectType extends AbstractType
 //                "class"=>Tag::class,
 //                "choice_label" => "name"))
             ->add('statut')
+            ->add('tags', EntityType::class, array (
+                "class"=>'ProjectBundle\Entity\Tag',
+                "choice_label" => "name",
+                "multiple"=>true,
+                "expanded"=>true,
+            ))
              ->add('category', EntityType::class, array(
             "class"=>Category::class,
             "choice_label" => "name"))
@@ -29,6 +35,7 @@ class ProjectType extends AbstractType
                     "class"=>Rights::class,
                     "choice_label" => "type")
     );
+
 //            ->add('createdat')
 //            ->add('editedat');
     }

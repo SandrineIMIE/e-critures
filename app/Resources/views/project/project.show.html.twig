@@ -32,6 +32,15 @@
                 <th>Modifié le </th>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
             </tr>
+            {% if project.tags|length >0 %}
+            <tr>
+                <th>Tags</th>
+                <td>
+                    {%  for tag in project.tags %}
+                        <a href="{{ path('tag_show', { 'id': tag.id }) }}"> {{ tag.name }}</a>&nbsp;/&nbsp;
+                    {% endfor %}</td>
+            </tr>
+            {% endif%}
             <tr>
                 <th>Actions</th>
                 <td></td>
