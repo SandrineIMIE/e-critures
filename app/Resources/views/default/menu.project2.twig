@@ -114,11 +114,11 @@
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnages</a>
         <ul id="listperso">
-            {% for hero in heros %}
-                <li>
-                    <a href="{{ path('heros_show', { 'id': hero.id }) }}">{{ hero.prenom }}&nbsp;{{ hero.nom }}</a>
-                </li>
-            {% endfor %}
+            {#{% for hero in heros %}#}
+                {#<li>#}
+                    {#<a href="{{ path('heros_show', { 'id': hero.id }) }}">{{ hero.prenom }}&nbsp;{{ hero.nom }}</a>#}
+                {#</li>#}
+            {#{% endfor %}#}
             <li>
                 <a href="{{ path('heros_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
