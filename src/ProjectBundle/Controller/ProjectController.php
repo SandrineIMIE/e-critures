@@ -3,7 +3,6 @@
 namespace ProjectBundle\Controller;
 
 use OCUserBundle\Entity\User;
-use ProjectBundle\Entity\Heros;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -52,7 +51,7 @@ class ProjectController extends Controller
         );
         return $this->render('project/project.list.html.twig', array(
             'projects' => $projects,
-            'nrP'=>count($projects)
+            'nrP' => count($projects)
         ));
     }
 
@@ -124,12 +123,12 @@ class ProjectController extends Controller
                     $limit = null,                 // Limite
                     $offset = null                 // Offset
                 ),
-//                'heros' => $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findByLimite(
-//                    array('project' => $project->getId()), // Critere
-//                    array('id' => 'asc'),        // Tri
-//                    $limit = null,                 // Limite
-//                    $offset = null                 // Offset
-//                ),
+                'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                    array('project' => $project->getId()), // Critere
+                    array('name' => 'asc'),        // Tri
+                    $limit = null,                 // Limite
+                    $offset = null                 // Offset
+                ),
                 'form' => $form->createView(),
             )
         );
@@ -189,12 +188,12 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
-//            'heros' => $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findByLimite(
-//                array('project' => $project->getId()), // Critere
-//                array('id' => 'asc'),        // Tri
-//                $limit = null,                 // Limite
-//                $offset = null                 // Offset
-//            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -262,12 +261,12 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
-//            'heros' => $heros = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Heros')->findBy(
-//                array('project' => $project->getId()), // Critere
-//                array('id' => 'asc'),        // Tri
-//                $limit = null,                 // Limite
-//                $offset = null                 // Offset
-//            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
