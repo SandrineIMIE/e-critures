@@ -30,8 +30,11 @@
     <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"> </span> Notes</a>
         <ul>
             <li id="listnotes">
-                note
+                {% for note in notes %}
+            <li>
+                <a href="{{ path('note_new', { 'id': note.id }) }}">{{ note.contenu }}</a>
             </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('note_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -54,9 +57,12 @@
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnages</a>
         <ul id="listperso">
-            <li>
-                <a href="{{ path('heros_list', { 'id': project.id }) }}">Liste des personnages</a>
-            </li>
+          <li> <a href="{{ path('heros_list', { 'id': project.id }) }}">Liste des personnages</a></li>
+            {#{% for hero in heros %}#}
+            {#<li>#}
+                {#<a href="{{ path('heros_list', { 'id': hero.id }) }}">{{ hero.nom }} - {{ hero.prenom }}</a>#}
+            {#</li>#}
+            {#{% endfor %}#}
             <li>
                 <a href="{{ path('heros_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

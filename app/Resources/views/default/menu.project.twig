@@ -1,9 +1,11 @@
 <ul id="menu-accordeon">
     <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Chapitre(s)</a>
-        <ul>
-            <li>
-                <a href="{{ path('chapitre_list', { 'id': project.id }) }}">Sommaire</a>
-            </li>
+        <ul id="listchap">
+            {% for chapitre in chapitres %}
+                <li>
+                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
+                </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('chapitre_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -13,9 +15,11 @@
     </li>
     <li><a href="#" id="linkshow"><span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Liens</a>
         <ul id="listliens">
-            {#<li>#}
-                {#<a href="{{ path('link_list', { 'id': project.id }) }}"> Liste des liens du projet</a>#}
-            {#</li>#}
+            {% for link in links %}
+                <li>
+                    <a href="{{ link.adress }}" target="_blank"> {{ link.name }}</a>
+                </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('link_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -72,10 +76,12 @@
         </ul>
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Objets</a>
-        <ul>
-            <li>
-                <a href="{{ path('items_list', { 'id': project.id }) }}">Liste des Objets</a>
-            </li>
+        <ul id="listobjet">
+            {% for item in items %}
+                <li>
+                    <a href="{{ path('items_show', { 'id': item.id }) }}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('items_new', { 'id': project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
