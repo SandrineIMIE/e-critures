@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-    {% block dahsbord%}
+    {% block dahsbord %}
         {% include 'default/dashboard.project.html.twig' %}
     {% endblock %}
     {% block nav %}
@@ -7,33 +7,23 @@
     {% endblock %}
 {% block body %}
     <h2>Table des Matières</h2>
-
-    <table>
-        <thead>
-            <tr>
-
-                <th>Titre</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <ul>
         {% for chapitre in chapitres %}
-            <tr>
+        <li>
+            <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
+            <a href="{{ path('chapitre_delete', { 'id': chapitre.id }) }}" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"> </span>
+                <span class="hidden">Supprimer</span></a>
+        </li>
+        {% endfor %}>
+    </ul>
+    <a href="{{ path('chapitre_new', { 'id': project.id }) }}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"><span class="hidden">Ajouter</span></a>
 
-                <td>
-                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
-                </td>
-                <td>
-                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ path('chapitre_delete', { 'id': chapitre.id }) }}" class="btn btn-danger">Supprimer</a>
-                </td>
-            </tr>
-        {% endfor %}
-        {#<tr><a href="{{ path('chapitre_new', { 'id': project.id }) }}">Ajouter un nouveau chapitre</a></tr>#}
-        </tbody>
-    </table>
 {% endblock %}
 {% block menuprincipale %}
     {% include ':default:menu.project2.twig' %}
 {% endblock %}
-{% block menusecondaire %}    {% include ':default:menu.fiche2.twig' %} {% endblock %}
+{% block menusecondaire %}
+
+{% endblock %}

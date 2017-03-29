@@ -47,6 +47,12 @@ class EventsController extends Controller
             $limit  = null,                 // Limite
             $offset = null                 // Offset
         );
+        $heros = $em->getRepository('ProjectBundle:Heros')->findBy(
+            array('project' => $proj->getId()), // Critere
+            array('id' => 'desc'),        // Tri
+            $limit  = null,                 // Limite
+            $offset = null                 // Offset
+        );
 
         return $this->render('events/list.html.twig', array(
             'events' => $events,

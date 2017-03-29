@@ -10,4 +10,5 @@ namespace ProjectBundle\Repository;
  */
 class LinkRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

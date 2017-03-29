@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
     {% block dahsbord%}
-        {% include 'default/dashboard.project.html.twig' %}
+
     {% endblock %}
     {% block nav %}
         {% include 'default/nav.dashboard.html.twig' %}
@@ -18,7 +20,7 @@
                 "searchreplace wordcount visualchars code insertdatetime  nonbreaking",
                 "contextmenu  textcolor paste textpattern textcolor colorpicker"
             ],
-            autosave_ask_before_unload:true,
+            autosave_ask_before_unload: true,
             autosave_interval: "20s",
             wordcount_cleanregex: /[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g,
             toolbar1: " bold italic strikethrough | trait | alignleft aligncenter alignright alignjustify " +
@@ -40,7 +42,7 @@
             },
             content_css: [
                 '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//www.tinymce.com/css/codepen.min.css' ],
+                '//www.tinymce.com/css/codepen.min.css'],
             formats: {
                 alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
                 aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
@@ -56,11 +58,11 @@
         });</script>
 {% endblock %}
 {% block body %}
-    <h1>Nouveau chapitre</h1>
+    <h1>{{ chapitre.project.title }} : Nouveau chapitre</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Créer">
+    {{ form_widget(form) }}
+    <input type="submit" value="Créer">
     {{ form_end(form) }}
 
 
@@ -68,4 +70,6 @@
 {% block menuprincipale %}
     {% include ':default:menu.project2.twig' %}
 {% endblock %}
-{% block menusecondaire %}    {% include ':default:menu.fiche2.twig' %} {% endblock %}
+{% block menusecondaire %}
+
+{% endblock %}

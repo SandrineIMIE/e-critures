@@ -52,6 +52,7 @@ class DefaultController extends Controller
     public function addProject()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
+
         return $this->redirectToRoute('project_new', array("id"=>$user->getId()));
     }
 }

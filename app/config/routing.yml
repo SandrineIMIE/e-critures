@@ -46,6 +46,10 @@ project_place:
     resource: "@ProjectBundle/Controller/PlaceController.php"
     type:     annotation
 
+#project_default:
+#    resource: "@ProjectBundle/Controller/DefaultController.php"
+#    type:     annotation
+
 project:
     resource: "@ProjectBundle/Controller/"
     type:     annotation
