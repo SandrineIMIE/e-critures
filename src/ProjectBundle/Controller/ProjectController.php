@@ -146,11 +146,13 @@ class ProjectController extends Controller
 
         return $this->render('project/project.show.html.twig', array(
             'project' => $project,
+
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
+                           
             ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
