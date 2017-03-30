@@ -24,7 +24,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('link_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('link_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -34,11 +34,11 @@
         <ul id="listnotes">
             {% for note in notes %}
                 <li>
-                    <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.contenu }}</a>
+                    <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.titre }}</a>
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('note_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('note_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -52,7 +52,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('items_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('items_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -66,7 +66,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('events_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('events_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -80,7 +80,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('place_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('place_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -95,7 +95,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('lexicom_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('lexicom_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -109,7 +109,7 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="{{ path('perso_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('perso_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -117,15 +117,13 @@
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Tags</a>
         <ul id="listtags">
-            {% if project.tags|length >0 %}
-                {% for tag in project.tags %}
-                    <li>
-                        <a href="{{ path('tag_show', { 'id': tag.id }) }}"> {{ tag.name }}</a>
-                    </li>
-                {% endfor %}
-            {% endif %}
+            {% for tag in project.tags %}
+                <li>
+                    <a href="{{ path('tag_show', { 'id': tag.id }) }}"> {{ tag.name }}</a>
+                </li>
+            {% endfor %}
             <li>
-                <a href="{{ path('tag_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('tag_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>

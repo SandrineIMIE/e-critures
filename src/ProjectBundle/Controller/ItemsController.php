@@ -6,7 +6,9 @@ use ProjectBundle\Entity\Items;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use ProjectBundle\Form\ItemsType;
 
 /**
  * Item controller.
@@ -57,12 +59,15 @@ class ItemsController extends Controller
     /**
      * Creates a new item entity for a project.
      *
+     * @param Request $request
+     * @param Project $proj
      * @Route("/new/{id}", name="items_new")
      * @Method({"GET", "POST"})
+     * @return
      */
     public function newAction(Request $request, Project $proj)
     {
-        $item = new Item();
+        $item = new Items();
         $item ->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\ItemsType', $item);
         $form->handleRequest($request);

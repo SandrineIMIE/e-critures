@@ -24,6 +24,14 @@ class Note
     /**
      * @var string
      *
+     * @ORM\Column(name="titre", type="string", length=1000)
+     */
+    private $titre;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="contenu", type="string", length=1000)
      */
     private $contenu;
@@ -57,6 +65,29 @@ class Note
     public function getId()
     {
         return $this->id;
+    }
+
+
+    /**
+     * Set titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Note
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
     }
 
     /**
