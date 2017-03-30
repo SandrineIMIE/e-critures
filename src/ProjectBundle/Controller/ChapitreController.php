@@ -3,7 +3,6 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\Chapitre;
-use ProjectBundle\Entity\Contenu;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -53,6 +52,48 @@ class ChapitreController extends Controller
 
         return $this->render('chapitre/list.html.twig', array(
             'chapitres' => $chapitres,
+            'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'events' => $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('mot' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            )
         ));
     }
 
@@ -86,6 +127,55 @@ class ChapitreController extends Controller
         return $this->render('chapitre/new.html.twig', array(
             'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+
+            'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'events' => $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('mot' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'form' => $form->createView(),
         ));
     }
@@ -102,6 +192,48 @@ class ChapitreController extends Controller
         return $this->render('chapitre/show.html.twig', array(
             'chapitre' => $chapitre,
             'project' => $chapitre->getProject(),
+            'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'events' => $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('mot' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -130,6 +262,48 @@ class ChapitreController extends Controller
         return $this->render('chapitre/edit.html.twig', array(
             'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
+            'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'events' => $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('name' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('mot' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

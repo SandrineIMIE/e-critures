@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Persos list d'un project</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Surnom</th>
+                <th>Daten</th>
+                <th>Lieun</th>
+                <th>Sexe</th>
+                <th>Statut</th>
+                <th>Mineur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for perso in persos %}
+            <tr>
+                <td><a href="{{ path('perso_show', { 'id': perso.id }) }}">{{ perso.id }}</a></td>
+                <td>{{ perso.nom }}</td>
+                <td>{{ perso.prenom }}</td>
+                <td>{{ perso.surnom }}</td>
+                <td>{{ perso.daten }}</td>
+                <td>{{ perso.lieun }}</td>
+                <td>{{ perso.sexe }}</td>
+                <td>{{ perso.statut }}</td>
+                <td>{% if perso.mineur %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('perso_show', { 'id': perso.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('perso_edit', { 'id': perso.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('perso_new') }}">Create a new perso</a>#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}
