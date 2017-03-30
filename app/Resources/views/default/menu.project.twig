@@ -29,7 +29,7 @@
                 <a href="{{ path('note_list', { 'id': project.id }) }}">Liste des Notes</a>
             </li>
             <li>
-                <a href="{{ path('note_new', { 'id': project.id }) }}">
+                <a href="#"  onclick="window.open('{{ path('note_new', { 'id': project.id }) }}','Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
