@@ -152,7 +152,7 @@ class ProjectController extends Controller
                 array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
-                           
+
             ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
