@@ -52,9 +52,9 @@ class Perso
     /**
      * @var string
      *
-     * @ORM\Column(name="lieun", type="string", length=255)
+     * @ORM\Column(name="lieu", type="string", length=255)
      */
-    private $lieun;
+    private $lieu;
 
     /**
      * @var string
