@@ -4,11 +4,11 @@
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Chapitre(s)</a>
         <ul id="listchap">
-            {#{% for chapitre in chapitres %}#}
-                {#<li>#}
-                    {#<a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>#}
-                {#</li>#}
-            {#{% endfor %}#}
+            {% for chapitre in chapitres %}
+                <li>
+                    <a href="{{ path('chapitre_edit', { 'id': chapitre.id }) }}">{{ chapitre.title }}</a>
+                </li>
+            {% endfor %}
             <li>
                 <a href="{{ path('chapitre_new',{ 'id': chapitre.project.id }) }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

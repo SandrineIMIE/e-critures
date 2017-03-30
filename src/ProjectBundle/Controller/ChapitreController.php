@@ -192,6 +192,12 @@ class ChapitreController extends Controller
         return $this->render('chapitre/show.html.twig', array(
             'chapitre' => $chapitre,
             'project' => $chapitre->getProject(),
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -262,6 +268,12 @@ class ChapitreController extends Controller
         return $this->render('chapitre/edit.html.twig', array(
             'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
                 array('id' => 'desc'),        // Tri
