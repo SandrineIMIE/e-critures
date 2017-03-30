@@ -2,9 +2,6 @@ project_perso:
     resource: "@ProjectBundle/Controller/PersoController.php"
     type:     annotation
 
-project_contenu:
-    resource: "@ProjectBundle/Controller/ContenuController.php"
-    type:     annotation
 
 oc_user_user:
     resource: "@OCUserBundle/Controller/UserController.php"
@@ -24,10 +21,6 @@ project_chapitre:
 
 project_events:
     resource: "@ProjectBundle/Controller/EventsController.php"
-    type:     annotation
-
-project_heros:
-    resource: "@ProjectBundle/Controller/HerosController.php"
     type:     annotation
 
 project_items:
