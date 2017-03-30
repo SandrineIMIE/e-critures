@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Chapitre controller.
@@ -57,49 +58,49 @@ class ChapitreController extends Controller
             'chapitres' => $chapitres,
 
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('name' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'events' => $events = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Events')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('name' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('mot' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
 
             'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
-                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('project' => $proj->getId()), // Critere
                 array('prenom' => 'asc'),        // Tri
                 $limit  = null,                 // Limite
                 $offset = null                 // Offset
@@ -202,6 +203,12 @@ class ChapitreController extends Controller
         return $this->render('chapitre/show.html.twig', array(
             'chapitre' => $chapitre,
             'project' => $chapitre->getProject(),
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -272,6 +279,12 @@ class ChapitreController extends Controller
         return $this->render('chapitre/edit.html.twig', array(
             'project' => $chapitre->getProject(),
             'chapitre' => $chapitre,
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $chapitre->getProject()->getId()), // Critere
+                array('id' => 'desc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -360,5 +373,35 @@ class ChapitreController extends Controller
             ->setMethod('DELETE')
             ->getForm();
     }
+    /**
+     * Creates a pdf for a chapitre entity
+     *
+     * @Route("/pdf/{id}", name="pdfchap")
+     * @Method("GET")
+     */
+    public function pdfAction(Chapitre $chapitre)
+    {
+        $snappy = $this->get('knp_snappy.pdf');
+        $snappy->setOption('no-outline', true);
+        $snappy->setOption('page-size','A4');
+        $snappy->setOption('encoding', 'UTF-8');
+
+        $html = $this->renderView('chapitre/pdf.html.twig', array(
+            'title' => $chapitre->getTitle(),
+             'chapitre' => $chapitre
+        ));
+
+        $filename = $chapitre->getTitle();
+
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+    }
+
 
 }

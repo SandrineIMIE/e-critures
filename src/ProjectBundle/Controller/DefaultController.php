@@ -6,6 +6,8 @@ namespace ProjectBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class DefaultController extends Controller
@@ -19,10 +21,9 @@ class DefaultController extends Controller
     }
 
 
-
     /**
-     * @Route("/home", name="homepage")
-     */
+ * @Route("/home", name="homepage")
+ */
     public function indexAction()
     {
         return $this->render('default/page.html.twig', array(
@@ -31,6 +32,7 @@ class DefaultController extends Controller
             "last_username" => $this->getUser()
         ));
     }
+
 
     /**
      * @Route("/choix", name="choix")

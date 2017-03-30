@@ -62,13 +62,14 @@
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" value="Créer">
+    <button type="submit" value="Créer" class="btn btn-primary">
+        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+    </button>
     {{ form_end(form) }}
-
 
 {% endblock %}
 {% block menuprincipale %}
-    {% include ':default:menu.project3.twig' %}
+    {% include ':default:menu.project2.twig' %}
 {% endblock %}
 {% block menusecondaire %}
 
