@@ -1,0 +1,10 @@
+<h1>{{ project.title }}- {{ project.user }}
+</h1>
+{% for chapitre in chapitres %}
+<h2>{{ chapitre.title }}</h2>
+{{ chapitre.contenu|raw}}
+{% endfor %}
+<h2>Lexique</h2>
+{% for lexicom in lexicoms %}
+{{ lexicom.mot }} : {{ lexicom.definition }}
+{% endfor %}

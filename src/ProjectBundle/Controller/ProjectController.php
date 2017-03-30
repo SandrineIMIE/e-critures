@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Project controller.
@@ -51,7 +52,7 @@ class ProjectController extends Controller
         );
         return $this->render('project/project.list.html.twig', array(
             'projects' => $projects,
-            'nrP' => count($projects)
+            'nrP' => count($projects),
         ));
     }
 
@@ -87,6 +88,7 @@ class ProjectController extends Controller
                     $limit = null,                 // Limite
                     $offset = null                 // Offset
                 ),
+                'nbrChap'=> count($chapitres),
                 'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                     array('project' => $project->getId()), // Critere
                     array('id' => 'desc'),        // Tri
@@ -152,6 +154,7 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrChap'=> count($chapitres),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -225,6 +228,7 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrChap'=> count($chapitres),
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
@@ -239,7 +243,7 @@ class ProjectController extends Controller
             ),
             'notes' => $notes = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Note')->findBy(
                 array('project' => $project->getId()), // Critere
-                array('id' => 'asc'),        // Tri
+                array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
@@ -263,8 +267,8 @@ class ProjectController extends Controller
             ),
             'persos' => $persos = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Perso')->findBy(
                 array('project' => $project->getId()), // Critere
-                array('name' => 'asc'),        // Tri
-                $limit = null,                 // Limite
+                array('prenom' => 'asc'),        // Tri
+                $limit  = null,                 // Limite
                 $offset = null                 // Offset
             ),
             'edit_form' => $editForm->createView(),
@@ -289,7 +293,7 @@ class ProjectController extends Controller
             $em->flush($project);
         }
 
-        return $this->redirectToRoute('project_index');
+        return $this->redirectToRoute('project_list', array('id'=> $project->getId()));
     }
 
     /**
@@ -325,4 +329,47 @@ class ProjectController extends Controller
 
         return new Response ('<body></Body>');
     }
+
+    /**
+     * Creates a pdf for a project entity
+     *
+     * @Route("/pdf/{id}", name="pdfproj")
+     * @Method("GET")
+     */
+    public function pdfAction(Project $project)
+    {
+        $snappy = $this->get('knp_snappy.pdf');
+        $snappy->setOption('no-outline', true);
+        $snappy->setOption('page-size','A4');
+        $snappy->setOption('encoding', 'UTF-8');
+
+        $html = $this->renderView('project/project.pdf.html.twig', array(
+            'title' => $project->getTitle(),
+            'project' => $project,
+            'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('mot' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            ),
+            'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
+                array('project' => $project->getId()), // Critere
+                array('id' => 'asc'),        // Tri
+                $limit = null,                 // Limite
+                $offset = null                 // Offset
+            )
+        ));
+
+        $filename = $project->getTitle();
+
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+    }
+
 }
