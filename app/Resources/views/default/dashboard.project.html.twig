@@ -1,52 +1,52 @@
-<h1 class="page-header">Tableau de bord</h1>
-<div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
+{% block meta %}
+<meta http-equiv="Refresh" content="10">
+{% endblock %}
 
+<h1 class="page-header">Tableau de bord</h1>
+
+<div class="row placeholders">
+
+    <div class="col-xs-6 col-sm-3 placeholder">
         <h3>{{nbrChap}}</h3>
         <span class="text-muted"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"> </span> Chapitre(s)</span>&nbsp;
     </div>
 
     <div class="col-xs-6 col-sm-3 placeholder">
-
         <h3>{{nbrPerso}}</h3>
         <span class="text-muted"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Personnage(s)</span>
     </div>
 
     <div class="col-xs-6 col-sm-3 placeholder">
-
         <h3>{{nbrPlaces}}</h3>
         <span class="text-muted"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lieux </span>
     </div>
 
-    <div class="col-xs-6 col-sm-3 placeholder">
+    {#<div class="col-xs-6 col-sm-3 placeholder">#}
 
-        <h4>Note</h4>
-        <span class="text-muted">Compteur</span>
-    </div>
-</div>
+        {#<h4>Note</h4>#}
+        {#<span class="text-muted">Compteur</span>#}
+    {#</div>#}
+{#</div>#}
 
-<div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
+{#<div class="row placeholders">#}
+    {#<div class="col-xs-6 col-sm-3 placeholder">#}
 
-        <h3>{{ nbrItems }}</h3>
-        <span class="text-muted"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Objet(s)</span>
-    </div>
+        {#<h3>{{ nbrItems }}</h3>#}
+        {#<span class="text-muted"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Objet(s)</span>#}
+    {#</div>#}
+
     <div class="col-xs-6 col-sm-3 placeholder">
-        {#<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-               width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">#}
-        <h4>Evenements</h4>
-        <span class="text-muted">Compteur</span>
+        <h3>{{nbrEvents}}</h3>
+        <span class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Evenement(s)</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-        {#<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-               width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">#}
-        <h4>Liens</h4>
-        <span class="text-muted">Compteur</span>
-    </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-        {#<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-               width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">#}
-        <h4>Lexique</h4>
-        <span class="text-muted">Compteur</span>
-    </div>
+
+    {#<div class="col-xs-6 col-sm-3 placeholder">#}
+         {#<h4>Liens</h4>#}
+        {#<span class="text-muted">Compteur</span>#}
+    {#</div>#}
+
+    {#<div class="col-xs-6 col-sm-3 placeholder">#}
+        {#<h4>Lexique</h4>#}
+        {#<span class="text-muted">Compteur</span>#}
+    {#</div>#}
 </div>

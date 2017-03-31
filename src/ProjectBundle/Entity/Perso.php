@@ -54,7 +54,7 @@ class Perso
      *
      * @ORM\Column(name="lieu", type="string", length=255)
      */
-    private $lieu;
+    private $lieun;
 
     /**
      * @var string

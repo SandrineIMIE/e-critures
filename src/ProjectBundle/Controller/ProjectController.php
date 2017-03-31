@@ -184,6 +184,8 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrEvents'=> count($events),
+
             'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('name' => 'asc'),        // Tri
