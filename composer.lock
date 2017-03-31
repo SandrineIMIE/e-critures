@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "665d420793bea1ccb9648148a0df220c",
+    "content-hash": "5eb763341360f7bcea52ccec9525ebec",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1019,16 +1019,16 @@
         },
         {
             "name": "knplabs/knp-snappy-bundle",
-            "version": "v1.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpSnappyBundle.git",
-                "reference": "efda38a2f9eb47830eb2a7642541abaaf5a1d34f"
+                "reference": "868eb689ddee8bd79ee0ab3665a21974f57b3203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/efda38a2f9eb47830eb2a7642541abaaf5a1d34f",
-                "reference": "efda38a2f9eb47830eb2a7642541abaaf5a1d34f",
+                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/868eb689ddee8bd79ee0ab3665a21974f57b3203",
+                "reference": "868eb689ddee8bd79ee0ab3665a21974f57b3203",
                 "shasum": ""
             },
             "require": {
@@ -1041,7 +1041,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -1072,7 +1072,7 @@
                 "pdf",
                 "snappy"
             ],
-            "time": "2015-11-11T17:40:14+00:00"
+            "time": "2017-02-16 10:25:45"
         },
         {
             "name": "monolog/monolog",
@@ -2406,7 +2406,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "knplabs/knp-snappy-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
