@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
     {% block dahsbord%}
-        {% include 'default/dashboard.project.html.twig' %}
+        {#{% include 'default/dashboard.project.html.twig' %}#}
     {% endblock %}
     {% block nav %}
         {% include 'default/nav.dashboard.html.twig' %}
     {% endblock %}
 {% block body %}
-    <h1>Création d'un projet </h1>
+    <h1>Création d'un nouveau projet </h1>
     {{ form_start(form) }}
         {{ form_widget(form) }}
     <button type="submit" value="Créer" class="btn btn-primary">
@@ -16,7 +16,11 @@
 
 {% endblock %}
 {% block menuprincipale %}
-
+<ul id="menu-accordeon">
+    <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Retour à mes Projets</a>
+    </li>
+</ul>
 {% endblock %}
 {% block menusecondaire %}
 

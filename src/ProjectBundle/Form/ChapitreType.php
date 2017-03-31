@@ -14,13 +14,26 @@ class ChapitreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('contenu')
-//           ->add('redaction')
-//           ->add('publication')
+            ->add('title',null, array (
+                'label' => 'Titre',
+                'required' => true
+                )
+//                ,EntityType::class, array (
+//                "class"=>'ProjectBundle\Entity\Chapitre',
+//                'label' => 'Titre',
+//                'required' => true
+//                )
+            )
+            ->add('contenu'
+//                ,
+//                EntityType::class, array (
+//                "class"=>'ProjectBundle\Entity\Chapitre',
+//                'label' => ''
+//                )
+            )
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -13,7 +13,15 @@ class PersoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('surnom')->add('date de naissance')->add('lieu de naissance')->add('sexe')->add('statut')->add('mineur')        ;
+        $builder
+            ->add('nom')
+            ->add('prenom')
+            ->add('surnom')
+            ->add('daten')
+            ->add('lieun')
+            ->add('sexe')
+            ->add('statut')
+            ->add('mineur')        ;
     }
     
     /**

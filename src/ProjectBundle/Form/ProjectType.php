@@ -1,6 +1,7 @@
 <?php
 
 namespace ProjectBundle\Form;
+
 use ProjectBundle\Entity\Category;
 use ProjectBundle\Entity\Rights;
 use ProjectBundle\Entity\Tag;
@@ -16,30 +17,31 @@ class ProjectType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')
-            ->add('description')
-//            ->add('tags', EntityType::class, array(
-//                "class"=>Tag::class,
-//                "choice_label" => "name"))
-            ->add('statut')
-            ->add('tags', EntityType::class, array (
-                "class"=>'ProjectBundle\Entity\Tag',
-                "choice_label" => "name",
-                "multiple"=>true,
-                "expanded"=>true,
+        $builder->add('title', null, array(
+            'label' => 'Titre',
+            'required' => true
+        ))
+            ->add('description', null, array(
+                'label' => 'Description du Project'
             ))
-             ->add('category', EntityType::class, array(
-            "class"=>Category::class,
-            "choice_label" => "name"))
+            ->add('statut')
+            ->add('tags', EntityType::class, array(
+                "class" => 'ProjectBundle\Entity\Tag',
+                "choice_label" => "name",
+                "multiple" => true,
+                "expanded" => true,
+            ))
+            ->add('category', EntityType::class, array(
+                "class" => Category::class,
+                'label' => 'Catégories',
+                "choice_label" => "name"))
             ->add('rights', EntityType::class, array(
-                    "class"=>Rights::class,
+                    "class" => Rights::class,
+                    'label' => 'Droits',
                     "choice_label" => "type")
-    );
-
-//            ->add('createdat')
-//            ->add('editedat');
+            );
     }
-    
+
     /**
      * {@inheritdoc}
      */
