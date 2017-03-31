@@ -1,3 +1,12 @@
+<form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Recherche dans le projet">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+</form>
+<div class="clearfix"></div>
 <ul id="menu-accordeon">
     <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}">
             <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Retour à mes Projets</a>
