@@ -18,9 +18,6 @@ class ProjectType extends AbstractType
     {
         $builder->add('title')
             ->add('description')
-//            ->add('tags', EntityType::class, array(
-//                "class"=>Tag::class,
-//                "choice_label" => "name"))
             ->add('statut')
             ->add('tags', EntityType::class, array (
                 "class"=>'ProjectBundle\Entity\Tag',
@@ -35,9 +32,6 @@ class ProjectType extends AbstractType
                     "class"=>Rights::class,
                     "choice_label" => "type")
     );
-
-//            ->add('createdat')
-//            ->add('editedat');
     }
     
     /**
