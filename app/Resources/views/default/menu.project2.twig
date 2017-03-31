@@ -1,6 +1,16 @@
 {% block meta %}
     <meta http-equiv="Refresh" content="10">
 {% endblock %}
+<form class="form-inline" role="search">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+            <label class="sr-only" for="SearchProjec">Recherche dans le Projet</label>
+        <input type="text" class="form-control" name="SearchProject" placeholder="Recherche dans le projet">
+        </div>
+    <button type="submit" class="btn btn-primary"> go</button>    </div>
+</form>
+<div class="clearfix"></div>
 <ul id="menu-accordeon">
     <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}">
             <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Retour à mes Projets</a>
