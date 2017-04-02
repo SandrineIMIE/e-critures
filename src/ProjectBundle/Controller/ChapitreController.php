@@ -123,6 +123,7 @@ class ChapitreController extends Controller
         $chapitre->setCreatedat(new \DateTime());
         $chapitre->setRedaction(true);
         $chapitre->setPublication(false);
+
         //creation du formulaire chapitre
         $form = $this->createForm('ProjectBundle\Form\ChapitreType', $chapitre);
         $form->handleRequest($request);

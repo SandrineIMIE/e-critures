@@ -1,14 +1,11 @@
 {% extends 'popup.html.twig' %}
 
 {% block body %}
-    <h1>Note creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Créer" />
-    {{ form_end(form) }}
-
-    <ul>
-
-    </ul>
+    <div id="fermetureAuto">
+        <h1>Note creation</h1>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Créer" />
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

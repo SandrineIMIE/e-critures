@@ -6,7 +6,10 @@ use ProjectBundle\Entity\Events;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use ProjectBundle\Form\EventsType;
+
 
 /**
  * Event controller.
@@ -47,12 +50,6 @@ class EventsController extends Controller
             $limit  = null,                 // Limite
             $offset = null                 // Offset
         );
-        $heros = $em->getRepository('ProjectBundle:Heros')->findBy(
-            array('project' => $proj->getId()), // Critere
-            array('id' => 'desc'),        // Tri
-            $limit  = null,                 // Limite
-            $offset = null                 // Offset
-        );
 
         return $this->render('events/list.html.twig', array(
             'events' => $events,
@@ -67,7 +64,7 @@ class EventsController extends Controller
      */
     public function newAction(Request $request, Project $proj)
     {
-        $event = new Event();
+        $event = new Events();
         $event->setProject($proj);
         $form = $this->createForm('ProjectBundle\Form\EventsType', $event);
         $form->handleRequest($request);
