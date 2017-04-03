@@ -101,3 +101,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+
+        ecriture_image:
+            uri_prefix: /images/ecriture
+            upload_destination: '%kernel.root_dir%/../web/images/ecriture'
+
+        product_image:
+            upload_destination: ecriture_image_fs
+            namer: vich_uploader.namer_uniqid
