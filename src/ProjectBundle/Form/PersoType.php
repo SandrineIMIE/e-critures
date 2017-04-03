@@ -18,8 +18,14 @@ class PersoType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('surnom')
-            ->add('daten')
-            ->add('lieun')
+            ->add('daten' ,null, array (
+                'label' => 'Date de Naissance',
+                'required' => true
+            ))
+            ->add('lieun' ,null, array (
+                'label' => 'Lieu de Naissance',
+                'required' => true
+            ))
             ->add('sexe')
             ->add('statut')
             ->add('mineur')

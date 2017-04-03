@@ -2,10 +2,10 @@
     <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Projets</a>
         <ul>
             {% for project in projects %}
-                <li><a href="{{ path('project_show', { 'id': project.id }) }}">{{ project.title }}</a></li>
+                <li><a href="{{ path('project_show', { 'id': project.id }) }}" title="voir {{ project.title }} ">{{ project.title }}</a></li>
             {% endfor %}
             <li>
-                <a href=" {{ path('addproject') }}">
+                <a href=" {{ path('addproject') }}" title="Créer un nouveau projet">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>

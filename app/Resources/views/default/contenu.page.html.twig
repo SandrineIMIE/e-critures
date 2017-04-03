@@ -1,66 +1,73 @@
-<div class="row  ">
-    <div class="col-md-4 col-md-offset-2" id="aut-mini">
-        <h2>Auteurs</h2>
-        <img class="img-circle" src="{{ asset('images/auteur.jpg') }}" alt="Auteur" width="140" height="140">
-        <p>E-critures, c’est avant un outil complet d’aide à l’écriture à destination des auteurs.</p>
-        <img class="img-circle" src="" alt="Generic placeholder image" width="140" height="140">
-        <p><a class="btn btn-default" href="#auteur" role="button">Plus... </a></p>
-    </div>
-    <div class="col-md-4 " id="oeu-mini">
-        <h2>Oeuvres</h2>
-        <img class="img-circle" src="{{ asset('images/oeuvre.jpg') }}" alt="oeuvre" width="140" height="140">
-        <p>E-critures, veut faire des vos travaux des œuvres partagés et reconnus.</p>
-        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <p><a class="btn btn-default" href="#oeuvre" role="button">Plus... </a></p>
-    </div>
-</div>
-<div class="row ">
-    <div class="col-md-4 col-md-offset-2" id="lect-mini">
-        <h2>Lecteurs</h2>
-        <img class="img-circle" src="{{ asset('images/lecteur.jpg') }}" alt="Lecteur" width="140" height="140">
-        <p>E-critures, est aussi une plateforme pour vous lecteurs passionnés.</p>
-        <p><a class="btn btn-default" href="#lecteurs" role="button">Plus... </a></p>
-    </div>
-    <div class="col-md-4 " id="fac-mini">
-        <h2>Facilitateurs</h2>
-        <img class="img-circle" src="{{ asset('images/facilitateur.jpg') }}" alt="facilitateur" width="140" height="140">
-        <p>E-critures, veut devenir un lieu d’échange et d’entre-aide destiné aux auteurs. </p>
-        <p><a class="btn btn-default" href="#facilitateur" role="button">Plus... </a></p>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 text-center" id="aut-mini">
+                <h2>Auteurs</h2>
+                <a href="#auteur" title="pour en savoir plus">
+                    <img class="img-circle" align="center" src="{{ asset('images/auteur.jpg') }}" data-src="holder.js/140x140/auto" alt="Auteur"
+                         width="140" height="140">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center" id="oeu-mini">
+                <h2 text-center>Oeuvres</h2>
+                <a href="#oeuvre" title="pour en savoir plus">
+                    <img class="img-circle" src="{{ asset('images/oeuvre.jpg') }}" alt="oeuvre" data-src="holder.js/140x140/auto" width="140"
+                         height="140">
+                </a>
+            </div>
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-6 col-sm-3 text-center" id="lect-mini">
+                <h2 text-center>Lecteurs</h2>
+                <a href="#lecteurs" title="pour en savoir plus">
+                    <img class="img-circle" src="{{ asset('images/lecteur.jpg') }}" alt="Lecteur" data-src="holder.js/140x140/auto" width="140"
+                         height="140">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center" id="fac-mini">
+                <h2>Facilitateurs</h2>
+                <a href="#facilitateur" title="pour en savoir plus">
+                    <img class="img-circle" src="{{ asset('images/facilitateur.jpg') }}" alt="facilitateur" data-src="holder.js/140x140/auto" width="140"
+                         height="140">
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2" id="auteur">
-        <h2>Auteurs</h2>
-        <img class="img-circle" src="{{ asset('images/auteur.jpg') }}" alt="Auteur" width="140" height="140">
-        <p>E-critures, c’est avant un outil complet d’aide à l’écriture à destination des auteurs. En un seul endroit,
-            vous aurez vos chapitres mais aussi toutes vos fiches d’aide à l’écriture et de recherche.</p>
-        <p>Vous aurez aussi la possibilité de travailler à plusieurs sur un même texte, de prendre part à des défis
-            d’écritures ou de améliorer votre style par des exercices originaux.</p>
-        <p><a class="btn btn-default" href="#aut-mini" role="button">Retour </a></p>
-    </div>
-    <div class="col-md-8 col-md-offset-2" id="oeuvre">
-        <h2>oeuvres</h2>
-        <img class="img-circle" src="{{ asset('images/oeuvre.jpg') }}" alt="oeuvre" width="140" height="140">
-        <p>E-critures, veut faire des vos travaux des œuvres partagés et reconnus.</p>
-        <p>Comment ? En faisant des histoires uniques. Pour cela il faut, nous vous aiderons via notre plateforme pour
-            qu’elle soit bien construite, basée sur des recherches efficaces et un style maîtrisé. </p>
-        <p><a class="btn btn-default" href="#oeu-mini" role="button">Retour </a></p>
-    </div>
-    <div class="col-md-8 col-md-offset-2" id="lecteurs">
-        <h2>Lecteurs</h2>
-        <img class="img-circle" src="{{ asset('images/lecteur.jpg') }}" alt="Lecteur" width="140" height="140">
-        <p>E-critures, est aussi une plateforme pour vous lecteurs passionnés.</p>
-        <p>Vous pourrez pleins d'histoires de styles et genre différents, tout en suivant des auteurs, des œuvres finies
-            ou en cours, les commenter, les noter, les partager sur les réseaux sociaux.</p>
-        <p><a class="btn btn-default" href="#lect-mini" role="button">Retour </a></p>
-    </div>
-    <div class="col-md-8 col-md-offset-2" id="facilitateur">
-        <h2>Facilitateur</h2>
-        <img class="img-circle" src="{{ asset('images/facilitateur.jpg') }}" alt="facilitateur" width="140" height="140">
-        <p>E-critures, veut devenir un lieu d’échange et d’entre-aide destiné aux auteurs. </p>
-        <p>Ils ont beau avoir une imagination fertile, ils ne savent pas tout. Ils ont besoin de vos connaissances et
-            compétences techniques.  </p>
-        <p><a class="btn btn-default" href="#fac-mini" role="button">Retour </a></p>
+    <div class="col-md-8 col-md-offset-2">
+        <div id="auteur">
+            <h2 class="text-capitalize">Auteurs</h2>
+            <p class="text-justify">E-criture, c’est avant un outil complet d’aide à l’écriture à destination des auteurs. En un seul
+                endroit, vous aurez vos chapitres, mais aussi toutes vos fiches d’aide à l’écriture (personnage, lieux,
+                évenments, lexique,etc.) et de recherche (conservation de vos liens web)(notes).</p>
+            <p class="text-justify">Vous aurez une interface complète de saisie gérant les alignements, le trait catradin par exemple, ainsi
+                qu'un correcteur d'orthographe basique.</p>
+            <p class="text-justify">Vous aurez aussi la possibilité de travailler à plusieurs sur un même texte.</p>
+            <p class="text-justify">Pour les débutants comme les plus aguéris, trouverez des conseils pour écrire, des défis d’écritures et
+                des exercices originaux pour améliorer votre style ou remotiver votre muse.</p>
+        </div>
+        <div id="oeuvre" >
+            <h2 class="text-capitalize">oeuvres</h2>
+            <p class="text-justify">E-criture, se veut un outil qui fera des vos travaux des œuvres partagés et reconnus.</p>
+            <p class="text-justify">Comment ? En faisant des histoires uniques. Pour cela il faut, nous vous aiderons via notre
+                plateforme pour qu’elle soit bien construite, basée sur des recherches efficaces et un style maîtrisé. </p>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div id="lecteurs" >
+            <h2 class="text-capitalize">Lecteurs</h2>
+            <p class="text-justify">E-criture, est aussi une plateforme pour vous lecteurs passionnés.</p>
+            <p class="text-justify">Vous pourrez lire pleins d'histoires de styles et genre différents, des œuvres finies ou en cours.</p>
+            <p class="text-justify">A vous de les commenter, les noter, les partager sur les réseaux sociaux vos coups de coeur.</p>
+        </div>
+        <div id="facilitateur">
+            <h2 class="text-capitalize">Facilitateur</h2>
+            <p class="text-justify">E-criture, veut devenir un lieu d’échange et d’entre-aide destiné aux auteurs. </p>
+            <p class="text-justify">Ils ont beau avoir une imagination fertile, ils ne savent pas tout. Ils ont besoin
+                de vos connaissances et compétences techniques. </p>
+            <p class="text-justify">Via un sytème de petite annonce, les auteurs déposent une demande de connaissance,
+                d'aide vous y répondez ou vous proposez votre savoir à la communuauté</p>
+        </div>
     </div>
 </div>
+

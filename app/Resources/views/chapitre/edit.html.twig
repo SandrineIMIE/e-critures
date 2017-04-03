@@ -64,17 +64,19 @@
     <table>
         <tr>
             <td>
-                <button type="submit" value="Enregistrer" class="btn btn-primary">
+                <button type="submit" value="Enregistrer" class="btn btn-primary" title="Sauver">
                     <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                 </button>
             </td>
             {{ form_end(edit_form) }}
             <td>        {{ form_start(delete_form) }}
-                <button type="submit" value="Supprimer" class="btn btn-danger">
+                <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
                 {{ form_end(delete_form) }}</td>
-            <td>            <a href="{{ path('pdfchap',{'id':chapitre.id }) }}" target="_blank" class="btn btn-info" role="button">
+            <td>
+                <a href="{{ path('pdfchap',{'id':chapitre.id }) }}" title="Expoter en PDF"
+                   target="_blank" class="btn btn-info" role="button">
                     <span class="glyphicon glyphicon-export" aria-hidden="true"></span></a></td>
         </tr>
     </table>

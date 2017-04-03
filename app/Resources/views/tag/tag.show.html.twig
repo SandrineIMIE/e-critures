@@ -8,23 +8,16 @@
             <tr>
                 <th>{{ tag.name }}</th>
 
-                <td><a href="{{ path('tag_edit', { 'id': tag.id }) }}">Modifier</a> &nbsp;
+                <td><a href="{{ path('tag_edit', { 'id': tag.id }) }}" class="btn btn-info"
+                       role="button" title="Modifier">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
+                    <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
                     {{ form_end(delete_form) }}
                 </td>
 
             </tr>
-            {#{% if tag.projects|length >0 %}#}
-            {#<tr>#}
-                {#<th>Project</th>#}
-                {#<td>#}
-                    {#{%  for project in tag.projects %}#}
-                        {#<a href="{{ path('project_show_show', { 'id': project.id }) }}"> {{ project.title }}</a>&nbsp;/&nbsp;#}
-                    {#{% endfor %}#}
-                {#</td>#}
-            {#</tr>#}
-            {#{% endif%}#}
         </tbody>
     </table>
 
