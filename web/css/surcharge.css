@@ -1,6 +1,34 @@
-.dashname {
+a.dashname, a.dashname:hover {
     color: white;
 }
 .colored {
     color: black;
 }
+.gris{
+    /*background-image: -webkit-linear-gradient(top, #555555 0%, #777777 100%);*/
+    /*background-image:      -o-linear-gradient(top, #555555 0%, #777777 100%);*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#555555), to(#777));*/
+    /*background-image:         linear-gradient(to bottom, #555555 0%, #777777 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff555555', endColorstr='#ff777777', GradientType=0);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);*/
+    background-color: #555555;
+    background-repeat: repeat-x;
+    /*border-radius: 4px;*/
+}
+
+.float-right
+{
+    width: 210px;
+    text-align: center;
+    padding: 0 0 10px 0;
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+.float-right img
+{
+    /*border: 1px solid #000;*/
+    width: 200px;
+    height: 200px;
+}
+

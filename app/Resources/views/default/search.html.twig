@@ -2,10 +2,10 @@
     <label class="sr-only" for="SearchProjec">Trouver dans E-critures</label>
     <input type="text" class="form-control" name="SearchSite" placeholder="Trouver dans E-critures...">
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <span style="color: white">Welcome <b>{{ app.user.username }}</b></span>
-        <a href="{{ path('fos_user_security_logout') }} " class="btn btn-danger">Déconnexion</a>
+        <span style="color: white">Welcome <b class="text-capitalize">{{ app.user.username }}</b></span>
+        <a href="{{ path('fos_user_security_logout') }} " class="btn btn-danger" title="Déconnexion">Déconnexion</a>
     {% else %}
-        <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connexion</a>
+        <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary" title="Connexion">Connexion</a>
 
     {% endif %}
 </form>

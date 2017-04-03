@@ -7,9 +7,12 @@
         <tbody>
             <tr>
                 <th>{{ category.name }}</th>
-                <td><a href="{{ path('category_edit', { 'id': category.id }) }}">Editer</a>
+                <td><a href="{{ path('category_edit', { 'id': category.id }) }}" TITLE ="Modifier cette catégories">Editer</a>
                     {{ form_start(delete_form) }}</td>
-                <td>    <input type="submit" value="Supprimer">
+                <td>
+                    <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
                     {{ form_end(delete_form) }} </td>
             </tr>
         </tbody>

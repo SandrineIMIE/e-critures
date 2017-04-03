@@ -18,19 +18,8 @@ class ChapitreType extends AbstractType
                 'label' => 'Titre',
                 'required' => true
                 )
-//                ,EntityType::class, array (
-//                "class"=>'ProjectBundle\Entity\Chapitre',
-//                'label' => 'Titre',
-//                'required' => true
-//                )
             )
-            ->add('contenu'
-//                ,
-//                EntityType::class, array (
-//                "class"=>'ProjectBundle\Entity\Chapitre',
-//                'label' => ''
-//                )
-            )
+            ->add('contenu')
         ;
     }
 

@@ -23,7 +23,9 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+            <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
             {{ form_end(delete_form) }}
         </li>
     </ul>

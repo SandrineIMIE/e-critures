@@ -15,7 +15,10 @@ class LexicomType extends AbstractType
     {
         $builder
             ->add('mot')
-            ->add('definition')
+            ->add('definition' ,null, array (
+                'label' => 'Définition',
+                'required' => true
+            ))
         ;
     }
     
