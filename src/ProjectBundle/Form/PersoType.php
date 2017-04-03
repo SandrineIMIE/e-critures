@@ -5,6 +5,7 @@ namespace ProjectBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PersoType extends AbstractType
 {
@@ -27,7 +28,11 @@ class PersoType extends AbstractType
             ))
             ->add('sexe')
             ->add('statut')
-            ->add('mineur')        ;
+            ->add('mineur')
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,])
+
+            ;
     }
     
     /**
