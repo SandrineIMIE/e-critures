@@ -3,33 +3,28 @@
 {% block body %}
     <table>
         <tbody class="text-left">
+
         <tr>
-            <th>Nom :</th>
-            <td><span class="text-capitalize">{{ perso.nom }}</td>
+            <td rowspan="7"> <img src="/images/ecriture/{{ perso.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
+            <td><b> Nom :</b> <span class="text-capitalize">{{ perso.nom }}</span></td>
         </tr>
         <tr>
-            <th>Prénom :</th>
-            <td>{{ perso.prenom }}</span></td>
+            <td><b>Prénom :</b><span class="text-capitalize"> {{ perso.prenom }}</span></td>
         </tr>
         <tr>
-            <th>Surnom :</th>
-            <td>{{ perso.surnom }}</td>
+            <td><b>Surnom :</b><span class="text-capitalize"> {{ perso.surnom }}</span></td>
         </tr>
         <tr>
             <td><b> Né le :</b>{{ perso.daten }} <b> à </b> {{ perso.lieun }}</td>
         </tr>
         <tr>
-            <td ><b> Sexe :</b>{{ perso.sexe }} </td>
+            <td><b> Sexe :</b>{{ perso.sexe }} </td>
         </tr>
         <tr>
             <td><b> Statut :</b> {{ perso.statut }}</td>
         </tr>
         <tr>
-            <th>Mineur</th>
-            <td>{% if perso.mineur %}Oui{% else %}Non{% endif %}</td>
-        </tr>
-        <tr>
-            <img src="/images/ecriture/{{ perso.imageName }}">
+            <td><b>Mineur : </b> {% if perso.mineur %}Oui{% else %}Non{% endif %}</td>
         </tr>
         <tr>
             <th>
@@ -40,6 +35,7 @@
                 </a>
                 <a href="{{ path('perso_delete', { 'id': perso.id }) }}" class="btn btn-danger" title="Supprimer"
                    role="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+            </th>
         </tr>
         </tbody>
     </table>

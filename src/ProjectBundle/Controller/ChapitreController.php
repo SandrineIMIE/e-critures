@@ -47,7 +47,7 @@ class ChapitreController extends Controller
 
         $chapitres = $em->getRepository('ProjectBundle:Chapitre')->findBy(
             array('project' => $proj->getId()), // Critere
-            array('id' => 'desc'),        // Tri
+            array('id' => 'asc'),        // Tri
             $limit = null,                 // Limite
             $offset = null                 // Offset
 
@@ -141,7 +141,7 @@ class ChapitreController extends Controller
             'chapitre' => $chapitre,
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
-                array('id' => 'desc'),        // Tri
+                array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
@@ -206,7 +206,7 @@ class ChapitreController extends Controller
             'project' => $chapitre->getProject(),
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
-                array('id' => 'desc'),        // Tri
+                array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
@@ -282,7 +282,7 @@ class ChapitreController extends Controller
             'chapitre' => $chapitre,
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $chapitre->getProject()->getId()), // Critere
-                array('id' => 'desc'),        // Tri
+                array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
