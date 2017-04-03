@@ -34,8 +34,8 @@
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('link_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;"title="Ajouter un Lien">
+                <a href="#" title="Ajouter un Lien" onclick="window.open('{{ path('link_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
                 </a>
             </li>
@@ -45,12 +45,16 @@
         <ul id="listnotes">
             {% for note in notes %}
                 <li>
-                    <a href="{{ path('note_show', { 'id': note.id }) }}" title="{{ note.titre }}">{{ note.titre }}</a>
+                    <a href="#"  title="{{ note.titre }}"
+                       onclick="window.open('{{ path('note_show', { 'id': note.id }) }}',
+                               'Popup_Window','width=600, height=400'); return false;" >
+                        {{ note.titre }}
+                    </a>
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('note_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter une note">
+                <a href="#" title="Ajouter une note" onclick="window.open('{{ path('note_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false;" >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
                 </a>
             </li>
@@ -60,12 +64,16 @@
         <ul id="listobjet">
             {% for item in items %}
                 <li>
-                    <a href="{{ path('items_show', { 'id': item.id }) }}" title="{{ item.name }}">{{ item.name }}</a>
+                    <a href="#"  title="{{ item.name }}"
+                       onclick="window.open('{{ path('items_show', { 'id': item.id }) }}',
+                               'Popup_Window','width=600, height=400'); return false;" >
+                        {{ item.name }}
+                    </a>
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('items_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter un objet">
+                <a href="#" title="Ajouter un objet" onclick="window.open('{{ path('items_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false;" >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -75,12 +83,16 @@
         <ul id="listevents">
             {% for event in events %}
                 <li>
-                    <a href="{{ path('events_show', { 'id': event.id }) }}" title="{{ event.date }}">{{ event.date }}</a>
+                    <a href="#"  title="{{ event.date }}"
+                       onclick="window.open('{{ path('events_show', { 'id': event.id }) }}',
+                               'Popup_Window','width=600, height=400'); return false;" >
+                        {{ event.date }}
+                    </a>
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('events_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter un événement">
+                <a href="#"  title="Ajouter un événement" onclick="window.open('{{ path('events_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -90,12 +102,16 @@
         <ul id="listlieux">
             {% for place in places %}
                 <li>
-                    <a href="{{ path('place_show', { 'id': place.id }) }}" title="{{ place.name }}">{{ place.name }}</a>
+                    <a href="#"  title="{{ place.name }}"
+                       onclick="window.open('{{ path('place_show', { 'id': place.id }) }}',
+                               'Popup_Window','width=600, height=400'); return false;" >
+                        {{ place.name }}
+                    </a>
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('place_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter un lieu">
+                <a href="#" title="Ajouter un lieu" onclick="window.open('{{ path('place_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false;" >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -106,12 +122,16 @@
         <ul id="listlexique">
             {% for lexicom in lexicoms %}
                 <li>
-                    <a href="{{ path('lexicom_show', { 'id': lexicom.id }) }}" title="{{ lexicom.mot }}">{{ lexicom.mot }}</a>
+                    <a href="#"  title="{{ lexicom.mot }}"
+                       onclick="window.open('{{ path('lexicom_show', { 'id': lexicom.id }) }}',
+                               'Popup_Window','width=600, height=400'); return false;" >
+               {{ lexicom.mot }}
+                    </a>
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('lexicom_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter un mot dans le lexique">
+                <a href="#" title="Ajouter un mot dans le lexique"
+                   onclick="window.open('{{ path('lexicom_new', { 'id': project.id }) }}', 'Popup_Window','width=600, height=400'); return false;" >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -121,12 +141,15 @@
         <ul id="listperso">
             {% for perso in persos %}
                 <li>
-                    <a href="{{ path('perso_show', { 'id': perso.id }) }}" title="{{ perso.prenom }}&nbsp;{{ perso.nom }}">{{ perso.prenom }}&nbsp;{{ perso.nom }}</a>
+                    {#<a href="{{ path('perso_show', { 'id': perso.id }) }}" title="{{ perso.prenom }}&nbsp;{{ perso.nom }}">{{ perso.prenom }}&nbsp;{{ perso.nom }}</a>#}
+                    <a href="#" title="{{ perso.prenom }}&nbsp;{{ perso.nom }}" onclick="window.open('{{ path('perso_show',
+                    { 'id': perso.id }) }}','Popup_Window','width=600, height=400'); return false; " >
+                        {{ perso.prenom }}&nbsp;{{ perso.nom }}</a>
                 </li>
+
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('perso_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false;" title="Ajouter un personnage">
+                <a href="#" title="Ajouter un personnage" onclick="window.open('{{ path('perso_new', { 'id': project.id }) }}', 'Popup_Window','width=600, height=400'); return false;" >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>
@@ -136,12 +159,17 @@
         <ul id="listtags">
             {% for tag in project.tags %}
                 <li>
-                    <a href="{{ path('tag_show', { 'id': tag.id }) }}" title="{{ tag.name }}"> {{ tag.name }}</a>
+                    {#<a href="{{ path('tag_show', { 'id': tag.id }) }}" title="{{ tag.name }}"> {{ tag.name }}</a>#}
+                    <a href="#" title="Modifier {{ tag.name }}" onclick="window.open('{{ path('tag_edit', { 'id': tag.id }) }}',
+                            'Popup_Window','width=600, height=400'); return false; " >
+                        {{ tag.name }}  </a>
+                    {#<a href="{{ path('tag_delete', { 'id': tag.id }) }}" title="Supprimer {{ tag.name }}" class="btn-danger btn-xs" role="button" >#}
+                        {#<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>#}
                 </li>
             {% endfor %}
             <li>
-                <a href="#"  onclick="window.open('{{ path('tag_new', { 'id': project.id }) }}',
-                        'Popup_Window','width=600, height=400'); return false; " title="Ajouter un tag">
+                <a href="#" title="Ajouter un tag" onclick="window.open('{{ path('tag_new', { 'id': project.id }) }}',
+                        'Popup_Window','width=600, height=400'); return false; " >
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </li>

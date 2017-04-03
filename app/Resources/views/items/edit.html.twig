@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'popup.html.twig' %}
 
 {% block body %}
     <h1>Item edit</h1>
@@ -9,12 +9,8 @@
         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
     </button>
     {{ form_end(edit_form) }}
-
-
-            {{ form_start(delete_form) }}
-    <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
-            {{ form_end(delete_form) }}
+    <a href="{{ path('items_delete', { 'id': item.id }) }}" class="btn btn-danger" role="button"
+       title="Supprimer">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 
 {% endblock %}
