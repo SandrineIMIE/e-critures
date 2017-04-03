@@ -1,23 +1,11 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'popup.html.twig' %}
 {% block body %}
-    <h1>Note edit</h1>
-
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+    {{ form_widget(edit_form) }}
     <button type="submit" value="Enregistrer" class="btn btn-primary" title="Sauver">
         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
     </button>
     {{ form_end(edit_form) }}
-
-    <ul>
-
-        <li>
-            {{ form_start(delete_form) }}
-            <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button>
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('note_delete', { 'id': note.id }) }}" class="btn btn-danger" role="button" title="Supprimer">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 {% endblock %}

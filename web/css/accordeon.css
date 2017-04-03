@@ -31,10 +31,15 @@
     margin:0
 }
 #menu-accordeon a {
-    display:block;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 0;
+     display:block;
+     text-decoration: none;
+     color: #fff;
+     padding: 8px 0;
+     /*font-family: verdana;*/
+     /*font-size:1.2em*/
+ }
+#menu-accordeon a.btn {
+    display: inline;
     /*font-family: verdana;*/
     /*font-size:1.2em*/
 }
