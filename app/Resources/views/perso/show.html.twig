@@ -38,6 +38,9 @@
             <td>{% if perso.mineur %}Oui{% else %}Non{% endif %}</td>
         </tr>
         <tr>
+            <img src="/images/ecriture/{{ perso.imageName }}">
+        </tr>
+        <tr>
             <th>Actions</th>
             <td><a href="{{ path('perso_edit', { 'id': perso.id }) }}" class="btn btn-info"
                    role="button" title="Modifier">

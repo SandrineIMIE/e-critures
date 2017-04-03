@@ -6,7 +6,8 @@ use ProjectBundle\Entity\Perso;
 use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Perso controller.
@@ -70,7 +71,7 @@ class PersoController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($perso);
-            $em->flush($perso);
+            $em->flush();
 
             return $this->redirectToRoute('perso_show', array('id' => $perso->getId()));
         }

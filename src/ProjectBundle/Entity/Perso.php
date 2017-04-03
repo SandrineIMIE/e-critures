@@ -3,6 +3,7 @@
 namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -98,11 +99,6 @@ class Perso
      */
     private $imageName;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @var integer
-     */
-    private $imageSize;
 
     /**
      * @ORM\Column(type="datetime")
@@ -154,25 +150,6 @@ class Perso
     public function getImageName()
     {
         return $this->imageName;
-    }
-
-    /**
-     * @param integer $imageSize
-     * @return $this
-     */
-    public function setImageSize($imageSize)
-    {
-        $this->imagesize = $imageSize;
-
-        return $this;
-    }
-
-    /**
-     * @return integer|null
-     */
-    public function getImageSize()
-    {
-        return $this->imageSize;
     }
 
 
