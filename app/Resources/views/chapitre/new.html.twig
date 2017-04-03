@@ -13,7 +13,7 @@
     <script src="{{ asset('js/langs/fr_FR.js') }}"></script>
     <script>tinymce.init({
             selector: 'textarea',
-            height: 500,
+            height: 450,
             theme: 'modern',
             plugins: [
                 "advlist save autosave charmap print preview pagebreak spellchecker",
@@ -59,12 +59,11 @@
 {% endblock %}
 {% block body %}
     <h1>{{ chapitre.project.title }} : Nouveau chapitre</h1>
-
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button type="submit" value="Créer" class="btn btn-primary" title="Sauver">
-        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
-    </button>
+    {#<button type="submit" value="Créer" class="btn btn-primary" title="Sauver">#}
+        {#<span class="glyphicon glyphicon-save" aria-hidden="true"></span>#}
+    {#</button>#}
     {{ form_end(form) }}
 
 {% endblock %}

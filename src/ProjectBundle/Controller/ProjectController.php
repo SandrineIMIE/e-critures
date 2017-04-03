@@ -85,7 +85,7 @@ class ProjectController extends Controller
 
                 'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                     array('project' => $project->getId()), // Critere
-                    array('id' => 'desc'),        // Tri
+                    array('id' => 'asc'),        // Tri
                     $limit = null,                 // Limite
                     $offset = null                 // Offset
                 ),
@@ -160,7 +160,7 @@ class ProjectController extends Controller
 
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $project->getId()), // Critere
-                array('id' => 'desc'),        // Tri
+                array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
 
@@ -244,7 +244,7 @@ class ProjectController extends Controller
             'project' => $project,
             'chapitres' => $chapitres = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Chapitre')->findBy(
                 array('project' => $project->getId()), // Critere
-                array('id' => 'desc'),        // Tri
+                array('id' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
