@@ -15,8 +15,14 @@ class LinkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('adress')
-            ->add('name')
+            ->add('adress' ,null, array (
+                'label' => 'Adresse',
+                'required' => true
+            ))
+            ->add('name' ,null, array (
+                'label' => 'Nom',
+                'required' => true
+            ))
         ;
     }
     
