@@ -1,13 +1,14 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-fixed-top gris">
     <div class="container-fluid">
         <div class="navbar-header">
             {% include 'default/toogle.html.twig' %}
             {% include 'default/brand.html.twig' %}
+            <a class="navbar-brand dashname" href="{{ path('homepage') }}" title="E-criture" > E-criture</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-            </ul>
+            {#<ul class="nav navbar-nav navbar-right">#}
+                {#<li><a href="#">Menu</a></li>#}
+            {#</ul>#}
             {% include 'default/search.html.twig' %}
         </div>
     </div>
