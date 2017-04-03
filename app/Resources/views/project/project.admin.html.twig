@@ -31,7 +31,8 @@
                 <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
                 <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
-                <td><a href="{{ path('project_show', { 'id': project.id }) }}">Voir</a> &nbsp;
+                <td><a href="{{ path('project_show', { 'id': project.id }) }}" class="btn-info" title="Voir" role="button">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></a> &nbsp;
                 </td>
             </tr>
         {% endfor %}

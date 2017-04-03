@@ -6,26 +6,28 @@
     <table>
         <tbody>
 
-            <tr>
-                <th>Mot</th>
-                <td>{{ lexicom.mot }}</td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>{{ lexicom.definition }}</td>
-            </tr>
+        <tr>
+            <th>Mot</th>
+            <td>{{ lexicom.mot }}</td>
+        </tr>
+        <tr>
+            <th>Definition</th>
+            <td>{{ lexicom.definition }}</td>
+        </tr>
+        <tr>
+            <th>Actions</th>
+            <td>
+                <a href="{{ path('lexicom_edit', { 'id': lexicom.id }) }}" class="btn btn-info"
+                   role="button" title="Modifier"> <span class="glyphicon glyphicon-pencil"
+                                                         aria-hidden="true"></span></a>
+
+                {{ form_start(delete_form) }}
+                <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                {{ form_end(delete_form) }}
+            </td>
+        </tr>
         </tbody>
     </table>
-
-    <ul>
-
-        <li>
-            <a href="{{ path('lexicom_edit', { 'id': lexicom.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

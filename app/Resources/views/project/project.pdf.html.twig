@@ -1,5 +1,4 @@
-<h1>{{ project.title }}- {{ project.user }}
-</h1>
+<h1>{{ project.title }}- {{ project.user }}</h1>
 {% for chapitre in chapitres %}
 <h2>{{ chapitre.title }}</h2>
 {{ chapitre.contenu|raw}}
@@ -8,3 +7,4 @@
 {% for lexicom in lexicoms %}
 {{ lexicom.mot }} : {{ lexicom.definition }}
 {% endfor %}
+<p>PDF Généré via E-critures par StyL'O</p>
