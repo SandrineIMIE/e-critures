@@ -1,7 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'popup.html.twig' %}
 
 {% block body %}
-    <h1>Modification d'un Tag</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -9,11 +8,7 @@
         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
     </button>
     {{ form_end(edit_form) }}
-
-            {{ form_start(delete_form) }}
-    <button type="submit" value="Supprimer" class="btn btn-danger" title="Supprimer">
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
-            {{ form_end(delete_form) }}
+    <a href="{{ path('tag_delete', { 'id': tag.id }) }}" class="btn btn-danger" title="Supprimer" role="button">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 
 {% endblock %}
