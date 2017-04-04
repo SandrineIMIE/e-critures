@@ -22,7 +22,6 @@ class DefaultController extends Controller
         $projects = $em->getRepository('ProjectBundle:Project')->findAll();
         $cat = $em->getRepository('ProjectBundle:Category')->findAll();
         $rights = $em->getRepository('ProjectBundle:Rights')->findAll();
-
         $userManager=$this->get('fos_user.user_manager');
         $users = $userManager->findUsers();
 
@@ -31,7 +30,6 @@ class DefaultController extends Controller
             'nrUser' => count($users),
             'nrCat' => count($cat),
             'nrRights' => count($rights)
-
         ));
     }
 

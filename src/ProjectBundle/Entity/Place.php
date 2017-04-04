@@ -57,10 +57,10 @@ class Place
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      * @var string
      */
-    private $imageName='place.png';
+    private $imageName=null;
 
     /**
      * @return Project

@@ -91,10 +91,10 @@ class Project
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
-    private $imageName='cover.png';
+    private $imageName=null;
 
 
     /**
