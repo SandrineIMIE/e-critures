@@ -52,6 +52,7 @@ class ProjectController extends Controller
         ));
     }
 
+
     /**
      * Lists all project entities for user.
      *

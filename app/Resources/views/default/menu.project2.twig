@@ -9,7 +9,8 @@
 {#</form>#}
 <div class="clearfix"></div>
 <ul id="menu-accordeon">
-    <li><a href="{{ path('project_list', {'id':project.getUser.id }) }}" title="Retour à mes Projets">
+    <li>
+        <a href="{{ path('project_list', {'id':project.getUser.id }) }}" title="Retour à mes Projets">
             <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Retour à mes Projets</a>
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Chapitre(s)</a>

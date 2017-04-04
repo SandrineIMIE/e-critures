@@ -25,16 +25,15 @@ class DefaultController extends Controller
         $userManager=$this->get('fos_user.user_manager');
         $users = $userManager->findUsers();
 
-        return $this->render('default/vueadmin.html.twig', array(
+        return $this->render('admin.html.twig', array(
             'nrP' => count($projects),
             'nrUser' => count($users),
             'nrCat' => count($cat),
             'nrRights' => count($rights),
-            'projects'=>$projects,
-            'categories'=> $cat,
-            'rights'=>$rights,
-            'user'=>$users,
-
+//            'projects'=>$projects,
+//            'categories'=> $cat,
+//            'rights'=>$rights,
+//            'user'=>$users,
         ));
     }
 
