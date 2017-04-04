@@ -250,12 +250,15 @@ class ProjectController extends Controller
                 $offset = null                 // Offset
             ),
             'nbrChap'=> count($chapitres),
+
             'items' => $items = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Items')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('id' => 'desc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrItems'=> count($items),
+
             'links' => $links = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Link')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('name' => 'asc'),        // Tri
@@ -274,12 +277,16 @@ class ProjectController extends Controller
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrEvents'=> count($events),
+
             'places' => $places = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Place')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('name' => 'asc'),        // Tri
                 $limit = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrPlaces'=> count($places),
+
             'lexicoms' => $lexicoms = $this->getDoctrine()->getManager()->getRepository('ProjectBundle:Lexicom')->findBy(
                 array('project' => $project->getId()), // Critere
                 array('mot' => 'asc'),        // Tri
@@ -292,6 +299,7 @@ class ProjectController extends Controller
                 $limit  = null,                 // Limite
                 $offset = null                 // Offset
             ),
+            'nbrPerso'=> count($persos),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

@@ -5,6 +5,7 @@ namespace ProjectBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PlaceType extends AbstractType
 {
@@ -20,6 +21,9 @@ class PlaceType extends AbstractType
             ))
             ->add('description')
             ->add('localisation')
+            ->add('imageFile', VichImageType::class, [
+//                'label' => "Image (PNG ou JPG)",
+                'required' => false])
 
         ;
     }
