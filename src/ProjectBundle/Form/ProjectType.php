@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjectType extends AbstractType
 {
@@ -35,6 +36,9 @@ class ProjectType extends AbstractType
                 "class" => Category::class,
                 'label' => 'Catégories',
                 "choice_label" => "name"))
+            ->add('imageFile', VichImageType::class, [
+//                'label' => "Image (PNG ou JPG)",
+                'required' => false])
             ->add('rights', EntityType::class, array(
                     "class" => Rights::class,
                     'label' => 'Droits',

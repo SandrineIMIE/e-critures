@@ -5,6 +5,7 @@ namespace ProjectBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ItemsType extends AbstractType
 {
@@ -19,6 +20,9 @@ class ItemsType extends AbstractType
                 'required' => true
             ))
             ->add('description')
+            ->add('imageFile', VichImageType::class, [
+//                'label' => "Image (PNG ou JPG)",
+                'required' => false])
         ;
     }
     

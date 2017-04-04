@@ -113,7 +113,7 @@ class PersoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('perso_edit', array('id' => $perso->getId()));
+            return $this->redirectToRoute('perso_show', array('id' => $perso->getId()));
         }
 
         return $this->render('perso/edit.html.twig', array(
@@ -140,7 +140,7 @@ class PersoController extends Controller
             $em->flush($perso);
         }
 
-        return $this->redirectToRoute('perso_index');
+        return $this->redirectToRoute('perso', array('id' => $perso->getId()));
     }
 
     /**
@@ -153,7 +153,7 @@ class PersoController extends Controller
     private function createDeleteForm(Perso $perso)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('perso_delete', array('id' => $perso->getId())))
+            ->setAction($this->generateUrl('liste-perso', array('id' => $perso->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
