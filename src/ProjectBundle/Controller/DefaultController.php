@@ -29,7 +29,11 @@ class DefaultController extends Controller
             'nrP' => count($projects),
             'nrUser' => count($users),
             'nrCat' => count($cat),
-            'nrRights' => count($rights)
+            'nrRights' => count($rights),
+//            'projects'=>$projects,
+//            'categories'=> $cat,
+//            'rights'=>$rights,
+//            'user'=>$users,
         ));
     }
 

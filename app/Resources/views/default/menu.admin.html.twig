@@ -1,22 +1,11 @@
+<div class="clearfix"></div>
 <ul id="menu-accordeon">
-    <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true"  aria-expanded="false">Lister
-            <span class="caret"></span>
-        </a>
-        <ul class="nav nav-sidebar dropdown-menu">
-            <li><a href="{{ path('project_index') }}" title="Liste des projets">des projets</a></li>
-            <li><a href="{{ path('category_index') }}" title="Liste des catégories">des catégories</a></li>
-            <li><a href="{{ path('rights_index') }}" title="Liste des droits">des droits</a></li>
-            <li><a href="{{ path('user_index') }}" title="Liste des utilisateurss">des utilisateurs</a></li>
-        </ul>
-    </li>
-    <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true" aria-expanded="false">Créer
-            <span class="caret"></span>
-        </a>
-        <ul class="nav nav-sidebar dropdown-menu">
+    <li><a href="{{ path('project_adminlist') }}" title="Liste des projets">Liste  des projets</a></li>
+    <li><a href="{{ path('category_index') }}" title="Liste des catégories">Liste des catégories</a></li>
+    <li><a href="{{ path('rights_index') }}" title="Liste des droits">Liste des droits</a></li>
+    <li><a href="{{ path('user_index') }}" title="Liste des utilisateurss">Liste des utilisateurs</a></li>
+    <li><a href="#"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Créer</a>
+        <ul id="listchap">
             <li><a href="{{ path('category_new') }}" title=" ajouter une catégorie">une catégorie</a></li>
             <li><a href="{{ path('rights_new') }}" title="ajouter un droit"> un droit</a></li>
         </ul>
