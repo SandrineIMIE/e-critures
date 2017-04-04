@@ -71,7 +71,7 @@ class UserController extends Controller
         }
 
         else{ return $this->render('user/new.html.twig', array(
-            '{% block message %}{% endblock%}' => '{% block message %}.<div>Ce login / mot de pass existe deja</div>div>.{% endblock%}',
+//            '{% block message %}{% endblock%}' => '{% block message %}.<div>Ce login / mot de pass existe deja</div>div>.{% endblock%}',
             'form' => $form->createView()
             ));
         }
