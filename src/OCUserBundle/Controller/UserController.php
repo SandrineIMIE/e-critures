@@ -47,15 +47,33 @@ class UserController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $user->setEnabled(true);
-            $user->setEmail('mail'.rand(100,900));
-            $user->setSalt('');
-            $em->persist($user);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $userExitant = $em->getRepository('OCUserBundle:User')->findBy(
+            array('username' => $user->getUsername())
+            );
 
-            return $this->redirectToRoute( 'project_list', array('id' => $user->getId()));
+        $userE = count($userExitant);
+
+        if ($userE==0) {
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $user->setEnabled(true);
+                $user->setEmail('mail' . rand(100, 900));
+                $user->setSalt('');
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirectToRoute('project_list', array('id' => $user->getId()));
+            }
+
+
+        }
+
+        else{ return $this->render('user/new.html.twig', array(
+            '{% block message %}{% endblock%}' => '{% block message %}.<div>Ce login / mot de pass existe deja</div>div>.{% endblock%}',
+            'form' => $form->createView()
+            ));
         }
 
         return $this->render('user/new.html.twig', array(
