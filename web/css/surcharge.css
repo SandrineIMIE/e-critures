@@ -6,7 +6,7 @@ a.dashname, a.dashname:hover {
 }
 
 .bordeaux{
-    color: #963c5c;;
+    color: #963c5c;
 }
 
 .gris{
@@ -16,7 +16,7 @@ a.dashname, a.dashname:hover {
     /*background-image:         linear-gradient(to bottom, #555555 0%, #777777 100%);*/
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff555555', endColorstr='#ff777777', GradientType=0);*/
     /*filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);*/
-    background-color: #555555;
+    background-color: #963c5c;
     background-repeat: repeat-x;
     /*border-radius: 4px;*/
 }
