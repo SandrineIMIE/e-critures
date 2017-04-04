@@ -17,3 +17,7 @@
 
 /composer.phar
 /.idea
+
+src/ProjectBundle/Tests/Controller/ProjectControllerTest\.php
+
+src/ProjectBundle/Tests/Controller/TagControllerTest\.php
