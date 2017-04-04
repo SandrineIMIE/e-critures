@@ -12,13 +12,14 @@
     text-align: center;
 }
 #menu-accordeon li {
-    background-color:#729EBF;
+    /*background-color:#729EBF;*/
+    background-color: #963c5c;
     /*background-image:-webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);*/
     /*background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%);*/
     /*border-radius: 6px;*/
     margin-bottom:2px;
-    box-shadow: 3px 3px 3px #999;
-    border:solid 1px #333A40
+    /*box-shadow: 3px 3px 3px #999;*/
+    /*border:solid 1px #333A40*/
 }
 #menu-accordeon li li {
     max-height:0;
@@ -47,10 +48,10 @@
     /*font-size:1em*/
 }
 #menu-accordeon li:hover {
-    background: #729EBF
+    background: #963c5c;
 }
 #menu-accordeon li li:hover {
-    background: #999;
+    background: #963c5c;
 }
 #menu-accordeon ul li:last-child {
     /*border-radius: 0 0 2px 2px;*/

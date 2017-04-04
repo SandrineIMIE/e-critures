@@ -4,6 +4,11 @@ a.dashname, a.dashname:hover {
 .colored {
     color: black;
 }
+
+.bordeaux{
+    color: #963c5c;;
+}
+
 .gris{
     /*background-image: -webkit-linear-gradient(top, #555555 0%, #777777 100%);*/
     /*background-image:      -o-linear-gradient(top, #555555 0%, #777777 100%);*/
@@ -32,3 +37,60 @@ a.dashname, a.dashname:hover {
     height: 200px;
 }
 
+.explication{
+    background-color: #ffdfc3;
+
+}
+
+.pagejumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    /*background-color: #eee;*/
+    background-image:url(/images/fondJumbotron.jpg);
+    background-size: cover;
+    background-color:white;
+    background-repeat:no-repeat;
+}
+.pagejumbotron h1,
+.pagejumbotron .h1 {
+    color: inherit;
+}
+.pagejumbotron p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+}
+
+
+.pagejumbotron > hr {
+    border-top-color: #d5d5d5;
+}
+.container .pagejumbotron,
+.container-fluid .pagejumbotron {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+.pagejumbotron .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .pagejumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .container .pagejumbotron,
+    .container-fluid .pagejumbotron {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .pagejumbotron h1,
+    .pagejumbotron .h1 {
+        font-size: 63px;
+    }
+
+}
