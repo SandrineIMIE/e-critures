@@ -17,6 +17,10 @@
             <td>{{ place.localisation }}</td>
         </tr>
         <tr>
+            <th>Image</th>
+            <td><img src="/images/ecriture/{{place.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
+        </tr>
+        <tr>
             <th>Actions</th>
         <tr>
             <a href="{{ path('place_edit', { 'id': place.id }) }}" class="btn btn-info"

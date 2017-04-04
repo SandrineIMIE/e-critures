@@ -112,7 +112,7 @@ class PlaceController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('place_edit', array('id' => $place->getId()));
+            return $this->redirectToRoute('place_show', array('id' => $place->getId()));
         }
 
         return $this->render('edit.html.twig', array(

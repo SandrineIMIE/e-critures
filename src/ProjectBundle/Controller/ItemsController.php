@@ -117,7 +117,7 @@ class ItemsController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('items_edit', array('id' => $item->getId()));
+            return $this->redirectToRoute('items_show', array('id' => $item->getId()));
         }
 
         return $this->render('items/edit.html.twig', array(
@@ -144,7 +144,7 @@ class ItemsController extends Controller
             $em->flush($item);
         }
 
-        return $this->redirectToRoute('items_index');
+        return $this->redirectToRoute('items_list', array('id' => $item->getId()));
     }
 
     /**

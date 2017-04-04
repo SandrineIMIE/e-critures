@@ -43,37 +43,37 @@ class Perso
     /**
      * @var string
      *
-     * @ORM\Column(name="surnom", type="string", length=255)
+     * @ORM\Column(name="surnom", type="string", length=255, nullable=true)
      */
-    private $surnom;
+    private $surnom=null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="daten", type="string", length=255)
+     * @ORM\Column(name="daten", type="string", length=255, nullable=true)
      */
-    private $daten;
+    private $daten=null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lieu", type="string", length=255)
+     * @ORM\Column(name="lieu", type="string", length=255,  nullable=true)
      */
-    private $lieun;
+    private $lieun=null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=255)
+     * @ORM\Column(name="sexe", type="string", length=255,  nullable=true)
      */
-    private $sexe;
+    private $sexe=null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="statut", type="string", length=255)
+     * @ORM\Column(name="statut", type="string", length=255,  nullable=true)
      */
-    private $statut;
+    private $statut=null;
 
     /**
      * @var bool
@@ -97,14 +97,14 @@ class Perso
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $imageName;
+    private $imageName='perso.png';
 
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
-    private $updatedAt;
+    private $updatedAt=null;
 
     /**
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image

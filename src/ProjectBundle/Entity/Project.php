@@ -3,17 +3,19 @@
 namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\Common\Collections\ArrayCollection;
 use OCUserBundle\Entity\User;
 use Symfony\Component\Validator\Constraints\DateTime;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * Project
  *
  * @ORM\Table(name="project")
  * @ORM\Entity(repositoryClass="ProjectBundle\Repository\ProjectRepository")
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -76,7 +78,6 @@ class Project
      */
     private $user;
 
-
     /**
      *
      * @ORM\ManyToMany(targetEntity="ProjectBundle\Entity\Tag", inversedBy="projects", cascade={"all"})
@@ -93,7 +94,7 @@ class Project
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $imageName;
+    private $imageName='cover.png';
 
 
     /**
@@ -361,6 +362,7 @@ class Project
     {
         return $this->imageName;
     }
+
 
 }
 

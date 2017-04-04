@@ -11,6 +11,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>Couverture</th>
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Catégorie</th>
@@ -24,6 +25,7 @@
             <tbody>
             {% for project in projects %}
                 <tr>
+                    <td><img src="/images/ecriture/{{project.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
                     <td>{{ project.title }}</td>
                     <td>{{ project.description }}</td>
                     <td>{{ project.getCategory.name }}</td>

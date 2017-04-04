@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="place")
  * @ORM\Entity(repositoryClass="ProjectBundle\Repository\PlaceRepository")
+ * @Vich\Uploadable
  */
 class Place
 {
@@ -59,7 +60,7 @@ class Place
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $imageName;
+    private $imageName='place.png';
 
     /**
      * @return Project

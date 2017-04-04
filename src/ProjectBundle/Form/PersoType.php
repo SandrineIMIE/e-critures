@@ -17,20 +17,27 @@ class PersoType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('surnom')
+            ->add('surnom',null, array (
+                'required' => false
+            ))
             ->add('daten' ,null, array (
                 'label' => 'Date de Naissance',
-                'required' => true
+                'required' => false
             ))
             ->add('lieun' ,null, array (
                 'label' => 'Lieu de Naissance',
-                'required' => true
+                'required' => false
             ))
-            ->add('sexe')
-            ->add('statut')
+            ->add('sexe',null, array (
+                'required' => false
+            ))
+            ->add('statut',null, array (
+                'required' => false
+            ))
             ->add('mineur')
-            ->add('imageFile', VichImageType::class, [
-                'required' => false,])
+            ->add('imageFile', VichImageType::class, array (
+//                'label' => "Image ",
+                'required' => false))
 
             ;
     }
