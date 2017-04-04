@@ -18,7 +18,21 @@ class DefaultController extends Controller
      */
     public function adminAction()
     {
-        return $this->render('admin.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $projects = $em->getRepository('ProjectBundle:Project')->findAll();
+        $cat = $em->getRepository('ProjectBundle:Category')->findAll();
+        $rights = $em->getRepository('ProjectBundle:Rights')->findAll();
+
+        $userManager=$this->get('fos_user.user_manager');
+        $users = $userManager->findUsers();
+
+        return $this->render('admin.html.twig', array(
+            'nrP' => count($projects),
+            'nrUser' => count($users),
+            'nrCat' => count($cat),
+            'nrRights' => count($rights)
+
+        ));
     }
 
 
