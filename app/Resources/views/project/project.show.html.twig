@@ -16,7 +16,11 @@
             </tr>
             <tr>
                 <th>Couverture</th>
-                <td><img src="/images/ecriture/{{project.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
+                <td>         {% if project.imageName is empty %}
+                        <img src="/images/ecriture/cover.png" class="img-thumbnail" width="140px" height="140px">
+                    {% else %}
+                        <img src="/images/ecriture/{{ project.imageName }}" class="img-thumbnail" width="140px" height="140px">
+                    {% endif %}</td>
             </tr>
             <tr>
                 <th>Catégorie</th>

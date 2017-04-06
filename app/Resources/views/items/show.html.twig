@@ -15,7 +15,13 @@
         </tr>
         <tr>
             <th>Image</th>
-            <td><img src="/images/ecriture/{{item.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
+            <td>
+                {% if item.imageName  is empty %}
+                    <img src="/images/ecriture/items.png" class="img-thumbnail" width="140px" height="140px">
+                {% else %}
+                    <img src="/images/ecriture/{{item.imageName }}" class="img-thumbnail" width="140px" height="140px">
+                {% endif %}
+          </td>
         </tr>
         <tr>
             <th>Actions</th>

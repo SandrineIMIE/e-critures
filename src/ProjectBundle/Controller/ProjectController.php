@@ -34,6 +34,24 @@ class ProjectController extends Controller
             'nrP' => count($projects),
         ));
     }
+    /**
+     * Lists all project entities.
+     *
+     * @Route("/alist", name="project_adminlist")
+     * @Method("GET")
+     */
+    public function LAAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $projects = $em->getRepository('ProjectBundle:Project')->findAll();
+
+        return $this->render('project/project.admin.html.twig', array(
+            'projects' => $projects,
+            'nrP' => count($projects),
+        ));
+    }
+
 
     /**
      * Lists all project entities for user.

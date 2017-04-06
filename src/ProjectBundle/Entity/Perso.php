@@ -94,10 +94,10 @@ class Perso
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
-    private $imageName='perso.png';
+    private $imageName=null;
 
 
     /**

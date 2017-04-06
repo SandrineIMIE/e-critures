@@ -1,9 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
     {% block dahsbord%}
-        {% include 'default/dashboard.admin.html.twig' %}
-    {% endblock %}
-    {% block nav %}
-        {% include 'default/nav.dashboard.html.twig' %}
+
     {% endblock %}
 {% block body %}
 <h2 class="sub-header">Liste de tous les projets du site</h2>
@@ -18,7 +15,7 @@
                 <th>Droit</th>
                 <th>Crée le </th>
                 <th>Modifié le </th>
-                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -31,16 +28,10 @@
                 <td>{% if project.statut %}Terminé {% else %}En cours {% endif %}</td>
                 <td>{% if project.createdat %}{{ project.createdat|date('d/m/Y - H:i') }}{% endif %}</td>
                 <td>{% if project.editedat %}{{ project.editedat|date('d/m/Y - H:i') }}{% endif %}</td>
-                <td><a href="{{ path('project_show', { 'id': project.id }) }}" class="btn-info" title="Voir" role="button">
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></a> &nbsp;
-                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
 {% endblock %}
-{% block menuprincipale %}
 
-{% endblock %}
-{% block menusecondaire %}   {% endblock %}

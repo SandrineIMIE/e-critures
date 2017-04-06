@@ -5,7 +5,14 @@
         <tbody class="text-left">
 
         <tr>
-            <td rowspan="7"> <img src="/images/ecriture/{{ perso.imageName }}" class="img-thumbnail"  width="140px" height="140px"></td>
+            <td rowspan="7">
+                {% if perso.imageName is empty %}
+                    <img src="/images/ecriture/perso.png" class="img-thumbnail" width="140px" height="140px">
+                {% else %}
+                    <img src="/images/ecriture/{{ perso.imageName }}" class="img-thumbnail" width="140px" height="140px">
+                {% endif %}
+                {#<img src="/images/ecriture/{{ perso.imageName }}" class="img-thumbnail"  width="140px" height="140px">#}
+            </td>
             <td><b> Nom :</b> <span class="text-capitalize">{{ perso.nom }}</span></td>
         </tr>
         <tr>
